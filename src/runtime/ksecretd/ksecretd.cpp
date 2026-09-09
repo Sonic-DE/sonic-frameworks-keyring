@@ -792,21 +792,16 @@ QString KSecretD::readPassword(int handle, const QString &folder, const QString 
 
 int KSecretD::writeEntry(int handle, const QString &folder, const QString &key, const QByteArray &value)
 {
-    KWallet::Backend *b;
-
-    if ((b = getWallet(handle))) {
-        b->setFolder(folder);
-        KWallet::Entry e;
-        e.setKey(key);
-        e.setValue(value);
-        e.setType(KWallet::Wallet::Stream);
-        b->writeEntry(&e);
-        initiateSync(handle);
-        emitEntryUpdated(b->walletName(), folder, key);
-        return 0;
+    KWallet::Backend *b = getWallet(handle);
+    if (!b) {
+        return -1;
     }
 
-    return -1;
+    const int result = writeEntry(handle, folder, key, value, KWallet::Wallet::Stream);
+    if (result == 0) {
+        emitEntryUpdated(b->walletName(), folder, key);
+    }
+    return result;
 }
 
 int KSecretD::writeEntry(int handle, const QString &folder, const QString &key, const QByteArray &value, int entryType)

@@ -27,6 +27,7 @@ private Q_SLOTS:
     void aliases();
     void createLockUnlockCollection();
     void items();
+    void entryUpdateNotifications();
     void session();
     void sessionWithShortDhSecret();
     void sessionWithShortClientPublicKey();

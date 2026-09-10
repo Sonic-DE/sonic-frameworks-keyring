@@ -13,6 +13,7 @@
 #include "static_mock.hpp"
 
 #include <QJsonDocument>
+#include <QSignalSpy>
 
 void FdoSecretsTest::initTestCase()
 {
@@ -22,6 +23,42 @@ void FdoSecretsTest::initTestCase()
 
     QStandardPaths::setTestModeEnabled(true);
     static QCA::Initializer init{};
+}
+
+void FdoSecretsTest::entryUpdateNotifications()
+{
+    const QString walletName = QStringLiteral("notification-wallet");
+    SET_FUNCTION_RESULT(KSecretD::wallets, QStringList{walletName});
+
+    auto kwalletd = std::make_unique<KSecretD>();
+    auto service = std::make_unique<KWalletFreedesktopService>(kwalletd.get());
+    auto* collection = service->getCollectionByWalletName(walletName);
+    QVERIFY(collection);
+
+    QSignalSpy created(collection, &KWalletFreedesktopCollection::ItemCreated);
+    QSignalSpy changed(collection, &KWalletFreedesktopCollection::ItemChanged);
+    QVERIFY(created.isValid());
+    QVERIFY(changed.isValid());
+
+    const EntryLocation location{QStringLiteral("xdg-desktop-portal"), QStringLiteral("org.test.App")};
+    QVERIFY(!collection->findItemByEntryLocation(location));
+
+    Q_EMIT kwalletd->entryUpdated(walletName, location.folder, location.key);
+    const auto* item = collection->findItemByEntryLocation(location);
+    QVERIFY(item);
+    QCOMPARE(created.size(), 1);
+    QCOMPARE(changed.size(), 0);
+    QCOMPARE(created.at(0).at(0).value<QDBusObjectPath>(), item->fdoObjectPath());
+    QVERIFY(collection->items().contains(item->fdoObjectPath()));
+
+    Q_EMIT kwalletd->entryUpdated(walletName, location.folder, location.key);
+    QCOMPARE(created.size(), 1);
+    QCOMPARE(changed.size(), 1);
+    QCOMPARE(changed.at(0).at(0).value<QDBusObjectPath>(), item->fdoObjectPath());
+
+    Q_EMIT kwalletd->entryUpdated(QStringLiteral("unknown-wallet"), location.folder, location.key);
+    QCOMPARE(created.size(), 1);
+    QCOMPARE(changed.size(), 1);
 }
 
 void FdoSecretsTest::serviceStaticFunctions()
@@ -222,7 +259,7 @@ void FdoSecretsTest::items()
     SET_FUNCTION_RESULT(KSecretD::folderList, folders);
     SET_FUNCTION_RESULT(KSecretD::entryList, entries);
 
-    SET_FUNCTION_IMPL(KSecretD::entryType, [](int, const QString &, const QString &key) -> int {
+    SET_FUNCTION_IMPL(KSecretD::entryType, [](int, const QString&, const QString& key) -> KWallet::Wallet::EntryType {
         if (key == "item1")
             return KWallet::Wallet::Password;
         else if (key == "item2")
@@ -288,7 +325,7 @@ void FdoSecretsTest::items()
         return 0;
     });
 
-    using writeEntryT = int (KSecretD::*)(int, const QString &, const QString &, const QByteArray &, int);
+    using writeEntryT = int (KSecretD::*)(int, const QString&, const QString&, const QByteArray&, KWallet::Wallet::EntryType);
     SET_FUNCTION_IMPL_OVERLOADED(KSecretD::writeEntry, writeEntryT, [&](int, const QString &, const QString &key, const QByteArray &value, int) -> int {
         QTEST_ASSERT(key == "item3" || key == "item2");
         if (key == "item2")
@@ -589,7 +626,7 @@ void FdoSecretsTest::invalidUtf8Rejected()
     SET_FUNCTION_RESULT(KSecretD::folderList, folders);
     SET_FUNCTION_RESULT(KSecretD::entryList, entries);
 
-    SET_FUNCTION_IMPL(KSecretD::entryType, [](int, const QString &, const QString &) -> int {
+    SET_FUNCTION_IMPL(KSecretD::entryType, [](int, const QString&, const QString&) -> KWallet::Wallet::EntryType {
         return KWallet::Wallet::Password;
     });
 

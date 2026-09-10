@@ -804,7 +804,7 @@ int KSecretD::writeEntry(int handle, const QString &folder, const QString &key, 
     return result;
 }
 
-int KSecretD::writeEntry(int handle, const QString &folder, const QString &key, const QByteArray &value, int entryType)
+int KSecretD::writeEntry(int handle, const QString& folder, const QString& key, const QByteArray& value, KWallet::Wallet::EntryType entryType)
 {
     KWallet::Backend *b;
 
@@ -813,7 +813,7 @@ int KSecretD::writeEntry(int handle, const QString &folder, const QString &key, 
         KWallet::Entry e;
         e.setKey(key);
         e.setValue(value);
-        e.setType(KWallet::Wallet::EntryType(entryType));
+        e.setType(entryType);
         b->writeEntry(&e);
         initiateSync(handle);
         return 0;
@@ -841,7 +841,7 @@ int KSecretD::writePassword(int handle, const QString &folder, const QString &ke
     return -1;
 }
 
-int KSecretD::entryType(int handle, const QString &folder, const QString &key)
+KWallet::Wallet::EntryType KSecretD::entryType(int handle, const QString& folder, const QString& key)
 {
     KWallet::Backend *b;
 
@@ -945,6 +945,11 @@ int KSecretD::renameWallet(const QString &oldName, const QString &newName)
 {
     const QPair<int, KWallet::Backend *> walletInfo = findWallet(oldName);
     return walletInfo.second->renameWallet(newName);
+}
+
+void KSecretD::emitEntryUpdated(const QString& wallet, const QString& folder, const QString& key)
+{
+    Q_EMIT entryUpdated(wallet, folder, key);
 }
 
 void KSecretD::emitEntryRenamed(const QString &wallet, const QString &folder, const QString &oldName, const QString &newName)

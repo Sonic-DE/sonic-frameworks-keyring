@@ -99,7 +99,7 @@ public Q_SLOTS:
     int renameWallet(const QString &oldName, const QString &newName);
 
     // Write an entry.  rc=0 on success.
-    int writeEntry(int handle, const QString &folder, const QString &key, const QByteArray &value, int entryType);
+    int writeEntry(int handle, const QString& folder, const QString& key, const QByteArray& value, KWallet::Wallet::EntryType entryType);
     // Write a stream entry and notify Secret Service clients.
     int writeEntry(int handle, const QString &folder, const QString &key, const QByteArray &value);
     int writePassword(int handle, const QString &folder, const QString &key, const QString &value);
@@ -108,7 +108,7 @@ public Q_SLOTS:
     bool hasEntry(int handle, const QString &folder, const QString &key);
 
     // What type is the entry?
-    int entryType(int handle, const QString &folder, const QString &key);
+    KWallet::Wallet::EntryType entryType(int handle, const QString& folder, const QString& key);
 
     // Remove an entry.  rc=0 on success.
     int removeEntry(int handle, const QString &folder, const QString &key);
@@ -124,6 +124,7 @@ Q_SIGNALS:
     void walletDeleted(const QString &wallet);
     void walletClosed(const QString &wallet); // clazy:exclude=overloaded-signal
 
+    void entryUpdated(const QString&, const QString&, const QString&);
     void entryRenamed(const QString &, const QString &, const QString &, const QString &);
     void entryDeleted(const QString &, const QString &, const QString &);
 
@@ -148,6 +149,7 @@ private:
     // Generate a new unique handle.
     int generateHandle();
     // Emit signals about closing wallets
+    void emitEntryUpdated(const QString&, const QString&, const QString&);
     void emitEntryRenamed(const QString &, const QString &, const QString &, const QString &);
     void emitEntryDeleted(const QString &, const QString &, const QString &);
 

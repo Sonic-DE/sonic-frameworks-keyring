@@ -535,7 +535,7 @@ void KWalletFreedesktopService::entryRenamed(const QString &walletName, const QS
 
     if (item) {
         collection->itemAttributes().renameLabel(oldLocation, newLocation);
-        item->uniqueLabel(newLocation.toUniqueLabel());
+        item->setUniqueLabel(newLocation.toUniqueLabel());
         collection->onItemChanged(item->fdoObjectPath());
     }
 }

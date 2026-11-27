@@ -52,16 +52,14 @@ msgstr "&Từ chối"
 msgid "Deny &Forever"
 msgstr "&Luôn từ chối"
 
-#: ksecretd/knewwalletdialog.cpp:50
+#: ksecretd/knewwalletdialog.cpp:51
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used "
-"to store sensitive data in a secure fashion. Please choose the new wallet's "
-"type below or click cancel to deny the application's request.</qt>"
-msgstr ""
-"<qt>KDE yêu cầu tạo một ví mới tên là '<b>%1</b>'. Nó được dùng để lưu dữ "
-"liệu nhạy cảm một cách an toàn. Vui lòng chọn kiểu của ví mới ở dưới hoặc "
-"bấm huỷ để từ chối yêu cầu của ứng dụng.</qt>"
+"to securely store sensitive data, such as account passwords. Choose the type "
+"of the new wallet below or click Cancel to deny the application's request.</"
+"qt>"
+msgstr "<qt>KDE yêu cầu tạo một ví mới tên là '<b>%1</b>'. Nó được dùng để lưu dữ liệu nhạy cảm, chẳng hạn như mật khẩu tài khoản, một cách an toàn. Chọn kiểu của ví mới ở dưới hoặc bấm Huỷ để từ chối yêu cầu của ứng dụng.</qt>"
 
 #: ksecretd/knewwalletdialog.cpp:55
 #, kde-format
@@ -85,31 +83,32 @@ msgstr ""
 "Không thể khởi tạo thư viện GpgME cho giao thức OpenPGP. Vui lòng kiểm tra "
 "cấu hình hệ thống rồi thử lại."
 
-#: ksecretd/knewwalletdialog.cpp:153
-#, kde-format
+#: ksecretd/knewwalletdialog.cpp:176
+#, kde-kuit-format
+msgctxt "@info"
 msgid ""
-"Seems that your system has no keys suitable for encryption. Please set-up at "
-"least one encryption key, then try again."
-msgstr ""
-"Có vẻ là hệ thống không có khoá nào phù hợp để mật mã hoá. Vui lòng cài đặt "
-"ít nhất một khoá mật mã hoá rồi thử lại."
+"No suitable GPG encryption keys were found. To create one, choose one of the "
+"following options:<list><item>Install Kleopatra and use it to create a new "
+"key. See these <link url='https://docs.kde.org/stable_kf6/en/kleopatra/"
+"kleopatra/functions-newkey.html'>instructions</link>.</item><item>Open a "
+"terminal and enter <command>gpg --full-gen-key</command>.</item><item>Go "
+"back and use Blowfish encryption instead, which only requires a password.</"
+"item></list>"
+msgstr "Không tìm thấy khoá mật mã hoá GPG nào phù hợp. Để tạo một khoá, hãy chọn một trong các cách sau:<list><item>Cài đặt Kleopatra và dùng nó để tạo một khoá mới. Xem <link url='https://docs.kde.org/stable_kf6/en/kleopatra/kleopatra/functions-newkey.html'>hướng dẫn</link> này.</item><item>Mở một thiết bị cuối và nhập <command>gpg --full-gen-key</command>.</item><item>Quay lại và dùng mật mã hoá Blowfish thay thế, cách này chỉ cần một mật khẩu.</item></list>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ksecretd/knewwalletdialoggpg.ui:17
 #, kde-format
-msgid "Please select the signing key from the list below:"
-msgstr "Vui lòng chọn khoá kí trong danh sách bên dưới:"
+msgid "Select the signing key from the list below:"
+msgstr "Chọn khoá kí trong danh sách bên dưới:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ksecretd/knewwalletdialoggpg.ui:24
 #, kde-format
 msgid ""
-"<html><head/><body><p><span style=\" font-weight:600;\">NOTE:</span> this "
+"<html><head/><body><p><span style=\" font-weight:600;\">Note:</span> this "
 "list shows only &quot;ultimate-level&quot; trusted keys</p></body></html>"
-msgstr ""
-"<html><head/><body><p><span style=\" font-weight:600;\">LƯU Ý:</span> danh "
-"sách này chỉ hiển thị các khoá được tin cậy &quot;ở mức tối đa&quot;</p></"
-"body></html>"
+msgstr "<html><head/><body><p><span style=\" font-weight:600;\">Lưu ý:</span> danh sách này chỉ hiển thị các khoá được tin cậy &quot;ở mức tối đa&quot;</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
 #: ksecretd/knewwalletdialoggpg.ui:59
@@ -140,30 +139,26 @@ msgstr "Hệ thống Ví KDE"
 #, no-c-format, kde-format
 msgid ""
 "<html><head/><body><p>The application '<span style=\" font-weight:600;\">%1</"
-"span>' has requested to open the KDE wallet. This is used to store sensitive "
-"data in a secure fashion. Please choose the new wallet's type below or click "
-"cancel to deny the application's request.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Ứng dụng '<span style=\" font-weight:600;\">%1</span>' "
-"yêu cầu mở ví KDE. Nó được dùng để lưu dữ liệu nhạy cảm một cách an toàn. "
-"Vui lòng chọn kiểu của ví mới ở dưới hoặc bấm huỷ để từ chối yêu cầu của ứng "
-"dụng.</p></body></html>"
+"span>' has requested to open the KDE wallet. This is used to securely store "
+"sensitive data, such as account passwords. Choose the type of the new wallet "
+"below or click Cancel to deny the application's request.</p></body></html>"
+msgstr "<html><head/><body><p>Ứng dụng '<span style=\" font-weight:600;\">%1</span>' yêu cầu mở ví KDE. Nó được dùng để lưu dữ liệu nhạy cảm, chẳng hạn như mật khẩu tài khoản, một cách an toàn. Chọn kiểu của ví mới ở dưới hoặc bấm Huỷ để từ chối yêu cầu của ứng dụng.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioBlowfish)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioBlowfish)
 #: ksecretd/knewwalletdialogintro.ui:66
-#: ksecretd/kwalletwizardpagepasswordgpg.ui:68
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:55
 #, kde-format
-msgid "Classic, blowfish encrypted file"
-msgstr "Tệp mật mã hoá blowfish cổ điển"
+msgid "Blowfish encryption"
+msgstr "Mật mã hoá Blowfish"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioGpg)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioGpg)
-#: ksecretd/knewwalletdialogintro.ui:73
-#: ksecretd/kwalletwizardpagepasswordgpg.ui:55
+#: ksecretd/knewwalletdialogintro.ui:80
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:72
 #, kde-format
-msgid "Use GPG encryption, for better protection"
-msgstr "Dùng mật mã hoá GPG cho tính bảo vệ tốt hơn"
+msgid "GPG encryption"
+msgstr "Mật mã hoá GPG"
 
 #: ksecretd/ksecretd.cpp:521
 #, kde-format
@@ -287,16 +282,12 @@ msgid ""
 "password."
 msgstr "Không thể mở ví. Ví phải được mở để có thể thay đổi mật khẩu."
 
-#: ksecretd/ksecretd.cpp:877
+#: ksecretd/ksecretd.cpp:588
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
-"<b>GPG</b> tools (such as <b>kleopatra</b>) to change the passphrase "
-"associated to that key.</qt>"
-msgstr ""
-"<qt>Ví <b>%1</b> được mật mã hoá bằng khoá GPG <b>%2</b>. Vui lòng dùng các "
-"công cụ <b>GPG</b> (chẳng hạn như <b>kleopatra</b>) để thay đổi mật tổ được "
-"liên kết với khoá đó.</qt>"
+"<b>GPG</b> tools to change the passphrase associated to that key.</qt>"
+msgstr "<qt>Ví <b>%1</b> được mật mã hoá bằng khoá GPG <b>%2</b>. Vui lòng dùng các công cụ <b>GPG</b> để thay đổi mật tổ được liên kết với khoá đó.</qt>"
 
 #: ksecretd/ksecretd.cpp:884
 #, kde-format
@@ -348,79 +339,54 @@ msgstr "Mật khẩu không khớp."
 msgid ""
 "<html><head/><body><p>The KDE Wallet system stores your data in a <span "
 "style=\" font-style:italic;\">wallet</span> file on your local hard disk. "
-"The data is only written in the encrypted form of your choice - blowfish "
-"algorithm with your password as the key or using a GPG encryption key. When "
-"a wallet is opened, the wallet manager application will launch and display "
-"an icon in the system tray. You can use this application to manage all of "
-"your wallets. It even permits you to drag wallets and wallet contents, "
-"allowing you to easily copy a wallet to a remote system.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Hệ thống Ví KDE lưu dữ liệu của bạn trong một tệp "
-"<span style=\" font-style:italic;\">ví</span> trên đĩa cứng cục bộ của bạn. "
-"Dữ liệu được ghi ở dạng mật mã hoá theo ý bạn - thuật toán blowfish với mật "
-"khẩu của bạn là khoá, hoặc dùng một khoá mật mã hoá GPG. Khi một ví được mở, "
-"ứng dụng quản lí ví sẽ khởi chạy và hiển thị một biểu tượng ở khay hệ thống. "
-"Bạn có thể dùng ứng dụng này để quản lí tất cả các ví của bạn. Nó còn cho "
-"phép bạn kéo ví và nội dung ví, để bạn có thể dễ dàng sao chép ví đến một hệ "
-"thống ở xa.</p></body></html>"
+"The data is encrypted using your chosen method: the Blowfish algorithm with "
+"your password as the key, or GPG with an encryption key. When a wallet is "
+"opened, the wallet manager will launch and display an icon in the system "
+"tray. You can use this application to manage all of your wallets. It even "
+"permits you to drag-and-drop wallets and their contents, allowing you to "
+"easily copy a wallet to a remote system.</p></body></html>"
+msgstr "<html><head/><body><p>Hệ thống Ví KDE lưu dữ liệu của bạn trong một tệp <span style=\" font-style:italic;\">ví</span> trên đĩa cứng cục bộ của bạn. Dữ liệu được mật mã hoá theo phương pháp bạn chọn: thuật toán Blowfish với mật khẩu của bạn là khoá, hoặc GPG với một khoá mật mã hoá. Khi một ví được mở, trình quản lí ví sẽ khởi chạy và hiển thị một biểu tượng ở khay hệ thống. Bạn có thể dùng ứng dụng này để quản lí tất cả các ví của bạn. Nó còn cho phép bạn kéo thả ví và nội dung của chúng, để bạn có thể dễ dàng sao chép ví đến một hệ thống ở xa.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ksecretd/kwalletwizardpagegpgkey.ui:24
 #, kde-format
 msgid ""
-"<html><head/><body><p>The GPG-based wallet use a GPG encryption key to "
-"securely encrypt data on disk. The key must be available when decrypting is "
-"needed or your wallet will not be accessible. For example, if you choose a "
-"SmartCard-based encryption key, the GPG system will prompt you to enter it "
-"and its associated PIN when attempting to open the wallet. <span style=\" "
-"font-weight:600;\">NOTE:</span> this list contains only &quot;ultimate-"
+"<html><head/><body><p>The GPG-based wallet uses a GPG encryption key to "
+"securely encrypt data on disk. The key must be available when the wallet is "
+"decrypted or your wallet will not be accessible. For example, if you choose "
+"a SmartCard-based encryption key, you will be prompted to insert it and "
+"enter its associated PIN when attempting to open the wallet. <span style=\" "
+"font-weight:600;\">Note:</span> this list contains only &quot;ultimate-"
 "level&quot; trusted keys.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Ví dựa trên GPG dùng một khoá mật mã hoá GPG để mật mã "
-"hoá dữ liệu trên đĩa một cách an toàn. Phải có khoá đó khi cần giải mật mã, "
-"không thì ví của bạn sẽ không thể truy cập được. Ví dụ, nếu bạn chọn một "
-"khoá mật mã hoá dựa trên SmartCard, khi mở ví, hệ thống GPG sẽ nhắc bạn nhập "
-"nó và mã PIN liên kết với nó vào. <span style=\" font-weight:600;\">LƯU Ý:</"
-"span> danh sách này chỉ bao gồm các khoá tin cậy &quot;ở mức tối đa&quot;.</"
-"p></body></html>"
+msgstr "<html><head/><body><p>Ví dựa trên GPG dùng một khoá mật mã hoá GPG để mật mã hoá dữ liệu trên đĩa một cách an toàn. Phải có khoá đó khi giải mật mã ví, không thì ví của bạn sẽ không thể truy cập được. Ví dụ, nếu bạn chọn một khoá mật mã hoá dựa trên SmartCard, khi mở ví, bạn sẽ được nhắc cắm thẻ vào và nhập mã PIN liên kết với nó. <span style=\" font-weight:600;\">Lưu ý:</span> danh sách này chỉ bao gồm các khoá tin cậy &quot;ở mức tối đa&quot;.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ksecretd/kwalletwizardpagegpgkey.ui:42
 #, kde-format
-msgid "Select encryption GPG key:"
+msgid "Select GPG encryption key:"
 msgstr "Chọn khoá mật mã hoá GPG:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ksecretd/kwalletwizardpagegpgkey.ui:81
 #, kde-format
 msgid ""
-"Unable to locate at least one <b>encrypting GPG key</b>. KDE Wallet needs "
-"such <b>encrypting key</b> to securely store passwords or other sensitive "
-"data on disk. If you still want to setup a GPG-based wallet, then cancel "
-"this wizard, set-up an <b>encrypting GPG key</b>, then retry this assistant. "
-"Otherwise, you may still click back, then choose a classic, blowfish "
-"encrypted file format on the previous page."
-msgstr ""
-"Không thể tìm ra <b>khoá mật mã hoá GPG</b> nào. Ví KDE cần <b>khoá mật mã "
-"hoá</b> đó để lưu mật khẩu hay các dữ liệu nhạy cảm khác trên đĩa một cách "
-"an toàn. Nếu bạn vẫn muốn cài đặt một ví dựa trên GPG, thì hãy thoát khỏi "
-"trình hướng dẫn này, cài đặt một <b>khoá mật mã hoá GPG</b>, rồi thử lại trợ "
-"tá này. Ngược lại, bạn vẫn có thể bấm 'Lùi', rồi chọn định dạng tệp mật mã "
-"hoá blowfish cổ điển ở trang trước."
+"Unable to locate at least one GPG encryption key. KDE Wallet needs a GPG "
+"encryption key to securely store passwords or other sensitive data on disk. "
+"If you still want to setup a GPG-based wallet, exit this wizard, create an "
+"encryption key and return to this wizard. Otherwise, you can return to the "
+"previous page and select Blowfish encryption, which does not require an "
+"encryption key."
+msgstr "Không thể tìm ra khoá mật mã hoá GPG nào. Ví KDE cần một khoá mật mã hoá GPG để lưu mật khẩu hay các dữ liệu nhạy cảm khác trên đĩa một cách an toàn. Nếu bạn vẫn muốn cài đặt một ví dựa trên GPG, hãy thoát khỏi trình hướng dẫn này, tạo một khoá mật mã hoá rồi quay lại trình hướng dẫn này. Ngược lại, bạn có thể quay về trang trước và chọn mật mã hoá Blowfish, cách này không cần khoá mật mã hoá."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: ksecretd/kwalletwizardpageintro.ui:30
 #, kde-format
 msgid ""
-"Welcome to KWallet, the KDE Wallet System.  KWallet allows you to store your "
-"passwords and other personal information on disk in an encrypted file, "
-"preventing others from viewing the information.  This wizard will tell you "
-"about KWallet and help you configure it for the first time."
-msgstr ""
-"Chào mừng đến với KWallet - Hệ thống Ví KDE. KWallet cho phép bạn lưu mật "
-"khẩu và các thông tin cá nhân khác trên đĩa trong một tệp được mật mã hoá, "
-"ngăn cản người khác thấy được các thông tin đó. Trình hướng dẫn này sẽ cho "
-"bạn biết về KWallet và giúp bạn cấu hình nó lần đầu tiên."
+"Welcome to KWallet, the KDE Wallet System. KWallet allows you to store your "
+"passwords and other sensitive information on disk in an encrypted file, "
+"preventing unauthorized access. This wizard will help you set up KWallet for "
+"the first time."
+msgstr "Chào mừng đến với KWallet, Hệ thống Ví KDE. KWallet cho phép bạn lưu mật khẩu và các thông tin nhạy cảm khác trên đĩa trong một tệp được mật mã hoá, ngăn chặn truy cập trái phép. Trình hướng dẫn này sẽ giúp bạn thiết lập KWallet lần đầu tiên."
 
 #. i18n: ectx: property (text), widget (QRadioButton, _basic)
 #: ksecretd/kwalletwizardpageintro.ui:69
@@ -438,17 +404,10 @@ msgstr "Cài đặt &nâng cao"
 #: ksecretd/kwalletwizardpageoptions.ui:16
 #, kde-format
 msgid ""
-"The KDE Wallet system allows you to control the level of security of your "
-"personal data.  Some of these settings do impact usability.  While the "
-"default settings are generally acceptable for most users, you may wish to "
-"change some of them.  You may further tune these settings from the KWallet "
-"control module."
-msgstr ""
-"Hệ thống Ví KDE cho phép bạn kiểm soát mức độ an ninh với dữ liệu cá nhân "
-"của mình. Một vài thiết lập sẽ ảnh hưởng đến tính khả dụng. Trong khi các "
-"thiết lập mặc định nói chung là dễ chấp nhận với hầu hết người dùng, bạn có "
-"thể muốn thay đổi một vài trong số chúng. Bạn có thể điều chỉnh các thiết "
-"lập này thêm nữa ở trong khối điều khiển KWallet."
+"KWallet lets you adjust the security of your personal data. While the "
+"default settings work for most users, you can modify them if needed. "
+"Additional adjustments can be made on the KWallet settings page."
+msgstr "KWallet cho phép bạn điều chỉnh mức độ an ninh với dữ liệu cá nhân của mình. Các thiết lập mặc định phù hợp với hầu hết người dùng, nhưng bạn có thể thay đổi chúng nếu cần. Có thể điều chỉnh thêm ở trang thiết lập KWallet."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _closeIdle)
 #: ksecretd/kwalletwizardpageoptions.ui:48
@@ -466,25 +425,18 @@ msgstr "Lưu mật khẩu mạng và mật khẩu cục bộ trong các tệp v�
 #: ksecretd/kwalletwizardpagepassword.ui:16
 #, kde-format
 msgid ""
-"Various applications may attempt to use the KDE wallet to store passwords or "
-"other information such as web form data and cookies.  If you would like "
-"these applications to use the wallet, you must enable it now and choose a "
-"password.  The password you choose <i>cannot</i> be recovered if it is lost, "
-"and will allow anyone who knows it to obtain all the information contained "
-"in the wallet."
-msgstr ""
-"Nhiều ứng dụng khác nhau có thể sử dụng ví KDE để lưu mật khẩu hay các thông "
-"tin khác như dữ liệu biểu mẫu web và bánh quy. Nếu bạn muốn những ứng dụng "
-"này sử dụng ví, bây giờ bạn phải cho phép nó và chọn một mật khẩu. Mật khẩu "
-"bạn chọn <i>không thể</i> lấy lại được nếu bị mất, và sẽ cho phép bất kì ai "
-"biết nó có thể lấy được toàn bộ thông tin có trong ví."
+"Various applications may request access to the KDE wallet to store "
+"passwords, web form data, or cookies. To allow this, enable the wallet and "
+"set a password. Note that the password <i>cannot</i> be recovered if lost "
+"and grants full access to all information stored in the wallet."
+msgstr "Nhiều ứng dụng khác nhau có thể yêu cầu truy cập ví KDE để lưu mật khẩu, dữ liệu biểu mẫu web hay bánh quy. Để cho phép việc này, hãy bật ví và đặt một mật khẩu. Lưu ý rằng mật khẩu <i>không thể</i> lấy lại được nếu bị mất, và nó cho phép truy cập toàn bộ thông tin được lưu trong ví."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _useWallet)
 #: ksecretd/kwalletwizardpagepassword.ui:29
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:30
 #, kde-format
-msgid "Yes, I wish to use the KDE wallet to store my personal information."
-msgstr "Có, tôi muốn sử dụng ví KDE để lưu dữ liệu cá nhân của mình."
+msgid "Use the KDE wallet to store sensitive information"
+msgstr "Dùng ví KDE để lưu thông tin nhạy cảm"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
 #: ksecretd/kwalletwizardpagepassword.ui:88
@@ -504,31 +456,20 @@ msgstr "Xác nhận mật khẩu:"
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:17
 #, kde-format
 msgid ""
-"<html><head/><body><p>Various applications may attempt to use the KDE wallet "
-"to store passwords or other information such as web form data and cookies. "
-"If you would like these applications to use the wallet, you must enable it "
-"now and choose method for its encryption.</p><p>GPG method is more secure, "
-"but you must have configured at least one encrypting key on your system.</"
-"p><p>If you choose the classic format, be warned that the password you "
-"choose <span style=\" font-style:italic;\">cannot</span> be recovered if it "
-"is lost, and will allow anyone who knows it to obtain all the information "
-"contained in the wallet.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Nhiều ứng dụng khác nhau có thể sử dụng ví KDE để lưu "
-"mật khẩu hay các thông tin khác như dữ liệu biểu mẫu web và bánh quy. Nếu "
-"bạn muốn những ứng dụng này sử dụng ví, bây giờ bạn phải cho phép nó và chọn "
-"phương pháp mật mã hoá.</p><p>Phương pháp GPG an toàn hơn, nhưng bạn phải đã "
-"từng cấu hình ít nhất một khoá mật mã hoá trên hệ thống của mình.</p><p>Nếu "
-"bạn chọn định dạng cổ điển, hãy thận trọng, mật khẩu bạn chọn <span style=\" "
-"font-style:italic;\">không thể</span> lấy lại được nếu bị mất, và sẽ cho "
-"phép bất kì ai biết nó có thể lấy được toàn bộ thông tin có trong ví.</p></"
-"body></html>"
+"<html><head/><body><p>Various applications may request access to the KDE "
+"wallet to store passwords, web form data, or cookies. To allow this, enable "
+"the wallet and choose an encryption method. </p><p>GPG encryption is more "
+"secure, but you must have at least one encryption key configured on your "
+"system.</p><p>If you choose the classic format, note that the password <span "
+"style=\" font-style:italic;\">cannot</span> be recovered if lost and grants "
+"full access to all information stored in the wallet.</p></body></html>"
+msgstr "<html><head/><body><p>Nhiều ứng dụng khác nhau có thể yêu cầu truy cập ví KDE để lưu mật khẩu, dữ liệu biểu mẫu web hay bánh quy. Để cho phép việc này, hãy bật ví và chọn một phương pháp mật mã hoá. </p><p>Mật mã hoá GPG an toàn hơn, nhưng bạn phải có ít nhất một khoá mật mã hoá được cấu hình trên hệ thống của mình.</p><p>Nếu bạn chọn định dạng cổ điển, lưu ý rằng mật khẩu <span style=\" font-style:italic;\">không thể</span> lấy lại được nếu bị mất, và nó cho phép truy cập toàn bộ thông tin được lưu trong ví.</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, _groupBox)
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:46
 #, kde-format
-msgid "What kind of encryption do you wish?"
-msgstr "Bạn muốn loại mật mã hoá nào?"
+msgid "Encryption type"
+msgstr "Loại mật mã hoá"
 
 #: ksecretd/main.cpp:163
 #, fuzzy, kde-format

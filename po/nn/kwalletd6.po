@@ -54,17 +54,14 @@ msgstr "A&vvis"
 msgid "Deny &Forever"
 msgstr "Avslå &for alltid"
 
-#: ksecretd/knewwalletdialog.cpp:50
+#: ksecretd/knewwalletdialog.cpp:51
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used "
-"to store sensitive data in a secure fashion. Please choose the new wallet's "
-"type below or click cancel to deny the application's request.</qt>"
-msgstr ""
-"<qt>KDE har bedt om å få laga ei nye lommebok med namn «<b>%1</b>». Denne "
-"vert bruka til å lagra følsame data på ein trygg måte. Oppgje eit passord "
-"for denne lommeboka, eller trykk «Avbryt» for å nekta programmet tilgang.</"
+"to securely store sensitive data, such as account passwords. Choose the type "
+"of the new wallet below or click Cancel to deny the application's request.</"
 "qt>"
+msgstr "<qt>KDE har bede om å få laga ei ny lommebok med namn «<b>%1</b>». Denne vert brukt til å lagra følsame data trygt, for eksempel passord til kontoar. Vel typen for den nye lommeboka nedanfor, eller trykk «Avbryt» for å nekta programmet tilgang.</qt>"
 
 #: ksecretd/knewwalletdialog.cpp:55
 #, kde-format
@@ -89,30 +86,32 @@ msgstr ""
 "GpgME-biblioteket vart ikkje klargjort for OpenPGP-protokollen. Kontroller "
 "systemoppsettet og prøv så på nytt."
 
-#: ksecretd/knewwalletdialog.cpp:153
-#, kde-format
+#: ksecretd/knewwalletdialog.cpp:176
+#, kde-kuit-format
+msgctxt "@info"
 msgid ""
-"Seems that your system has no keys suitable for encryption. Please set-up at "
-"least one encryption key, then try again."
-msgstr ""
-"Det ser ut til at systemet ditt ikkje har nokon nøklar som kan brukast til "
-"kryptering. Lag minst éin krypteringsnøkkel, og prøv så på nytt."
+"No suitable GPG encryption keys were found. To create one, choose one of the "
+"following options:<list><item>Install Kleopatra and use it to create a new "
+"key. See these <link url='https://docs.kde.org/stable_kf6/en/kleopatra/"
+"kleopatra/functions-newkey.html'>instructions</link>.</item><item>Open a "
+"terminal and enter <command>gpg --full-gen-key</command>.</item><item>Go "
+"back and use Blowfish encryption instead, which only requires a password.</"
+"item></list>"
+msgstr "Fann ingen passande GPG-krypteringsnøklar. Vel eitt av desse alternativa for å laga ein:<list><item>Installer Kleopatra og bruk det til å laga ein ny nøkkel. Sjå denne <link url='https://docs.kde.org/stable_kf6/en/kleopatra/kleopatra/functions-newkey.html'>rettleiinga</link>.</item><item>Opna ein terminal og skriv inn <command>gpg --full-gen-key</command>.</item><item>Gå tilbake og bruk Blowfish-kryptering i staden, som berre krev eit passord.</item></list>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ksecretd/knewwalletdialoggpg.ui:17
 #, kde-format
-msgid "Please select the signing key from the list below:"
+msgid "Select the signing key from the list below:"
 msgstr "Vel signeringsnøkkel frå lista nedanfor:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ksecretd/knewwalletdialoggpg.ui:24
 #, kde-format
 msgid ""
-"<html><head/><body><p><span style=\" font-weight:600;\">NOTE:</span> this "
+"<html><head/><body><p><span style=\" font-weight:600;\">Note:</span> this "
 "list shows only &quot;ultimate-level&quot; trusted keys</p></body></html>"
-msgstr ""
-"<html><head/><body><p><span style=\"font-weight:600;\">MERK:</span> denne "
-"lista viser berre nøklar som har fullstendig tillit</p></body></html>"
+msgstr "<html><head/><body><p><span style=\" font-weight:600;\">Merk:</span> denne lista viser berre nøklar som har fullstendig tillit</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
 #: ksecretd/knewwalletdialoggpg.ui:59
@@ -143,30 +142,26 @@ msgstr "Lommeboksystemet frå KDE"
 #, no-c-format, kde-format
 msgid ""
 "<html><head/><body><p>The application '<span style=\" font-weight:600;\">%1</"
-"span>' has requested to open the KDE wallet. This is used to store sensitive "
-"data in a secure fashion. Please choose the new wallet's type below or click "
-"cancel to deny the application's request.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Programmet «<span style=\"font-weight:600;\">%1</"
-"span>» har bede om å få opna KDE-lommeboka. Denne vert brukt til å lagra "
-"følsame data på ein trygg måte. Oppgje eit passord for denne lommeboka, "
-"eller trykk «Avbryt» for å nekta programmet tilgang.</p> </body></html>"
+"span>' has requested to open the KDE wallet. This is used to securely store "
+"sensitive data, such as account passwords. Choose the type of the new wallet "
+"below or click Cancel to deny the application's request.</p></body></html>"
+msgstr "<html><head/><body><p>Programmet «<span style=\" font-weight:600;\">%1</span>» har bede om å få opna KDE-lommeboka. Denne vert brukt til å lagra følsame data trygt, for eksempel passord til kontoar. Vel typen for den nye lommeboka nedanfor, eller trykk «Avbryt» for å nekta programmet tilgang.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioBlowfish)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioBlowfish)
 #: ksecretd/knewwalletdialogintro.ui:66
-#: ksecretd/kwalletwizardpagepasswordgpg.ui:68
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:55
 #, kde-format
-msgid "Classic, blowfish encrypted file"
-msgstr "Klassisk blowfish-kryptert fil"
+msgid "Blowfish encryption"
+msgstr "Blowfish-kryptering"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioGpg)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioGpg)
-#: ksecretd/knewwalletdialogintro.ui:73
-#: ksecretd/kwalletwizardpagepasswordgpg.ui:55
+#: ksecretd/knewwalletdialogintro.ui:80
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:72
 #, kde-format
-msgid "Use GPG encryption, for better protection"
-msgstr "Bruk GPG-kryptering, som gjev betre vern"
+msgid "GPG encryption"
+msgstr "GPG-kryptering"
 
 #: ksecretd/ksecretd.cpp:521
 #, kde-format
@@ -296,16 +291,12 @@ msgid ""
 msgstr ""
 "Kan ikkje opna lommeboka. Lommeboka må opnast for å kunna endra passordet."
 
-#: ksecretd/ksecretd.cpp:877
+#: ksecretd/ksecretd.cpp:588
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
-"<b>GPG</b> tools (such as <b>kleopatra</b>) to change the passphrase "
-"associated to that key.</qt>"
-msgstr ""
-"<qt>Lommeboka <b>%1</b> er kryptert med GPG-nøkkelen <b>%2</b>. Bruk <b>GPG</"
-"b>-verktøy (slik som <b>kleopatra</b>) til å endra passord-setninga for "
-"nøkkelen.</qt>"
+"<b>GPG</b> tools to change the passphrase associated to that key.</qt>"
+msgstr "<qt>Lommeboka <b>%1</b> er kryptert med GPG-nøkkelen <b>%2</b>. Bruk <b>GPG</b>-verktøy til å endra passord-setninga for nøkkelen.</qt>"
 
 #: ksecretd/ksecretd.cpp:884
 #, kde-format
@@ -357,81 +348,54 @@ msgstr "Passorda er ikkje like."
 msgid ""
 "<html><head/><body><p>The KDE Wallet system stores your data in a <span "
 "style=\" font-style:italic;\">wallet</span> file on your local hard disk. "
-"The data is only written in the encrypted form of your choice - blowfish "
-"algorithm with your password as the key or using a GPG encryption key. When "
-"a wallet is opened, the wallet manager application will launch and display "
-"an icon in the system tray. You can use this application to manage all of "
-"your wallets. It even permits you to drag wallets and wallet contents, "
-"allowing you to easily copy a wallet to a remote system.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>KWallet lagrar opplysningane dine i ei <span style=\" "
-"font-style:italic;\">lommebok</span>-fil på den lokale disken. Dataa vert "
-"berre skrive i kryptert form, på det formatet du ønskjer: blowfish-"
-"algoritmen med passordet som nøkkel eller med ein GPG-krypteringsnøkkel. Når "
-"ei lommebok vert opna, så startar programmet for lommebok-handtering og "
-"viser eit ikon i systemtrauet. Du kan bruka dette programmet til å halda "
-"styr på alle lommebøkene dine. Du kan til og med dra lommebøker og innhald i "
-"lommebøker, slik at du lett kan kopiera ei lommebok til ei anna maskin.</p></"
-"body></html>"
+"The data is encrypted using your chosen method: the Blowfish algorithm with "
+"your password as the key, or GPG with an encryption key. When a wallet is "
+"opened, the wallet manager will launch and display an icon in the system "
+"tray. You can use this application to manage all of your wallets. It even "
+"permits you to drag-and-drop wallets and their contents, allowing you to "
+"easily copy a wallet to a remote system.</p></body></html>"
+msgstr "<html><head/><body><p>KWallet lagrar opplysningane dine i ei <span style=\" font-style:italic;\">lommebok</span>-fil på den lokale disken. Dataa vert krypterte med metoden du vel: Blowfish-algoritmen med passordet ditt som nøkkel, eller GPG med ein krypteringsnøkkel. Når ei lommebok vert opna, startar lommebokhandsamaren og viser eit ikon i systemtrauet. Du kan bruka dette programmet til å halda styr på alle lommebøkene dine. Du kan til og med dra og sleppa lommebøker og innhaldet i dei, slik at du lett kan kopiera ei lommebok til ei anna maskin.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ksecretd/kwalletwizardpagegpgkey.ui:24
 #, kde-format
 msgid ""
-"<html><head/><body><p>The GPG-based wallet use a GPG encryption key to "
-"securely encrypt data on disk. The key must be available when decrypting is "
-"needed or your wallet will not be accessible. For example, if you choose a "
-"SmartCard-based encryption key, the GPG system will prompt you to enter it "
-"and its associated PIN when attempting to open the wallet. <span style=\" "
-"font-weight:600;\">NOTE:</span> this list contains only &quot;ultimate-"
+"<html><head/><body><p>The GPG-based wallet uses a GPG encryption key to "
+"securely encrypt data on disk. The key must be available when the wallet is "
+"decrypted or your wallet will not be accessible. For example, if you choose "
+"a SmartCard-based encryption key, you will be prompted to insert it and "
+"enter its associated PIN when attempting to open the wallet. <span style=\" "
+"font-weight:600;\">Note:</span> this list contains only &quot;ultimate-"
 "level&quot; trusted keys.</p></body></html>"
-msgstr ""
-"<html><head/><body> <p>GPG-basert lommebok brukar ein GPG-krypteringsnøkkel "
-"til å kryptera data trygt på disk. Nøkkelen må vera tilgjengeleg når det "
-"trengst dekryptering, elles vil ikkje lommeboka vera tilgjengeleg. Viss du "
-"for eksempel vel ein krypteringsnøkkel basert på SmartCard, så vil GPG-"
-"systemet be deg setja inn kortet og tasta PIN-koden ved forsøk på å opna "
-"lommeboka.<span style=\"font-weight:600;\">MERK:</span> denne lista inneheld "
-"berre nøklar som har fullstendig tillit.</p> </body></html>"
+msgstr "<html><head/><body><p>GPG-basert lommebok brukar ein GPG-krypteringsnøkkel til å kryptera data trygt på disk. Nøkkelen må vera tilgjengeleg når lommeboka vert dekryptert, elles vil ikkje lommeboka vera tilgjengeleg. Viss du for eksempel vel ein krypteringsnøkkel basert på SmartCard, vert du beden om å setja inn kortet og tasta PIN-koden når du prøver å opna lommeboka. <span style=\" font-weight:600;\">Merk:</span> denne lista inneheld berre nøklar som har fullstendig tillit.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ksecretd/kwalletwizardpagegpgkey.ui:42
 #, kde-format
-msgid "Select encryption GPG key:"
-msgstr "Vel GPG-nøkkel for kryptering:"
+msgid "Select GPG encryption key:"
+msgstr "Vel GPG-krypteringsnøkkel:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ksecretd/kwalletwizardpagegpgkey.ui:81
 #, kde-format
 msgid ""
-"Unable to locate at least one <b>encrypting GPG key</b>. KDE Wallet needs "
-"such <b>encrypting key</b> to securely store passwords or other sensitive "
-"data on disk. If you still want to setup a GPG-based wallet, then cancel "
-"this wizard, set-up an <b>encrypting GPG key</b>, then retry this assistant. "
-"Otherwise, you may still click back, then choose a classic, blowfish "
-"encrypted file format on the previous page."
-msgstr ""
-"Klarar ikkje finna minst éin <b>GPG-nøkkel for kryptering</b>. KDE Wallet "
-"treng ein slik <b>krypteringsnøkkel</b> for å kunne lagra trygt passord og "
-"andre sensitive data på disken. Viss du framleis vil setja opp ei GPG-basert "
-"lommebok, så avbryt denne vegvisaren, set opp ein <b>GPG-krypteringsnøkkel</"
-"b>, og start vegvisaren igjen. Elles kan du godt klikka tilbake og velja eit "
-"klassisk blowfish-basert kryptert filformat på førre side."
+"Unable to locate at least one GPG encryption key. KDE Wallet needs a GPG "
+"encryption key to securely store passwords or other sensitive data on disk. "
+"If you still want to setup a GPG-based wallet, exit this wizard, create an "
+"encryption key and return to this wizard. Otherwise, you can return to the "
+"previous page and select Blowfish encryption, which does not require an "
+"encryption key."
+msgstr "Klarar ikkje finna minst éin GPG-krypteringsnøkkel. KDE Wallet treng ein GPG-krypteringsnøkkel for å kunne lagra passord og andre sensitive data trygt på disken. Viss du framleis vil setja opp ei GPG-basert lommebok, avslutt denne vegvisaren, lag ein krypteringsnøkkel og kom tilbake til vegvisaren. Elles kan du gå tilbake til førre side og velja Blowfish-kryptering, som ikkje krev nokon krypteringsnøkkel."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: ksecretd/kwalletwizardpageintro.ui:30
 #, kde-format
 msgid ""
-"Welcome to KWallet, the KDE Wallet System.  KWallet allows you to store your "
-"passwords and other personal information on disk in an encrypted file, "
-"preventing others from viewing the information.  This wizard will tell you "
-"about KWallet and help you configure it for the first time."
-msgstr ""
-"Dette er KWallet – KDE sitt lommeboksystem. Med KWallet kan du lagra "
-"passorda dine og andre personlege opplysningar på disken i ei kryptert fil. "
-"Slik unngår du at andre kan sjå denne informasjonen (heller ikkje «root» kan "
-"lesa det). Denne vegvisaren gjev deg informasjon om KWallet og hjelper deg å "
-"setja opp innstillingane den første gongen."
+"Welcome to KWallet, the KDE Wallet System. KWallet allows you to store your "
+"passwords and other sensitive information on disk in an encrypted file, "
+"preventing unauthorized access. This wizard will help you set up KWallet for "
+"the first time."
+msgstr "Velkommen til KWallet, KDE sitt lommeboksystem. Med KWallet kan du lagra passorda dine og andre følsame opplysningar på disken i ei kryptert fil, slik at uvedkomande ikkje får tilgang. Denne vegvisaren hjelper deg å setja opp KWallet den første gongen."
 
 #. i18n: ectx: property (text), widget (QRadioButton, _basic)
 #: ksecretd/kwalletwizardpageintro.ui:69
@@ -449,17 +413,10 @@ msgstr "&Avanserte innstillingar"
 #: ksecretd/kwalletwizardpageoptions.ui:16
 #, kde-format
 msgid ""
-"The KDE Wallet system allows you to control the level of security of your "
-"personal data.  Some of these settings do impact usability.  While the "
-"default settings are generally acceptable for most users, you may wish to "
-"change some of them.  You may further tune these settings from the KWallet "
-"control module."
-msgstr ""
-"Med KDE sitt lommeboksystem kan du avgjera tryggleiksklassa for dine "
-"personlege opplysningar. Nokre av desse innstillingane gjer systemet litt "
-"vanskelegare å bruka. Standard-innstillingane er vanlegvis akseptable for "
-"dei fleste brukarar, men det kan vera at du vil endra nokre av dei. Du kan "
-"justera innstillingane vidare med kontrollmodulen for KWallet."
+"KWallet lets you adjust the security of your personal data. While the "
+"default settings work for most users, you can modify them if needed. "
+"Additional adjustments can be made on the KWallet settings page."
+msgstr "Med KWallet kan du justera tryggleiken for dine personlege opplysningar. Standardinnstillingane passar for dei fleste brukarar, men du kan endra dei ved behov. Fleire justeringar kan gjerast på innstillingssida for KWallet."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _closeIdle)
 #: ksecretd/kwalletwizardpageoptions.ui:48
@@ -477,26 +434,18 @@ msgstr "Lagra nettverkspassord og lokale passord i separate lommeboksfiler"
 #: ksecretd/kwalletwizardpagepassword.ui:16
 #, kde-format
 msgid ""
-"Various applications may attempt to use the KDE wallet to store passwords or "
-"other information such as web form data and cookies.  If you would like "
-"these applications to use the wallet, you must enable it now and choose a "
-"password.  The password you choose <i>cannot</i> be recovered if it is lost, "
-"and will allow anyone who knows it to obtain all the information contained "
-"in the wallet."
-msgstr ""
-"Ulike program kan forsøkja å bruka lommeboka til å lagra passord eller andre "
-"data, slik som skjemaopplysningar frå ein nettstad eller infokapslar. Viss "
-"du vil at desse programma skal bruka lommeboka, så må du slå på dette no og "
-"velja eit passord. Det passordet du vel <i>kan ikkje hentast fram</i> viss "
-"du gløymer eller mistar det, og alle som kjenner det kan lesa alt innhald i "
-"lommeboka."
+"Various applications may request access to the KDE wallet to store "
+"passwords, web form data, or cookies. To allow this, enable the wallet and "
+"set a password. Note that the password <i>cannot</i> be recovered if lost "
+"and grants full access to all information stored in the wallet."
+msgstr "Ulike program kan be om tilgang til KDE-lommeboka for å lagra passord, skjemaopplysningar frå nettstader eller infokapslar. Slå på lommeboka og vel eit passord for å tillata dette. Merk at passordet <i>ikkje kan hentast fram</i> viss du mistar det, og at det gjev full tilgang til alle opplysningar som er lagra i lommeboka."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _useWallet)
 #: ksecretd/kwalletwizardpagepassword.ui:29
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:30
 #, kde-format
-msgid "Yes, I wish to use the KDE wallet to store my personal information."
-msgstr "Ja, eg vil bruka KDE-lommeboka til å lagra personlege opplysningar."
+msgid "Use the KDE wallet to store sensitive information"
+msgstr "Bruk KDE-lommeboka til å lagra følsame opplysningar"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
 #: ksecretd/kwalletwizardpagepassword.ui:88
@@ -516,30 +465,20 @@ msgstr "Stadfest passordet:"
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:17
 #, kde-format
 msgid ""
-"<html><head/><body><p>Various applications may attempt to use the KDE wallet "
-"to store passwords or other information such as web form data and cookies. "
-"If you would like these applications to use the wallet, you must enable it "
-"now and choose method for its encryption.</p><p>GPG method is more secure, "
-"but you must have configured at least one encrypting key on your system.</"
-"p><p>If you choose the classic format, be warned that the password you "
-"choose <span style=\" font-style:italic;\">cannot</span> be recovered if it "
-"is lost, and will allow anyone who knows it to obtain all the information "
-"contained in the wallet.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Ulike program kan forsøkja å bruka lommeboka til å "
-"lagra passord eller andre data, slik som skjemaopplysningar frå ein nettstad "
-"eller infokapslar. Viss du vil at desse programma skal bruka lommeboka, så "
-"må du slå på dette no, og velja ein krypteringsmetode.</p> <p>GPG-metoden er "
-"sikrast, men du må ha minst éin krypteringsnøkkel sett opp på systemet.</"
-"p><p>Viss du vel det klassiske formatet, ver klår av at passordet du vel "
-"<i>ikkje kan hentast fram</i> viss du gløymer eller mistar det, og alle som "
-"kjenner det kan lesa alt innhald i lommeboka.</p></body></html>"
+"<html><head/><body><p>Various applications may request access to the KDE "
+"wallet to store passwords, web form data, or cookies. To allow this, enable "
+"the wallet and choose an encryption method. </p><p>GPG encryption is more "
+"secure, but you must have at least one encryption key configured on your "
+"system.</p><p>If you choose the classic format, note that the password <span "
+"style=\" font-style:italic;\">cannot</span> be recovered if lost and grants "
+"full access to all information stored in the wallet.</p></body></html>"
+msgstr "<html><head/><body><p>Ulike program kan be om tilgang til KDE-lommeboka for å lagra passord, skjemaopplysningar frå nettstader eller infokapslar. Slå på lommeboka og vel ein krypteringsmetode for å tillata dette. </p><p>GPG-kryptering er sikrare, men du må ha minst éin krypteringsnøkkel sett opp på systemet.</p><p>Viss du vel det klassiske formatet, merk at passordet <span style=\" font-style:italic;\">ikkje kan</span> hentast fram viss du mistar det, og at det gjev full tilgang til alle opplysningar som er lagra i lommeboka.</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, _groupBox)
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:46
 #, kde-format
-msgid "What kind of encryption do you wish?"
-msgstr "Kva slags kryptering vil du bruka?"
+msgid "Encryption type"
+msgstr "Krypteringstype"
 
 #: ksecretd/main.cpp:163
 #, kde-format

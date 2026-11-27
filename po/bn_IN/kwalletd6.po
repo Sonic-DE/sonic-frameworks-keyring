@@ -52,20 +52,14 @@ msgstr "প্রত্যাখ্যান করা হবে (&D)"
 msgid "Deny &Forever"
 msgstr "স্থায়ীভাবে প্রত্যাখ্যান করা হবে (&F)"
 
-#: ksecretd/knewwalletdialog.cpp:50
-#, fuzzy, kde-format
-#| msgid ""
-#| "KDE has requested to open the wallet. This is used to store sensitive "
-#| "data in a secure fashion. Please enter a password to use with this wallet "
-#| "or click cancel to deny the application's request."
+#: ksecretd/knewwalletdialog.cpp:51
+#, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used "
-"to store sensitive data in a secure fashion. Please choose the new wallet's "
-"type below or click cancel to deny the application's request.</qt>"
-msgstr ""
-"KDE দ্বারা ওয়ালেট খোলার অনুরোধ জানানো হয়েছে। সংবেদনশীল তথ্য নিরাপদভাবে সংরক্ষণের "
-"জন্য এই পরিসেবাটি ব্যবহার করা হয়। এই ওয়ালেটের জন্য় অনুগ্রহ করে পাসওয়ার্ড লিখুন অথবা "
-"অ্যাপ্লিকেশনের অনুরোধ নাকচ করার জন্য বাতিল টিপুন।"
+"to securely store sensitive data, such as account passwords. Choose the type "
+"of the new wallet below or click Cancel to deny the application's request.</"
+"qt>"
+msgstr "<qt>KDE '<b>%1</b>' নামে একটি নতুন ওয়ালেট তৈরির অনুরোধ করেছে। এটি অ্যাকাউন্টের পাসওয়ার্ডের মতো সংবেদনশীল ডেটা নিরাপদে সংরক্ষণ করতে ব্যবহৃত হয়। নিচে নতুন ওয়ালেটের ধরন বেছে নিন অথবা অ্যাপ্লিকেশনের অনুরোধ প্রত্যাখ্যান করতে বাতিল টিপুন।</qt>"
 
 #: ksecretd/knewwalletdialog.cpp:55
 #, fuzzy, kde-format
@@ -93,26 +87,32 @@ msgid ""
 "check your system's configuration then try again."
 msgstr ""
 
-#: ksecretd/knewwalletdialog.cpp:153
-#, kde-format
+#: ksecretd/knewwalletdialog.cpp:176
+#, kde-kuit-format
+msgctxt "@info"
 msgid ""
-"Seems that your system has no keys suitable for encryption. Please set-up at "
-"least one encryption key, then try again."
-msgstr ""
+"No suitable GPG encryption keys were found. To create one, choose one of the "
+"following options:<list><item>Install Kleopatra and use it to create a new "
+"key. See these <link url='https://docs.kde.org/stable_kf6/en/kleopatra/"
+"kleopatra/functions-newkey.html'>instructions</link>.</item><item>Open a "
+"terminal and enter <command>gpg --full-gen-key</command>.</item><item>Go "
+"back and use Blowfish encryption instead, which only requires a password.</"
+"item></list>"
+msgstr "কোনো উপযুক্ত GPG এনক্রিপশন কী পাওয়া যায়নি। একটি তৈরি করতে নিচের বিকল্পগুলোর একটি বেছে নিন:<list><item>Kleopatra ইনস্টল করুন এবং এটি দিয়ে একটি নতুন কী তৈরি করুন। এই <link url='https://docs.kde.org/stable_kf6/en/kleopatra/kleopatra/functions-newkey.html'>নির্দেশনা</link> দেখুন।</item><item>একটি টার্মিনাল খুলুন এবং <command>gpg --full-gen-key</command> লিখুন।</item><item>ফিরে যান এবং এর বদলে Blowfish এনক্রিপশন ব্যবহার করুন, যার জন্য কেবল একটি পাসওয়ার্ড প্রয়োজন।</item></list>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ksecretd/knewwalletdialoggpg.ui:17
 #, kde-format
-msgid "Please select the signing key from the list below:"
-msgstr ""
+msgid "Select the signing key from the list below:"
+msgstr "নিচের তালিকা থেকে স্বাক্ষর কী বেছে নিন:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ksecretd/knewwalletdialoggpg.ui:24
 #, kde-format
 msgid ""
-"<html><head/><body><p><span style=\" font-weight:600;\">NOTE:</span> this "
+"<html><head/><body><p><span style=\" font-weight:600;\">Note:</span> this "
 "list shows only &quot;ultimate-level&quot; trusted keys</p></body></html>"
-msgstr ""
+msgstr "<html><head/><body><p><span style=\" font-weight:600;\">দ্রষ্টব্য:</span> এই তালিকায় কেবল &quot;সর্বোচ্চ স্তরের&quot; বিশ্বস্ত কী দেখানো হয়</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
 #: ksecretd/knewwalletdialoggpg.ui:59
@@ -141,38 +141,29 @@ msgstr "<u>KWallet</u> - KDE Wallet ব্যবস্থা"
 
 #. i18n: ectx: property (text), widget (QLabel, labelIntro)
 #: ksecretd/knewwalletdialogintro.ui:30
-#, fuzzy, no-c-format, kde-format
-#| msgid ""
-#| "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. "
-#| "This is used to store sensitive data in a secure fashion. Please enter a "
-#| "password to use with this wallet or click cancel to deny the "
-#| "application's request.</qt>"
+#, no-c-format, kde-format
 msgid ""
 "<html><head/><body><p>The application '<span style=\" font-weight:600;\">%1</"
-"span>' has requested to open the KDE wallet. This is used to store sensitive "
-"data in a secure fashion. Please choose the new wallet's type below or click "
-"cancel to deny the application's request.</p></body></html>"
-msgstr ""
-"<qt>অ্যাপ্লিকেশন '<b>%1</b>' দ্বারা ওয়ালেট খোলার অনুরোধ জানানো হয়েছে। সংবেদনশীল "
-"তথ্য নিরাপদভাবে সংরক্ষণের জন্য এই পরিসেবাটি ব্যবহার করা হয়। এই ওয়ালেটের জন্য় "
-"অনুগ্রহ করে পাসওয়ার্ড লিখুন অথবা অ্যাপ্লিকেশনের অনুরোধ নাকচ করার জন্য বাতিল টিপুন।</"
-"qt>"
+"span>' has requested to open the KDE wallet. This is used to securely store "
+"sensitive data, such as account passwords. Choose the type of the new wallet "
+"below or click Cancel to deny the application's request.</p></body></html>"
+msgstr "<html><head/><body><p>'<span style=\" font-weight:600;\">%1</span>' অ্যাপ্লিকেশনটি KDE ওয়ালেট খোলার অনুরোধ করেছে। এটি অ্যাকাউন্টের পাসওয়ার্ডের মতো সংবেদনশীল ডেটা নিরাপদে সংরক্ষণ করতে ব্যবহৃত হয়। নিচে নতুন ওয়ালেটের ধরন বেছে নিন অথবা অ্যাপ্লিকেশনের অনুরোধ প্রত্যাখ্যান করতে বাতিল টিপুন।</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioBlowfish)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioBlowfish)
 #: ksecretd/knewwalletdialogintro.ui:66
-#: ksecretd/kwalletwizardpagepasswordgpg.ui:68
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:55
 #, kde-format
-msgid "Classic, blowfish encrypted file"
-msgstr ""
+msgid "Blowfish encryption"
+msgstr "Blowfish এনক্রিপশন"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioGpg)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioGpg)
-#: ksecretd/knewwalletdialogintro.ui:73
-#: ksecretd/kwalletwizardpagepasswordgpg.ui:55
+#: ksecretd/knewwalletdialogintro.ui:80
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:72
 #, kde-format
-msgid "Use GPG encryption, for better protection"
-msgstr ""
+msgid "GPG encryption"
+msgstr "GPG এনক্রিপশন"
 
 #: ksecretd/ksecretd.cpp:521
 #, kde-format
@@ -309,13 +300,12 @@ msgid ""
 "password."
 msgstr "ওয়ালেট খুলতে ব্যর্থ। পাসওয়ার্ড পরিবর্তনের জন্য ওয়ালেট খোলা আবশ্যক।"
 
-#: ksecretd/ksecretd.cpp:877
+#: ksecretd/ksecretd.cpp:588
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
-"<b>GPG</b> tools (such as <b>kleopatra</b>) to change the passphrase "
-"associated to that key.</qt>"
-msgstr ""
+"<b>GPG</b> tools to change the passphrase associated to that key.</qt>"
+msgstr "<qt><b>%1</b> ওয়ালেটটি <b>%2</b> GPG কী ব্যবহার করে এনক্রিপ্ট করা হয়েছে। ওই কী-এর সাথে যুক্ত পাসফ্রেজ পরিবর্তন করতে অনুগ্রহ করে <b>GPG</b> টুল ব্যবহার করুন।</qt>"
 
 #: ksecretd/ksecretd.cpp:884
 #, kde-format
@@ -368,54 +358,54 @@ msgstr "পাসওয়ার্ডে গরমিল।"
 msgid ""
 "<html><head/><body><p>The KDE Wallet system stores your data in a <span "
 "style=\" font-style:italic;\">wallet</span> file on your local hard disk. "
-"The data is only written in the encrypted form of your choice - blowfish "
-"algorithm with your password as the key or using a GPG encryption key. When "
-"a wallet is opened, the wallet manager application will launch and display "
-"an icon in the system tray. You can use this application to manage all of "
-"your wallets. It even permits you to drag wallets and wallet contents, "
-"allowing you to easily copy a wallet to a remote system.</p></body></html>"
-msgstr ""
+"The data is encrypted using your chosen method: the Blowfish algorithm with "
+"your password as the key, or GPG with an encryption key. When a wallet is "
+"opened, the wallet manager will launch and display an icon in the system "
+"tray. You can use this application to manage all of your wallets. It even "
+"permits you to drag-and-drop wallets and their contents, allowing you to "
+"easily copy a wallet to a remote system.</p></body></html>"
+msgstr "<html><head/><body><p>KDE ওয়ালেট সিস্টেম আপনার ডেটা আপনার স্থানীয় হার্ড ডিস্কে একটি <span style=\" font-style:italic;\">ওয়ালেট</span> ফাইলে সংরক্ষণ করে। ডেটা আপনার বেছে নেওয়া পদ্ধতিতে এনক্রিপ্ট করা হয়: কী হিসেবে আপনার পাসওয়ার্ড সহ Blowfish অ্যালগরিদম, অথবা একটি এনক্রিপশন কী সহ GPG। কোনো ওয়ালেট খোলা হলে ওয়ালেট ম্যানেজার চালু হবে এবং সিস্টেম ট্রেতে একটি আইকন দেখাবে। আপনার সব ওয়ালেট পরিচালনা করতে আপনি এই অ্যাপ্লিকেশনটি ব্যবহার করতে পারেন। এটি ওয়ালেট এবং সেগুলোর বিষয়বস্তু টেনে এনে ছাড়ারও সুযোগ দেয়, যাতে আপনি সহজেই একটি ওয়ালেট দূরবর্তী সিস্টেমে কপি করতে পারেন।</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ksecretd/kwalletwizardpagegpgkey.ui:24
 #, kde-format
 msgid ""
-"<html><head/><body><p>The GPG-based wallet use a GPG encryption key to "
-"securely encrypt data on disk. The key must be available when decrypting is "
-"needed or your wallet will not be accessible. For example, if you choose a "
-"SmartCard-based encryption key, the GPG system will prompt you to enter it "
-"and its associated PIN when attempting to open the wallet. <span style=\" "
-"font-weight:600;\">NOTE:</span> this list contains only &quot;ultimate-"
+"<html><head/><body><p>The GPG-based wallet uses a GPG encryption key to "
+"securely encrypt data on disk. The key must be available when the wallet is "
+"decrypted or your wallet will not be accessible. For example, if you choose "
+"a SmartCard-based encryption key, you will be prompted to insert it and "
+"enter its associated PIN when attempting to open the wallet. <span style=\" "
+"font-weight:600;\">Note:</span> this list contains only &quot;ultimate-"
 "level&quot; trusted keys.</p></body></html>"
-msgstr ""
+msgstr "<html><head/><body><p>GPG-ভিত্তিক ওয়ালেট ডিস্কে ডেটা নিরাপদে এনক্রিপ্ট করতে একটি GPG এনক্রিপশন কী ব্যবহার করে। ওয়ালেট ডিক্রিপ্ট করার সময় কী-টি উপলব্ধ থাকতে হবে, নইলে আপনার ওয়ালেট ব্যবহার করা যাবে না। উদাহরণস্বরূপ, আপনি যদি স্মার্টকার্ড-ভিত্তিক এনক্রিপশন কী বেছে নেন, তাহলে ওয়ালেট খোলার চেষ্টা করার সময় আপনাকে কার্ডটি প্রবেশ করাতে এবং এর সংশ্লিষ্ট পিন লিখতে বলা হবে। <span style=\" font-weight:600;\">দ্রষ্টব্য:</span> এই তালিকায় কেবল &quot;সর্বোচ্চ স্তরের&quot; বিশ্বস্ত কী রয়েছে।</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ksecretd/kwalletwizardpagegpgkey.ui:42
 #, kde-format
-msgid "Select encryption GPG key:"
-msgstr ""
+msgid "Select GPG encryption key:"
+msgstr "GPG এনক্রিপশন কী বেছে নিন:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ksecretd/kwalletwizardpagegpgkey.ui:81
 #, kde-format
 msgid ""
-"Unable to locate at least one <b>encrypting GPG key</b>. KDE Wallet needs "
-"such <b>encrypting key</b> to securely store passwords or other sensitive "
-"data on disk. If you still want to setup a GPG-based wallet, then cancel "
-"this wizard, set-up an <b>encrypting GPG key</b>, then retry this assistant. "
-"Otherwise, you may still click back, then choose a classic, blowfish "
-"encrypted file format on the previous page."
-msgstr ""
+"Unable to locate at least one GPG encryption key. KDE Wallet needs a GPG "
+"encryption key to securely store passwords or other sensitive data on disk. "
+"If you still want to setup a GPG-based wallet, exit this wizard, create an "
+"encryption key and return to this wizard. Otherwise, you can return to the "
+"previous page and select Blowfish encryption, which does not require an "
+"encryption key."
+msgstr "অন্তত একটি GPG এনক্রিপশন কী খুঁজে পাওয়া যায়নি। পাসওয়ার্ড বা অন্যান্য সংবেদনশীল ডেটা ডিস্কে নিরাপদে সংরক্ষণ করতে KDE ওয়ালেটের একটি GPG এনক্রিপশন কী প্রয়োজন। আপনি যদি এখনও GPG-ভিত্তিক ওয়ালেট সেট আপ করতে চান, তাহলে এই উইজার্ড থেকে বেরিয়ে যান, একটি এনক্রিপশন কী তৈরি করুন এবং এই উইজার্ডে ফিরে আসুন। অন্যথায়, আপনি আগের পাতায় ফিরে গিয়ে Blowfish এনক্রিপশন বেছে নিতে পারেন, যার জন্য কোনো এনক্রিপশন কী প্রয়োজন হয় না।"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: ksecretd/kwalletwizardpageintro.ui:30
 #, kde-format
 msgid ""
-"Welcome to KWallet, the KDE Wallet System.  KWallet allows you to store your "
-"passwords and other personal information on disk in an encrypted file, "
-"preventing others from viewing the information.  This wizard will tell you "
-"about KWallet and help you configure it for the first time."
-msgstr ""
+"Welcome to KWallet, the KDE Wallet System. KWallet allows you to store your "
+"passwords and other sensitive information on disk in an encrypted file, "
+"preventing unauthorized access. This wizard will help you set up KWallet for "
+"the first time."
+msgstr "KWallet, KDE ওয়ালেট সিস্টেমে স্বাগতম। KWallet আপনাকে আপনার পাসওয়ার্ড এবং অন্যান্য সংবেদনশীল তথ্য ডিস্কে একটি এনক্রিপ্ট করা ফাইলে সংরক্ষণ করতে দেয়, যা অননুমোদিত প্রবেশ রোধ করে। এই উইজার্ড প্রথমবার KWallet সেট আপ করতে আপনাকে সাহায্য করবে।"
 
 #. i18n: ectx: property (text), widget (QRadioButton, _basic)
 #: ksecretd/kwalletwizardpageintro.ui:69
@@ -433,12 +423,10 @@ msgstr "উন্নত বৈশিষ্ট্য (&A)"
 #: ksecretd/kwalletwizardpageoptions.ui:16
 #, kde-format
 msgid ""
-"The KDE Wallet system allows you to control the level of security of your "
-"personal data.  Some of these settings do impact usability.  While the "
-"default settings are generally acceptable for most users, you may wish to "
-"change some of them.  You may further tune these settings from the KWallet "
-"control module."
-msgstr ""
+"KWallet lets you adjust the security of your personal data. While the "
+"default settings work for most users, you can modify them if needed. "
+"Additional adjustments can be made on the KWallet settings page."
+msgstr "KWallet আপনাকে আপনার ব্যক্তিগত ডেটার নিরাপত্তা সমন্বয় করতে দেয়। ডিফল্ট সেটিংস বেশিরভাগ ব্যবহারকারীর জন্য উপযুক্ত হলেও প্রয়োজনে আপনি সেগুলো পরিবর্তন করতে পারেন। KWallet সেটিংস পাতায় আরও সমন্বয় করা যায়।"
 
 #. i18n: ectx: property (text), widget (QCheckBox, _closeIdle)
 #: ksecretd/kwalletwizardpageoptions.ui:48
@@ -456,20 +444,18 @@ msgstr "স্থানীয় পাসওয়ার্ড ও নেটওয়া
 #: ksecretd/kwalletwizardpagepassword.ui:16
 #, kde-format
 msgid ""
-"Various applications may attempt to use the KDE wallet to store passwords or "
-"other information such as web form data and cookies.  If you would like "
-"these applications to use the wallet, you must enable it now and choose a "
-"password.  The password you choose <i>cannot</i> be recovered if it is lost, "
-"and will allow anyone who knows it to obtain all the information contained "
-"in the wallet."
-msgstr ""
+"Various applications may request access to the KDE wallet to store "
+"passwords, web form data, or cookies. To allow this, enable the wallet and "
+"set a password. Note that the password <i>cannot</i> be recovered if lost "
+"and grants full access to all information stored in the wallet."
+msgstr "বিভিন্ন অ্যাপ্লিকেশন পাসওয়ার্ড, ওয়েব ফর্মের ডেটা বা কুকি সংরক্ষণ করতে KDE ওয়ালেটে প্রবেশাধিকার চাইতে পারে। এটি অনুমোদন করতে ওয়ালেট সক্রিয় করুন এবং একটি পাসওয়ার্ড নির্ধারণ করুন। মনে রাখবেন যে পাসওয়ার্ড হারিয়ে গেলে তা পুনরুদ্ধার <i>করা যায় না</i> এবং এটি ওয়ালেটে সংরক্ষিত সব তথ্যে পূর্ণ প্রবেশাধিকার দেয়।"
 
 #. i18n: ectx: property (text), widget (QCheckBox, _useWallet)
 #: ksecretd/kwalletwizardpagepassword.ui:29
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:30
 #, kde-format
-msgid "Yes, I wish to use the KDE wallet to store my personal information."
-msgstr "হ্যাঁ, ব্যক্তিগত তথ্য সংরক্ষণের জন্য আমি KDE wallet ব্যবহার করতে ইচ্ছুক।"
+msgid "Use the KDE wallet to store sensitive information"
+msgstr "সংবেদনশীল তথ্য সংরক্ষণ করতে KDE ওয়ালেট ব্যবহার করুন"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
 #: ksecretd/kwalletwizardpagepassword.ui:88
@@ -489,22 +475,20 @@ msgstr "পাসওয়ার্ড নিশ্চিত করুন:"
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:17
 #, kde-format
 msgid ""
-"<html><head/><body><p>Various applications may attempt to use the KDE wallet "
-"to store passwords or other information such as web form data and cookies. "
-"If you would like these applications to use the wallet, you must enable it "
-"now and choose method for its encryption.</p><p>GPG method is more secure, "
-"but you must have configured at least one encrypting key on your system.</"
-"p><p>If you choose the classic format, be warned that the password you "
-"choose <span style=\" font-style:italic;\">cannot</span> be recovered if it "
-"is lost, and will allow anyone who knows it to obtain all the information "
-"contained in the wallet.</p></body></html>"
-msgstr ""
+"<html><head/><body><p>Various applications may request access to the KDE "
+"wallet to store passwords, web form data, or cookies. To allow this, enable "
+"the wallet and choose an encryption method. </p><p>GPG encryption is more "
+"secure, but you must have at least one encryption key configured on your "
+"system.</p><p>If you choose the classic format, note that the password <span "
+"style=\" font-style:italic;\">cannot</span> be recovered if lost and grants "
+"full access to all information stored in the wallet.</p></body></html>"
+msgstr "<html><head/><body><p>বিভিন্ন অ্যাপ্লিকেশন পাসওয়ার্ড, ওয়েব ফর্মের ডেটা বা কুকি সংরক্ষণ করতে KDE ওয়ালেটে প্রবেশাধিকার চাইতে পারে। এটি অনুমোদন করতে ওয়ালেট সক্রিয় করুন এবং একটি এনক্রিপশন পদ্ধতি বেছে নিন। </p><p>GPG এনক্রিপশন বেশি নিরাপদ, তবে আপনার সিস্টেমে অন্তত একটি এনক্রিপশন কী কনফিগার করা থাকতে হবে।</p><p>আপনি যদি ক্লাসিক ফরম্যাট বেছে নেন, তবে মনে রাখবেন যে পাসওয়ার্ড হারিয়ে গেলে তা পুনরুদ্ধার <span style=\" font-style:italic;\">করা যায় না</span> এবং এটি ওয়ালেটে সংরক্ষিত সব তথ্যে পূর্ণ প্রবেশাধিকার দেয়।</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, _groupBox)
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:46
 #, kde-format
-msgid "What kind of encryption do you wish?"
-msgstr ""
+msgid "Encryption type"
+msgstr "এনক্রিপশনের ধরন"
 
 #: ksecretd/main.cpp:163
 #, kde-format

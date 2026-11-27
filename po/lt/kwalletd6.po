@@ -55,17 +55,14 @@ msgstr "&Drausti"
 msgid "Deny &Forever"
 msgstr "Visada d&rausti"
 
-#: ksecretd/knewwalletdialog.cpp:50
+#: ksecretd/knewwalletdialog.cpp:51
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used "
-"to store sensitive data in a secure fashion. Please choose the new wallet's "
-"type below or click cancel to deny the application's request.</qt>"
-msgstr ""
-"<qt>KDE paprašė sukurti naują slaptažodinę, pavadinimu \"<b>%1</b>\". Tai "
-"yra naudojama siekiant saugiu būdu saugoti slaptus duomenis. Žemiau "
-"pasirinkite naujos slaptažodinės tipą arba, norėdami atmesti programos "
-"prašymą, spustelėkite \"Atsisakyti\".</qt>"
+"to securely store sensitive data, such as account passwords. Choose the type "
+"of the new wallet below or click Cancel to deny the application's request.</"
+"qt>"
+msgstr "<qt>KDE paprašė sukurti naują slaptažodinę, pavadinimu „<b>%1</b>“. Tai yra naudojama siekiant saugiai saugoti slaptus duomenis, tokius kaip paskyrų slaptažodžiai. Žemiau pasirinkite naujos slaptažodinės tipą arba, norėdami atmesti programos prašymą, spustelėkite „Atsisakyti“.</qt>"
 
 #: ksecretd/knewwalletdialog.cpp:55
 #, kde-format
@@ -90,31 +87,32 @@ msgstr ""
 "Nepavyko inicijuoti GpgME bibliotekos OpenPGP protokolui. Patikrinkite savo "
 "sistemos konfigūraciją, o tuomet bandykite dar kartą."
 
-#: ksecretd/knewwalletdialog.cpp:153
-#, kde-format
+#: ksecretd/knewwalletdialog.cpp:176
+#, kde-kuit-format
+msgctxt "@info"
 msgid ""
-"Seems that your system has no keys suitable for encryption. Please set-up at "
-"least one encryption key, then try again."
-msgstr ""
-"Atrodo, kad jūsų sistemoje nėra šifravimui tinkamų raktų. Nusistatykite bent "
-"vieną šifravimo raktą, o tuomet bandykite dar kartą."
+"No suitable GPG encryption keys were found. To create one, choose one of the "
+"following options:<list><item>Install Kleopatra and use it to create a new "
+"key. See these <link url='https://docs.kde.org/stable_kf6/en/kleopatra/"
+"kleopatra/functions-newkey.html'>instructions</link>.</item><item>Open a "
+"terminal and enter <command>gpg --full-gen-key</command>.</item><item>Go "
+"back and use Blowfish encryption instead, which only requires a password.</"
+"item></list>"
+msgstr "Nerasti jokie tinkami GPG šifravimo raktai. Norėdami susikurti raktą, pasirinkite vieną iš šių variantų:<list><item>Įsidiekite programą Kleopatra ir naudokite ją, kad susikurtumėte naują raktą. Žiūrėkite šias <link url='https://docs.kde.org/stable_kf6/en/kleopatra/kleopatra/functions-newkey.html'>instrukcijas</link>.</item><item>Atverkite terminalą ir įveskite <command>gpg --full-gen-key</command>.</item><item>Grįžkite ir, vietoj to, naudokite Blowfish šifravimą, kuris reikalauja tik slaptažodžio.</item></list>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ksecretd/knewwalletdialoggpg.ui:17
 #, kde-format
-msgid "Please select the signing key from the list below:"
+msgid "Select the signing key from the list below:"
 msgstr "Pasirinkite pasirašymo raktą iš sąrašo žemiau:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ksecretd/knewwalletdialoggpg.ui:24
 #, kde-format
 msgid ""
-"<html><head/><body><p><span style=\" font-weight:600;\">NOTE:</span> this "
+"<html><head/><body><p><span style=\" font-weight:600;\">Note:</span> this "
 "list shows only &quot;ultimate-level&quot; trusted keys</p></body></html>"
-msgstr ""
-"<html><head/><body><p><span style=\" font-weight:600;\">PASTABA:</span> "
-"šiame sąraše yra rodomi tik &quot;ultimate-level&quot; lygio patikimi "
-"raktai</p></body></html>"
+msgstr "<html><head/><body><p><span style=\" font-weight:600;\">Pastaba:</span> šiame sąraše yra rodomi tik &quot;ultimate-level&quot; lygio patikimi raktai</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
 #: ksecretd/knewwalletdialoggpg.ui:59
@@ -145,31 +143,26 @@ msgstr "KDE slaptažodinių sistema"
 #, no-c-format, kde-format
 msgid ""
 "<html><head/><body><p>The application '<span style=\" font-weight:600;\">%1</"
-"span>' has requested to open the KDE wallet. This is used to store sensitive "
-"data in a secure fashion. Please choose the new wallet's type below or click "
-"cancel to deny the application's request.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Programa \"<span style=\" font-weight:600;\">%1</span>"
-"\" paprašė atverti KDE slaptažodinę. Tai yra naudojama siekiant saugiu būdu "
-"saugoti slaptus duomenis. Žemiau pasirinkite naujos slaptažodinės tipą arba, "
-"norėdami atmesti programos prašymą, spustelėkite \"Atsisakyti\".</p></body></"
-"html>"
+"span>' has requested to open the KDE wallet. This is used to securely store "
+"sensitive data, such as account passwords. Choose the type of the new wallet "
+"below or click Cancel to deny the application's request.</p></body></html>"
+msgstr "<html><head/><body><p>Programa „<span style=\" font-weight:600;\">%1</span>“ paprašė atverti KDE slaptažodinę. Tai naudojama siekiant saugiai saugoti slaptus duomenis, tokius kaip paskyrų slaptažodžiai. Žemiau pasirinkite naujos slaptažodinės tipą arba, norėdami atmesti programos prašymą, spustelėkite „Atsisakyti“.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioBlowfish)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioBlowfish)
 #: ksecretd/knewwalletdialogintro.ui:66
-#: ksecretd/kwalletwizardpagepasswordgpg.ui:68
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:55
 #, kde-format
-msgid "Classic, blowfish encrypted file"
-msgstr "Klasikinis, blowfish šifruotas failas"
+msgid "Blowfish encryption"
+msgstr "Blowfish šifravimas"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioGpg)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioGpg)
-#: ksecretd/knewwalletdialogintro.ui:73
-#: ksecretd/kwalletwizardpagepasswordgpg.ui:55
+#: ksecretd/knewwalletdialogintro.ui:80
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:72
 #, kde-format
-msgid "Use GPG encryption, for better protection"
-msgstr "Naudoti GPG šifravimą, geresnei apsaugai"
+msgid "GPG encryption"
+msgstr "GPG šifravimas"
 
 #: ksecretd/ksecretd.cpp:521
 #, kde-format
@@ -303,16 +296,12 @@ msgstr ""
 "Nepavyko atverti slaptažodinės. Norint pakeisti slaptažodį, slaptažodinė "
 "privalo būti atverta."
 
-#: ksecretd/ksecretd.cpp:877
+#: ksecretd/ksecretd.cpp:588
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
-"<b>GPG</b> tools (such as <b>kleopatra</b>) to change the passphrase "
-"associated to that key.</qt>"
-msgstr ""
-"<qt>Slaptažodinė <b>%1</b> yra šifruota naudojant GPG raktą <b>%2</b>. "
-"Norėdami pakeisti su tuo raktu susietą slaptafrazę, naudokite <b>GPG</b> "
-"įrankius (tokius kaip <b>kleopatra</b>).</qt>"
+"<b>GPG</b> tools to change the passphrase associated to that key.</qt>"
+msgstr "<qt>Slaptažodinė <b>%1</b> yra šifruota naudojant GPG raktą <b>%2</b>. Norėdami pakeisti su tuo raktu susietą slaptafrazę, naudokite <b>GPG</b> įrankius.</qt>"
 
 #: ksecretd/ksecretd.cpp:884
 #, kde-format
@@ -364,82 +353,54 @@ msgstr "Slaptažodžiai nesutampa."
 msgid ""
 "<html><head/><body><p>The KDE Wallet system stores your data in a <span "
 "style=\" font-style:italic;\">wallet</span> file on your local hard disk. "
-"The data is only written in the encrypted form of your choice - blowfish "
-"algorithm with your password as the key or using a GPG encryption key. When "
-"a wallet is opened, the wallet manager application will launch and display "
-"an icon in the system tray. You can use this application to manage all of "
-"your wallets. It even permits you to drag wallets and wallet contents, "
-"allowing you to easily copy a wallet to a remote system.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>KDE slaptažodinių sistema saugo jūsų duomenis <span "
-"style=\" font-style:italic;\">slaptažodinės</span> faile, jūsų vietiniame "
-"standžiajame diske. Duomenys yra įrašomi tik jūsų pasirinkta šifravimo forma "
-"- blowfish algoritmu naudojant jūsų slaptažodį kaip raktą arba naudojant GPG "
-"šifravmo raktą. Atvėrus slaptažodinę, slaptažodinių tvarkytuvės programa "
-"paleis ir sistemos dėkle rodys piktogramą. Galite naudoti slaptažodinių "
-"tvarkytuvę, kad tvarkytumėte visas savo slaptažodines. Programa netgi "
-"leidžia jums tempti slaptažodines ir jų turinį, taip leisdama jums lengvai "
-"kopijuoti slaptažodinę į nuotolinę sistemą.</p></body></html>"
+"The data is encrypted using your chosen method: the Blowfish algorithm with "
+"your password as the key, or GPG with an encryption key. When a wallet is "
+"opened, the wallet manager will launch and display an icon in the system "
+"tray. You can use this application to manage all of your wallets. It even "
+"permits you to drag-and-drop wallets and their contents, allowing you to "
+"easily copy a wallet to a remote system.</p></body></html>"
+msgstr "<html><head/><body><p>KDE slaptažodinių sistema saugo jūsų duomenis <span style=\" font-style:italic;\">slaptažodinės</span> faile, vietiniame standžiajame diske. Duomenys yra šifruojami naudojant jūsų pasirinktą metodą: Blowfish algoritmą naudojant slaptažodį kaip raktą arba GPG metodą su šifravimo raktu. Atvėrus slaptažodinę, bus paleista slaptažodinių tvarkytuvė, kuri atvaizduos piktogramą sistemos dėkle. Galite naudoti slaptažodinių tvarkytuvę, kad tvarkytumėte visas savo slaptažodines. Programa netgi leidžia jums tempti slaptažodines ir jų turinį, taip leisdama lengvai kopijuoti slaptažodinę į nuotolinę sistemą.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ksecretd/kwalletwizardpagegpgkey.ui:24
 #, kde-format
 msgid ""
-"<html><head/><body><p>The GPG-based wallet use a GPG encryption key to "
-"securely encrypt data on disk. The key must be available when decrypting is "
-"needed or your wallet will not be accessible. For example, if you choose a "
-"SmartCard-based encryption key, the GPG system will prompt you to enter it "
-"and its associated PIN when attempting to open the wallet. <span style=\" "
-"font-weight:600;\">NOTE:</span> this list contains only &quot;ultimate-"
+"<html><head/><body><p>The GPG-based wallet uses a GPG encryption key to "
+"securely encrypt data on disk. The key must be available when the wallet is "
+"decrypted or your wallet will not be accessible. For example, if you choose "
+"a SmartCard-based encryption key, you will be prompted to insert it and "
+"enter its associated PIN when attempting to open the wallet. <span style=\" "
+"font-weight:600;\">Note:</span> this list contains only &quot;ultimate-"
 "level&quot; trusted keys.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Saugiam duomenų šifravimui diske GPG pagrįstos "
-"slaptažodinės naudoja GPG šifravimo raktą. Prireikus iššifruoti, raktas "
-"privalo būti prieinamas arba kitaip, jūsų slaptažodinė bus nepasiekiama. "
-"Pavyzdžiui, jei pasirinksite „SmartCard“ pagrįsta šifravimo raktą, tuomet, "
-"bandant atverti slaptažodinę, GPG sistema prašys jūsų įdėti kortelę ir "
-"įvesti su ja susietą PIN kodą. <span style=\" font-weight:600;\">PASTABA:</"
-"span> šiame sąraše yra tik &quot;ultimate-level&quot; lygio patikimi raktai."
-"</p></body></html>"
+msgstr "<html><head/><body><p>Saugiam duomenų šifravimui diske GPG pagrįstos slaptažodinės naudoja GPG šifravimo raktą. Iššifruojant slaptažodinę, raktas privalo būti prieinamas, kitaip jūsų slaptažodinė bus nepasiekiama. Pavyzdžiui, jei pasirinksite „SmartCard“ pagrįstą šifravimo raktą, bandant atverti slaptažodinę, jūsų bus paprašyta įdėti kortelę ir įvesti su ja susietą PIN kodą. <span style=\" font-weight:600;\">Pastaba:</span> šiame sąraše yra tik &quot;ultimate-level&quot; lygio patikimi raktai.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ksecretd/kwalletwizardpagegpgkey.ui:42
 #, kde-format
-msgid "Select encryption GPG key:"
-msgstr "Pasirinkite šifravimo GPG raktą:"
+msgid "Select GPG encryption key:"
+msgstr "Pasirinkite GPG šifravimo raktą:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ksecretd/kwalletwizardpagegpgkey.ui:81
 #, kde-format
 msgid ""
-"Unable to locate at least one <b>encrypting GPG key</b>. KDE Wallet needs "
-"such <b>encrypting key</b> to securely store passwords or other sensitive "
-"data on disk. If you still want to setup a GPG-based wallet, then cancel "
-"this wizard, set-up an <b>encrypting GPG key</b>, then retry this assistant. "
-"Otherwise, you may still click back, then choose a classic, blowfish "
-"encrypted file format on the previous page."
-msgstr ""
-"Nepavyko nustatyti bent vieno <b>šifruojančio GPG rakto</b> vietą. KDE "
-"slaptažodinei reikia tokio <b>šifruojančio rakto</b>, kad saugiai diske "
-"saugotų slaptažodžius ar kitą slaptą informaciją. Jei vis dar norite "
-"nusistatyti GPG pagrįstą slaptažodinę, tuomet atsisakykite šio vediklio, "
-"nusistatykite <b>šifruojantį GPG raktą</b>, o tuomet iš naujo paleiskite šį "
-"pagelbiklį. Priešingu atveju, vis dar galite spustelėti \"Atgal\", o tuomet "
-"ankstesniame puslapyje pasirinkti klasikinį, blowfish šifruotą failo formatą."
+"Unable to locate at least one GPG encryption key. KDE Wallet needs a GPG "
+"encryption key to securely store passwords or other sensitive data on disk. "
+"If you still want to setup a GPG-based wallet, exit this wizard, create an "
+"encryption key and return to this wizard. Otherwise, you can return to the "
+"previous page and select Blowfish encryption, which does not require an "
+"encryption key."
+msgstr "Nepavyko nustatyti bent vieno GPG šifravimo rakto vietos. KDE slaptažodinei reikia GPG šifravimo rakto, kad saugiai diske saugotų slaptažodžius ar kitą slaptą informaciją. Jei vis dar norite paruošti GPG pagrįstą slaptažodinę, tada išeikite iš šio vediklio, susikurkite šifravimo raktą ir sugrįžkite į šį vediklį. Priešingu atveju galite grįžti į ankstesnį puslapį ir pasirinkti Blowfish šifravimą, kuris nereikalauja šifravimo rakto."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: ksecretd/kwalletwizardpageintro.ui:30
 #, kde-format
 msgid ""
-"Welcome to KWallet, the KDE Wallet System.  KWallet allows you to store your "
-"passwords and other personal information on disk in an encrypted file, "
-"preventing others from viewing the information.  This wizard will tell you "
-"about KWallet and help you configure it for the first time."
-msgstr ""
-"Jus sveikina KWallet, KDE slaptažodinių sistema.  KWallet leidžia jums "
-"diske, šifruotame faile saugoti savo slaptažodžius ir kitą asmeninę "
-"informaciją, neleisdama kitiems asmenims peržiūrėti šios informacijos.  Šis "
-"vediklis padės jums teisingai susikonfigūruoti KWallet."
+"Welcome to KWallet, the KDE Wallet System. KWallet allows you to store your "
+"passwords and other sensitive information on disk in an encrypted file, "
+"preventing unauthorized access. This wizard will help you set up KWallet for "
+"the first time."
+msgstr "Jus sveikina KWallet, KDE slaptažodinių sistema. KWallet jums leidžia diske, šifruotame faile saugoti savo slaptažodžius ir kitą slaptą informaciją, neleisdama neteisėtos prieigos. Šis vediklis padės jums pirmą kartą paruošti KWallet naudojimui."
 
 #. i18n: ectx: property (text), widget (QRadioButton, _basic)
 #: ksecretd/kwalletwizardpageintro.ui:69
@@ -457,17 +418,10 @@ msgstr "&Išplėstinė sąranka"
 #: ksecretd/kwalletwizardpageoptions.ui:16
 #, kde-format
 msgid ""
-"The KDE Wallet system allows you to control the level of security of your "
-"personal data.  Some of these settings do impact usability.  While the "
-"default settings are generally acceptable for most users, you may wish to "
-"change some of them.  You may further tune these settings from the KWallet "
-"control module."
-msgstr ""
-"KDE slaptažodinių sistema leidžia jums valdyti jūsų asmeninių duomenų "
-"saugumo lygį.  Kai kurios iš šių nuostatų paveikia naudojimosi patogumą.  "
-"Nors numatytosios nuostatos daugumai naudotojų yra bendrai priimtinos, "
-"galite pageidauti kai kurias iš jų pakeisti.  Šias nuostatas plačiau galite "
-"derinti KWallet valdymo modulyje."
+"KWallet lets you adjust the security of your personal data. While the "
+"default settings work for most users, you can modify them if needed. "
+"Additional adjustments can be made on the KWallet settings page."
+msgstr "KWallet jums leidžia derinti asmeninių duomenų saugumą. Nors numatytosios nuostatos tinka daugeliui naudotojų, esant reikalui, galite jas modifikuoti. Papildomi derinimai gali būti atlikti KWallet nuostatų puslapyje."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _closeIdle)
 #: ksecretd/kwalletwizardpageoptions.ui:48
@@ -486,29 +440,18 @@ msgstr ""
 #: ksecretd/kwalletwizardpagepassword.ui:16
 #, kde-format
 msgid ""
-"Various applications may attempt to use the KDE wallet to store passwords or "
-"other information such as web form data and cookies.  If you would like "
-"these applications to use the wallet, you must enable it now and choose a "
-"password.  The password you choose <i>cannot</i> be recovered if it is lost, "
-"and will allow anyone who knows it to obtain all the information contained "
-"in the wallet."
-msgstr ""
-"Įvairios programos gali bandyti naudoti KDE slaptažodinę, kad saugotų "
-"slaptažodžius ar kitą informaciją, tokią kaip saityno formų duomenis ir "
-"slapukus.  Jeigu norėtumėte, kad šios programos naudotųsi slaptažodine, "
-"tuomet privalote įjungti ją dabar ir pasirinkti slaptažodį.  Praradę savo "
-"pasirinktą slaptažodį, jo atkurti <i>nebegalėsite</i>, o bet kuris "
-"slaptažodį žinantis asmuo galės gauti visą slaptažodinėje esančią "
-"informaciją."
+"Various applications may request access to the KDE wallet to store "
+"passwords, web form data, or cookies. To allow this, enable the wallet and "
+"set a password. Note that the password <i>cannot</i> be recovered if lost "
+"and grants full access to all information stored in the wallet."
+msgstr "Įvairios programos gali prašyti prieigos prie KDE slaptažodinės, kad saugotų slaptažodžius, saityno formų duomenis ar slapukus. Norėdami tai leisti, įjunkite slaptažodinę ir nusistatykite slaptažodį. Turėkite omenyje, kad slaptažodis suteikia visą prieigą prie visos slaptažodinėje saugomos informacijos ir, jį praradę, <i>nebegalėsite</i> jo atkurti."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _useWallet)
 #: ksecretd/kwalletwizardpagepassword.ui:29
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:30
 #, kde-format
-msgid "Yes, I wish to use the KDE wallet to store my personal information."
-msgstr ""
-"Taip, aš noriu naudoti KDE slaptažodinę savo asmeninės informacijos "
-"saugojimui."
+msgid "Use the KDE wallet to store sensitive information"
+msgstr "Naudoti KDE slaptažodinę slaptos informacijos saugojimui"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
 #: ksecretd/kwalletwizardpagepassword.ui:88
@@ -528,32 +471,20 @@ msgstr "Pakartokite slaptažodį:"
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:17
 #, kde-format
 msgid ""
-"<html><head/><body><p>Various applications may attempt to use the KDE wallet "
-"to store passwords or other information such as web form data and cookies. "
-"If you would like these applications to use the wallet, you must enable it "
-"now and choose method for its encryption.</p><p>GPG method is more secure, "
-"but you must have configured at least one encrypting key on your system.</"
-"p><p>If you choose the classic format, be warned that the password you "
-"choose <span style=\" font-style:italic;\">cannot</span> be recovered if it "
-"is lost, and will allow anyone who knows it to obtain all the information "
-"contained in the wallet.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Įvairios programos gali bandyti naudoti KDE "
-"slaptažodinę, kad saugotų slaptažodžius ar kitą informaciją, tokią kaip "
-"saityno formų duomenis ir slapukus. Jeigu norėtumėte, kad šios programos "
-"naudotųsi slaptažodine, tuomet privalote įjungti ją dabar ir pasirinkti jos "
-"šifravimo metodą.</p><p>GPG metodas yra saugesnis, tačiau savo sistemoje "
-"privalote turėti sukonfigūruotą bent vieną šifravimo raktą.</p><p>Jei "
-"pasirinksite klasikinį formatą, turėkite omenyje, kad praradę savo "
-"pasirinktą slaptažodį, jo atkurti <span style=\" font-style:italic;"
-"\">nebegalėsite</span>, o bet kuris slaptažodį žinantis asmuo galės gauti "
-"visą slaptažodinėje esančią informaciją.</p></body></html>"
+"<html><head/><body><p>Various applications may request access to the KDE "
+"wallet to store passwords, web form data, or cookies. To allow this, enable "
+"the wallet and choose an encryption method. </p><p>GPG encryption is more "
+"secure, but you must have at least one encryption key configured on your "
+"system.</p><p>If you choose the classic format, note that the password <span "
+"style=\" font-style:italic;\">cannot</span> be recovered if lost and grants "
+"full access to all information stored in the wallet.</p></body></html>"
+msgstr "<html><head/><body><p>Įvairios programos gali prašyti prieigos prie KDE slaptažodinės, kad saugotų slaptažodžius, saityno formų duomenis ar slapukus. Norėdami tai leisti, įjunkite slaptažodinę ir pasirinkite šifravimo metodą. </p><p>GPG šifravimas yra saugesnis, tačiau savo sistemoje privalote turėti sukonfigūruotą bent vieną šifravimo raktą.</p><p>Jei pasirinksite klasikinį formatą, turėkite omenyje, kad slaptažodis suteikia visą prieigą prie visos slaptažodinėje saugomos informacijos ir, jį praradę, jo atkurti <span style=\" font-style:italic;\">nebegalėsite</span>.</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, _groupBox)
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:46
 #, kde-format
-msgid "What kind of encryption do you wish?"
-msgstr "Kokios šifravimo rūšies norėtumėte?"
+msgid "Encryption type"
+msgstr "Šifravimo tipas"
 
 #: ksecretd/main.cpp:163
 #, kde-format

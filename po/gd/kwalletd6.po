@@ -53,17 +53,14 @@ msgstr "&Diùlt"
 msgid "Deny &Forever"
 msgstr "Diùlt gu &buan"
 
-#: ksecretd/knewwalletdialog.cpp:50
+#: ksecretd/knewwalletdialog.cpp:51
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used "
-"to store sensitive data in a secure fashion. Please choose the new wallet's "
-"type below or click cancel to deny the application's request.</qt>"
-msgstr ""
-"<qt>Dh'iarr KDE sporan ùr a chruthachadh air a bheil \"<b>%1</b>\". Thèid "
-"seo a cleachdadh gus dàta cugallach a ghlèidheadh ann an dòigh thèarainte. "
-"Tagh seòrsa an sporain ùir gu h-ìosal no briog air \"Sguir dheth\" gus "
-"iarrtas na h-aplacaid a dhiùltadh.</qt>"
+"to securely store sensitive data, such as account passwords. Choose the type "
+"of the new wallet below or click Cancel to deny the application's request.</"
+"qt>"
+msgstr "<qt>Dh'iarr KDE sporan ùr a chruthachadh air a bheil \"<b>%1</b>\". Thèid seo a chleachdadh gus dàta cugallach, can faclan-faire chunntasan, a ghlèidheadh gu tèarainte. Tagh seòrsa an sporain ùir gu h-ìosal no briog air \"Sguir dheth\" gus iarrtas na h-aplacaid a dhiùltadh.</qt>"
 
 #: ksecretd/knewwalletdialog.cpp:55
 #, kde-format
@@ -92,38 +89,32 @@ msgstr ""
 "OpenPGP. Thoir sùil air rèiteachadh an t-siostaim agad is feuch ris a-"
 "rithist an uairsin."
 
-#: ksecretd/knewwalletdialog.cpp:153
-#, fuzzy, kde-format
-#| msgid ""
-#| "Seems that your system has no keys suitable for encryption. Please set-up "
-#| "at least an encryption key, then try again."
+#: ksecretd/knewwalletdialog.cpp:176
+#, kde-kuit-format
+msgctxt "@info"
 msgid ""
-"Seems that your system has no keys suitable for encryption. Please set-up at "
-"least one encryption key, then try again."
-msgstr ""
-"Tha coltas nach eil iuchair iomchaidh dha chrioptachadh aig an t-siostam "
-"agad. Suidhich iuchair crioptachaidh no dhà is feuch ris a-rithist an "
-"uairsin."
+"No suitable GPG encryption keys were found. To create one, choose one of the "
+"following options:<list><item>Install Kleopatra and use it to create a new "
+"key. See these <link url='https://docs.kde.org/stable_kf6/en/kleopatra/"
+"kleopatra/functions-newkey.html'>instructions</link>.</item><item>Open a "
+"terminal and enter <command>gpg --full-gen-key</command>.</item><item>Go "
+"back and use Blowfish encryption instead, which only requires a password.</"
+"item></list>"
+msgstr "Cha deach iuchair crioptachaidh GPG iomchaidh a lorg. Gus tè a chruthachadh, tagh tè dhe na roghainnean seo:<list><item>Stàlaich Kleopatra agus cleachd e gus iuchair ùr a chruthachadh. Faic an <link url='https://docs.kde.org/stable_kf6/en/kleopatra/kleopatra/functions-newkey.html'>stiùireadh</link> seo.</item><item>Fosgail tèirmineal agus cuir a-steach <command>gpg --full-gen-key</command>.</item><item>Rach air ais agus cleachd crioptachadh Blowfish ’na àite, nach fheum ach facal-faire.</item></list>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ksecretd/knewwalletdialoggpg.ui:17
 #, kde-format
-msgid "Please select the signing key from the list below:"
+msgid "Select the signing key from the list below:"
 msgstr "Tagh iuchair an t-soidhnidh on liosta gu h-ìosal:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ksecretd/knewwalletdialoggpg.ui:24
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p><span style=\" font-weight:600;\">NOTE:</span> this "
-#| "list shows only \"ultimate-level\" trusted keys</p></body></html>"
+#, kde-format
 msgid ""
-"<html><head/><body><p><span style=\" font-weight:600;\">NOTE:</span> this "
+"<html><head/><body><p><span style=\" font-weight:600;\">Note:</span> this "
 "list shows only &quot;ultimate-level&quot; trusted keys</p></body></html>"
-msgstr ""
-"<html><head/><body><p><span style=\" font-weight:600;\">AN AIRE:</span> cha "
-"sheall an liosta seo ach iuchraichean sa bheil earbsa \"cho earbsach ’s a "
-"ghabhas\"</p></body></html>"
+msgstr "<html><head/><body><p><span style=\" font-weight:600;\">An aire:</span> cha sheall an liosta seo ach iuchraichean sa bheil earbsa &quot;cho earbsach ’s a ghabhas&quot;</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
 #: ksecretd/knewwalletdialoggpg.ui:59
@@ -154,31 +145,26 @@ msgstr "Siostam sporain KDE"
 #, no-c-format, kde-format
 msgid ""
 "<html><head/><body><p>The application '<span style=\" font-weight:600;\">%1</"
-"span>' has requested to open the KDE wallet. This is used to store sensitive "
-"data in a secure fashion. Please choose the new wallet's type below or click "
-"cancel to deny the application's request.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Dh'iarr an aplacaid \"<span style=\" font-weight:600;"
-"\">%1</span>\" sporan KDE fhosgladh. Thèid seo a cleachdadh gus dàta "
-"cugallach a ghlèidheadh ann an dòigh thèarainte. Tagh seòrsa an sporain ùir "
-"gu h-ìosal no briog air \"Sguir dheth\" gus iarrtas na h-aplacaid a "
-"dhiùltadh.</p></body></html>"
+"span>' has requested to open the KDE wallet. This is used to securely store "
+"sensitive data, such as account passwords. Choose the type of the new wallet "
+"below or click Cancel to deny the application's request.</p></body></html>"
+msgstr "<html><head/><body><p>Dh'iarr an aplacaid \"<span style=\" font-weight:600;\">%1</span>\" sporan KDE fhosgladh. Thèid seo a chleachdadh gus dàta cugallach, can faclan-faire chunntasan, a ghlèidheadh gu tèarainte. Tagh seòrsa an sporain ùir gu h-ìosal no briog air \"Sguir dheth\" gus iarrtas na h-aplacaid a dhiùltadh.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioBlowfish)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioBlowfish)
 #: ksecretd/knewwalletdialogintro.ui:66
-#: ksecretd/kwalletwizardpagepasswordgpg.ui:68
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:55
 #, kde-format
-msgid "Classic, blowfish encrypted file"
-msgstr "Clasaigeach, faidhle le crioptachadh blowfish"
+msgid "Blowfish encryption"
+msgstr "Crioptachadh Blowfish"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioGpg)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioGpg)
-#: ksecretd/knewwalletdialogintro.ui:73
-#: ksecretd/kwalletwizardpagepasswordgpg.ui:55
+#: ksecretd/knewwalletdialogintro.ui:80
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:72
 #, kde-format
-msgid "Use GPG encryption, for better protection"
-msgstr "Cleachd crioptachadh PGP a chum dìon nas fhearr"
+msgid "GPG encryption"
+msgstr "Crioptachadh GPG"
 
 #: ksecretd/ksecretd.cpp:521
 #, kde-format
@@ -312,16 +298,12 @@ msgstr ""
 "Cha deach leinn an sporan fhosgladh. Feumaidh an sporan a bhith fosgailte "
 "mus gabh am facal-faire atharrachadh."
 
-#: ksecretd/ksecretd.cpp:877
+#: ksecretd/ksecretd.cpp:588
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
-"<b>GPG</b> tools (such as <b>kleopatra</b>) to change the passphrase "
-"associated to that key.</qt>"
-msgstr ""
-"<qt>Chaidh an sporan <b>%1</b> a chrioptachadh le iuchair GPG <b>%2</b>. "
-"Cleachd inneal <b>GPG</b> (can <b>kleopatra</b>) gus abairt-fhaire na h-"
-"iuchrach sin atharrachadh.</qt>"
+"<b>GPG</b> tools to change the passphrase associated to that key.</qt>"
+msgstr "<qt>Chaidh an sporan <b>%1</b> a chrioptachadh le iuchair GPG <b>%2</b>. Cleachd innealan <b>GPG</b> gus abairt-fhaire na h-iuchrach sin atharrachadh.</qt>"
 
 #: ksecretd/ksecretd.cpp:884
 #, kde-format
@@ -376,92 +358,54 @@ msgstr "Chan eil an dà fhacal-faire co-ionann."
 msgid ""
 "<html><head/><body><p>The KDE Wallet system stores your data in a <span "
 "style=\" font-style:italic;\">wallet</span> file on your local hard disk. "
-"The data is only written in the encrypted form of your choice - blowfish "
-"algorithm with your password as the key or using a GPG encryption key. When "
-"a wallet is opened, the wallet manager application will launch and display "
-"an icon in the system tray. You can use this application to manage all of "
-"your wallets. It even permits you to drag wallets and wallet contents, "
-"allowing you to easily copy a wallet to a remote system.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Glèidhidh siostam an sporain KDE an dàta agad ann am "
-"faidhle <span style=\" font-style:italic;\">wallet</span> air an diosg "
-"chruaidh ionadail agad. Cha dèid an dàta a sgrìobhadh ach leis an dòigh "
-"crioptachaidh a thagh thu - algairim blowfish leis an fhacal-fhaire agad mar "
-"iuchair no le iuchair crioptachaidh GPG. Nuair a thèid sporan fhosgladh, "
-"tòisichidh aplacaid stiùireadh nan sporan agus seallaidh i ìomhaigheag air "
-"treidhe an t-siostaim. 'S urrainn dhuinn an aplacaid seo a chleachdadh gus a "
-"h-uile sporan agad a stiùireadh. 'S urrainn dhut cuideachd sporanan agus an "
-"susbaint a shlaodadh ach an urrainn dhut lethbhreac dhe sporan a chur gu "
-"siostam cèin gun duilgheadas.</p></body></html>"
+"The data is encrypted using your chosen method: the Blowfish algorithm with "
+"your password as the key, or GPG with an encryption key. When a wallet is "
+"opened, the wallet manager will launch and display an icon in the system "
+"tray. You can use this application to manage all of your wallets. It even "
+"permits you to drag-and-drop wallets and their contents, allowing you to "
+"easily copy a wallet to a remote system.</p></body></html>"
+msgstr "<html><head/><body><p>Glèidhidh siostam an sporain KDE an dàta agad ann am faidhle <span style=\" font-style:italic;\">wallet</span> air an diosg chruaidh ionadail agad. Thèid an dàta a chrioptachadh leis an dòigh a thagh thu: algairim Blowfish leis an fhacal-fhaire agad mar iuchair no GPG le iuchair crioptachaidh. Nuair a thèid sporan fhosgladh, tòisichidh manaidsear nan sporan agus seallaidh e ìomhaigheag air treidhe an t-siostaim. 'S urrainn dhut an aplacaid seo a chleachdadh gus a h-uile sporan agad a stiùireadh. 'S urrainn dhut cuideachd sporanan agus an susbaint a shlaodadh 's a leigeil às ach an urrainn dhut lethbhreac dhe sporan a chur gu siostam cèin gun duilgheadas.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ksecretd/kwalletwizardpagegpgkey.ui:24
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>The GPG-based wallet use a GPG encryption key to "
-#| "securely encrypt data on disk. The key must be available when decrypting "
-#| "is needed or your wallet will not be accessible. For example, if you "
-#| "choose a SmartCard-based encryption key, the GPG system will prompt you "
-#| "to enter it and its associated PIN when attempting to open the wallet. "
-#| "<span style=\" font-weight:600;\">NOTE:</span> this list contains only "
-#| "\"ultimate-level\" trusted keys.</p></body></html>"
+#, kde-format
 msgid ""
-"<html><head/><body><p>The GPG-based wallet use a GPG encryption key to "
-"securely encrypt data on disk. The key must be available when decrypting is "
-"needed or your wallet will not be accessible. For example, if you choose a "
-"SmartCard-based encryption key, the GPG system will prompt you to enter it "
-"and its associated PIN when attempting to open the wallet. <span style=\" "
-"font-weight:600;\">NOTE:</span> this list contains only &quot;ultimate-"
+"<html><head/><body><p>The GPG-based wallet uses a GPG encryption key to "
+"securely encrypt data on disk. The key must be available when the wallet is "
+"decrypted or your wallet will not be accessible. For example, if you choose "
+"a SmartCard-based encryption key, you will be prompted to insert it and "
+"enter its associated PIN when attempting to open the wallet. <span style=\" "
+"font-weight:600;\">Note:</span> this list contains only &quot;ultimate-"
 "level&quot; trusted keys.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Cleachdaidh sporan le bunait GPG iuchair crioptachaidh "
-"GPG gus an dàta a chrioptachadh gu tèarainte air an diosg. Feumaidh an "
-"iuchair a bhith ri làimh nuair a bhios feum air dì-chioptachadh ach am faigh "
-"thu inntrigeadh dhan sporan agad. Mar eisimpleir, ma thaghas tu iuchair "
-"crioptachaidh stèidhichte air SmartCard, iarraidh siostam GPG ort gun cuir "
-"thu a-steach i 's am PIN co-cheangailte rithe PIN nuair a bhios tu airson an "
-"sporan fhosgladh. <span style=\" font-weight:600;\">AN AIRE:</span> cha "
-"sheall an liosta seo ach iuchraichean sa bheil earbsa \"cho earbsach ’s a "
-"ghabhas\".</p></body></html>"
+msgstr "<html><head/><body><p>Cleachdaidh sporan le bunait GPG iuchair crioptachaidh GPG gus an dàta a chrioptachadh gu tèarainte air an diosg. Feumaidh an iuchair a bhith ri làimh nuair a thèid an sporan a dhì-chrioptachadh air neo chan fhaigh thu inntrigeadh dhan sporan agad. Mar eisimpleir, ma thaghas tu iuchair crioptachaidh stèidhichte air SmartCard, thèid iarraidh ort a cur a-steach agus am PIN co-cheangailte rithe a chur a-steach nuair a bhios tu airson an sporan fhosgladh. <span style=\" font-weight:600;\">An aire:</span> cha sheall an liosta seo ach iuchraichean sa bheil earbsa &quot;cho earbsach ’s a ghabhas&quot;.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ksecretd/kwalletwizardpagegpgkey.ui:42
 #, kde-format
-msgid "Select encryption GPG key:"
+msgid "Select GPG encryption key:"
 msgstr "Tagh iuchair crioptachaidh GPG:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ksecretd/kwalletwizardpagegpgkey.ui:81
 #, kde-format
 msgid ""
-"Unable to locate at least one <b>encrypting GPG key</b>. KDE Wallet needs "
-"such <b>encrypting key</b> to securely store passwords or other sensitive "
-"data on disk. If you still want to setup a GPG-based wallet, then cancel "
-"this wizard, set-up an <b>encrypting GPG key</b>, then retry this assistant. "
-"Otherwise, you may still click back, then choose a classic, blowfish "
-"encrypted file format on the previous page."
-msgstr ""
-"Cha deach leinn <b>iuchair crioptachaidh GPG</b> a lorg. Feumaidh sporan KDE "
-"<b>iuchair crioptachaidh</b> gus faclan-faire is dàta cugallach eile a "
-"ghlèidheadh air an diosg. Ma tha thu airson sporan le bunait GPG a "
-"shuidheachadh fhathast, sguir dhen draoidh seo, suidhich <b>iuchair "
-"crioptachaidh GPG</b> is an uairsin feuch ris an draoidh seo a-rithist. Mur "
-"eil thu airson sin a dhèanamh, briog air \"Air ais\" is tagh fòrmat faidhle "
-"clasaigeach le crioptachadh blowfish air an duilleag roimhpe."
+"Unable to locate at least one GPG encryption key. KDE Wallet needs a GPG "
+"encryption key to securely store passwords or other sensitive data on disk. "
+"If you still want to setup a GPG-based wallet, exit this wizard, create an "
+"encryption key and return to this wizard. Otherwise, you can return to the "
+"previous page and select Blowfish encryption, which does not require an "
+"encryption key."
+msgstr "Cha deach leinn iuchair crioptachaidh GPG a lorg. Feumaidh sporan KDE iuchair crioptachaidh GPG gus faclan-faire is dàta cugallach eile a ghlèidheadh gu tèarainte air an diosg. Ma tha thu airson sporan le bunait GPG a shuidheachadh fhathast, fàg an draoidh seo, cruthaich iuchair crioptachaidh is till dhan draoidh seo. Air neo, 's urrainn dhut tilleadh dhan duilleag roimhpe agus crioptachadh Blowfish a thaghadh, nach fheum iuchair crioptachaidh."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: ksecretd/kwalletwizardpageintro.ui:30
 #, kde-format
 msgid ""
-"Welcome to KWallet, the KDE Wallet System.  KWallet allows you to store your "
-"passwords and other personal information on disk in an encrypted file, "
-"preventing others from viewing the information.  This wizard will tell you "
-"about KWallet and help you configure it for the first time."
-msgstr ""
-"Fàilte gu KWallet, siostam sporain KDE. Leigidh KWallet leat na faclan-faire "
-"is fiosrachadh pearsanta eile a ghlèidheadh air an diosg ann am faidhle "
-"crioptaichte ach nach fhaic càch am fiosrachadh. Innsidh an draoidh seo dhut "
-"mu KWallet agus cuidichidh e thu ach an rèitich thu e airson a' chiad turais."
+"Welcome to KWallet, the KDE Wallet System. KWallet allows you to store your "
+"passwords and other sensitive information on disk in an encrypted file, "
+"preventing unauthorized access. This wizard will help you set up KWallet for "
+"the first time."
+msgstr "Fàilte gu KWallet, siostam sporain KDE. Leigidh KWallet leat na faclan-faire is fiosrachadh cugallach eile a ghlèidheadh air an diosg ann am faidhle crioptaichte gus casg a chur air inntrigeadh gun chead. Cuidichidh an draoidh seo thu ach an rèitich thu KWallet airson a' chiad turais."
 
 #. i18n: ectx: property (text), widget (QRadioButton, _basic)
 #: ksecretd/kwalletwizardpageintro.ui:69
@@ -479,18 +423,10 @@ msgstr "Suidheachadh &adhartach"
 #: ksecretd/kwalletwizardpageoptions.ui:16
 #, kde-format
 msgid ""
-"The KDE Wallet system allows you to control the level of security of your "
-"personal data.  Some of these settings do impact usability.  While the "
-"default settings are generally acceptable for most users, you may wish to "
-"change some of them.  You may further tune these settings from the KWallet "
-"control module."
-msgstr ""
-"Leigidh siostam sporain KDE leat ìre na tèarainteachd agad a stiùireadh "
-"airson an dàta phearsanta agad. Bidh buaidh aig cuid dhe na roghainnean seo "
-"air an t-so-chleachdachd. Ged a tha na roghainnean tùsail iomchaidh dhan "
-"mhòrchuid a chleachdaichean, dh'fhaoidte gum bu toigh leat cuid dhiubh "
-"atharrachadh. 'S urrainn dhut barrachd gleus a chur air na roghainnean seo o "
-"mhodal stiùiridh KWallet."
+"KWallet lets you adjust the security of your personal data. While the "
+"default settings work for most users, you can modify them if needed. "
+"Additional adjustments can be made on the KWallet settings page."
+msgstr "Leigidh KWallet leat tèarainteachd an dàta phearsanta agad a chur air gleus. Ged a tha na roghainnean tùsail iomchaidh dhan mhòrchuid a chleachdaichean, 's urrainn dhut an atharrachadh ma bhios feum air. 'S urrainn dhut barrachd gleus a chur orra air duilleag roghainnean KWallet."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _closeIdle)
 #: ksecretd/kwalletwizardpageoptions.ui:48
@@ -510,29 +446,18 @@ msgstr ""
 #: ksecretd/kwalletwizardpagepassword.ui:16
 #, kde-format
 msgid ""
-"Various applications may attempt to use the KDE wallet to store passwords or "
-"other information such as web form data and cookies.  If you would like "
-"these applications to use the wallet, you must enable it now and choose a "
-"password.  The password you choose <i>cannot</i> be recovered if it is lost, "
-"and will allow anyone who knows it to obtain all the information contained "
-"in the wallet."
-msgstr ""
-"Faodaidh iomadh aplacaid feuchainn ri sporan KDE a chleachdadh gus faclan-"
-"faire no fiosrachadh eile a ghlèidheadh ann, can dàta fhoirmean-lìn no "
-"briosgaidean. Nam b' fhearr leat gun cleachd na h-aplacaidean ud an sporan, "
-"feumaidh tu seo a chur an comas an-dràsta agus facal-faire a thaghadh. 'S "
-"ann <i>nach gabh</i> am facal-faire a thaghas tu aiseag ma chaidh e air "
-"chall agus gheibh duine sam bith aig a bheil am facal-faire greim air gach "
-"fiosrachadh a tha am broinn an sporain."
+"Various applications may request access to the KDE wallet to store "
+"passwords, web form data, or cookies. To allow this, enable the wallet and "
+"set a password. Note that the password <i>cannot</i> be recovered if lost "
+"and grants full access to all information stored in the wallet."
+msgstr "Faodaidh iomadh aplacaid inntrigeadh a dh'iarraidh gu sporan KDE gus faclan-faire, dàta fhoirmean-lìn no briosgaidean a ghlèidheadh. Gus seo a cheadachadh, cuir an sporan an comas agus suidhich facal-faire. Thoir an aire <i>nach gabh</i> am facal-faire aiseag ma chaidh e air chall agus gun toir e inntrigeadh slàn do gach fiosrachadh a tha air a ghlèidheadh san sporan."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _useWallet)
 #: ksecretd/kwalletwizardpagepassword.ui:29
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:30
 #, kde-format
-msgid "Yes, I wish to use the KDE wallet to store my personal information."
-msgstr ""
-"Aidh, bu toigh leam sporan KDE a chleachdadh gus am fiosrachadh pearsanta "
-"agam a ghlèidheadh."
+msgid "Use the KDE wallet to store sensitive information"
+msgstr "Cleachd sporan KDE gus fiosrachadh cugallach a ghlèidheadh"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
 #: ksecretd/kwalletwizardpagepassword.ui:88
@@ -552,32 +477,20 @@ msgstr "Dearbh am facal-faire:"
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:17
 #, kde-format
 msgid ""
-"<html><head/><body><p>Various applications may attempt to use the KDE wallet "
-"to store passwords or other information such as web form data and cookies. "
-"If you would like these applications to use the wallet, you must enable it "
-"now and choose method for its encryption.</p><p>GPG method is more secure, "
-"but you must have configured at least one encrypting key on your system.</"
-"p><p>If you choose the classic format, be warned that the password you "
-"choose <span style=\" font-style:italic;\">cannot</span> be recovered if it "
-"is lost, and will allow anyone who knows it to obtain all the information "
-"contained in the wallet.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Faodaidh iomadh aplacaid feuchainn ri sporan KDE a "
-"chleachdadh gus faclan-faire no fiosrachadh eile a ghlèidheadh ann, can dàta "
-"fhoirmean-lìn no briosgaidean. Nam b' fhearr leat gun cleachd na h-"
-"aplacaidean ud an sporan, feumaidh tu seo a chur an comas an-dràsta agus an "
-"dòigh crioptachaidh a thaghadh.</p><p>Tha an dòigh GPG nas tèarainte ach "
-"feumaidh tu iuchair crioptachaidh no dhà a rèiteachadh air an t-siostam agad."
-"</p><p>Ma thaghas tu am fòrmat clasaigeach, thoir an aire <span style=\" "
-"font-style:italic;\">nach gabh</span> am facal-faire a thaghas tu aiseag ma "
-"chaidh e air chall agus gheibh duine sam bith aig a bheil am facal-faire "
-"greim air gach fiosrachadh a tha am broinn an sporain.</p></body></html>"
+"<html><head/><body><p>Various applications may request access to the KDE "
+"wallet to store passwords, web form data, or cookies. To allow this, enable "
+"the wallet and choose an encryption method. </p><p>GPG encryption is more "
+"secure, but you must have at least one encryption key configured on your "
+"system.</p><p>If you choose the classic format, note that the password <span "
+"style=\" font-style:italic;\">cannot</span> be recovered if lost and grants "
+"full access to all information stored in the wallet.</p></body></html>"
+msgstr "<html><head/><body><p>Faodaidh iomadh aplacaid inntrigeadh a dh'iarraidh gu sporan KDE gus faclan-faire, dàta fhoirmean-lìn no briosgaidean a ghlèidheadh. Gus seo a cheadachadh, cuir an sporan an comas agus tagh dòigh crioptachaidh. </p><p>Tha crioptachadh GPG nas tèarainte ach feumaidh iuchair crioptachaidh no dhà a bhith rèitichte air an t-siostam agad.</p><p>Ma thaghas tu am fòrmat clasaigeach, thoir an aire <span style=\" font-style:italic;\">nach gabh</span> am facal-faire aiseag ma chaidh e air chall agus gun toir e inntrigeadh slàn do gach fiosrachadh a tha air a ghlèidheadh san sporan.</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, _groupBox)
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:46
 #, kde-format
-msgid "What kind of encryption do you wish?"
-msgstr "Dè an seòrsa crioptachaidh a thogras tu?"
+msgid "Encryption type"
+msgstr "Seòrsa a' chrioptachaidh"
 
 #: ksecretd/main.cpp:163
 #, fuzzy, kde-format

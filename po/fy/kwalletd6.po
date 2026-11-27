@@ -52,16 +52,14 @@ msgstr "W&egerje"
 msgid "Deny &Forever"
 msgstr "Altyd we&gerje"
 
-#: ksecretd/knewwalletdialog.cpp:50
-#, fuzzy, kde-format
+#: ksecretd/knewwalletdialog.cpp:51
+#, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used "
-"to store sensitive data in a secure fashion. Please choose the new wallet's "
-"type below or click cancel to deny the application's request.</qt>"
-msgstr ""
-"KDE hat fersocht om dizze KDE-slûf te iepenjen. De slûf wurdt brûkt foar it "
-"feilich bewarjen fan fertroulike ynformaasje. Fier in wachtwurd yn om dizze "
-"slûf te brûken, of klik ôfbrekke om it fersyk ôf te wizen."
+"to securely store sensitive data, such as account passwords. Choose the type "
+"of the new wallet below or click Cancel to deny the application's request.</"
+"qt>"
+msgstr "<qt>KDE hat fersocht om in nije slúf mei de namme '<b>%1</b>' oan te meitsjen. De slúf wurdt brûkt foar it feilich bewarjen fan fertroulike gegevens, lykas wachtwurden fan akkounts. Kies hjirûnder it type fan de nije slúf of klik op Ôfbrekke om it fersyk fan de applikaasje ôf te wizen.</qt>"
 
 #: ksecretd/knewwalletdialog.cpp:55
 #, fuzzy, kde-format
@@ -83,26 +81,32 @@ msgid ""
 "check your system's configuration then try again."
 msgstr ""
 
-#: ksecretd/knewwalletdialog.cpp:153
-#, kde-format
+#: ksecretd/knewwalletdialog.cpp:176
+#, kde-kuit-format
+msgctxt "@info"
 msgid ""
-"Seems that your system has no keys suitable for encryption. Please set-up at "
-"least one encryption key, then try again."
-msgstr ""
+"No suitable GPG encryption keys were found. To create one, choose one of the "
+"following options:<list><item>Install Kleopatra and use it to create a new "
+"key. See these <link url='https://docs.kde.org/stable_kf6/en/kleopatra/"
+"kleopatra/functions-newkey.html'>instructions</link>.</item><item>Open a "
+"terminal and enter <command>gpg --full-gen-key</command>.</item><item>Go "
+"back and use Blowfish encryption instead, which only requires a password.</"
+"item></list>"
+msgstr "Der binne gjin geskikte GPG-fersiferingskaaien fûn. Kies ien fan de folgjende opsjes om der ien oan te meitsjen:<list><item>Ynstallearje Kleopatra en meitsje dêrmei in nije kaai. Sjoch dizze <link url='https://docs.kde.org/stable_kf6/en/kleopatra/kleopatra/functions-newkey.html'>ynstruksjes</link>.</item><item>Iepenje in terminal en fier <command>gpg --full-gen-key</command> yn.</item><item>Gean werom en brûk ynstee Blowfish-fersifering, dêr't allinne in wachtwurd foar nedich is.</item></list>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ksecretd/knewwalletdialoggpg.ui:17
 #, kde-format
-msgid "Please select the signing key from the list below:"
-msgstr ""
+msgid "Select the signing key from the list below:"
+msgstr "Selektearje de ûndertekeningskaai út de list hjirûnder:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ksecretd/knewwalletdialoggpg.ui:24
 #, kde-format
 msgid ""
-"<html><head/><body><p><span style=\" font-weight:600;\">NOTE:</span> this "
+"<html><head/><body><p><span style=\" font-weight:600;\">Note:</span> this "
 "list shows only &quot;ultimate-level&quot; trusted keys</p></body></html>"
-msgstr ""
+msgstr "<html><head/><body><p><span style=\" font-weight:600;\">Notysje:</span> dizze list lit allinne kaaien mei &quot;ultimate-level&quot; fertrouwen sjen</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
 #: ksecretd/knewwalletdialoggpg.ui:59
@@ -130,32 +134,29 @@ msgstr "<u>KWallet</u> - It KDE slúfsysteem"
 
 #. i18n: ectx: property (text), widget (QLabel, labelIntro)
 #: ksecretd/knewwalletdialogintro.ui:30
-#, fuzzy, no-c-format, kde-format
+#, no-c-format, kde-format
 msgid ""
 "<html><head/><body><p>The application '<span style=\" font-weight:600;\">%1</"
-"span>' has requested to open the KDE wallet. This is used to store sensitive "
-"data in a secure fashion. Please choose the new wallet's type below or click "
-"cancel to deny the application's request.</p></body></html>"
-msgstr ""
-"KDE hat fersocht om dizze KDE-slûf te iepenjen. De slûf wurdt brûkt foar it "
-"feilich bewarjen fan fertroulike ynformaasje. Fier in wachtwurd yn om dizze "
-"slûf te brûken, of klik ôfbrekke om it fersyk ôf te wizen."
+"span>' has requested to open the KDE wallet. This is used to securely store "
+"sensitive data, such as account passwords. Choose the type of the new wallet "
+"below or click Cancel to deny the application's request.</p></body></html>"
+msgstr "<html><head/><body><p>De applikaasje '<span style=\" font-weight:600;\">%1</span>' hat fersocht om de KDE-slúf te iepenjen. De slúf wurdt brûkt foar it feilich bewarjen fan fertroulike gegevens, lykas wachtwurden fan akkounts. Kies hjirûnder it type fan de nije slúf of klik op Ôfbrekke om it fersyk fan de applikaasje ôf te wizen.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioBlowfish)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioBlowfish)
 #: ksecretd/knewwalletdialogintro.ui:66
-#: ksecretd/kwalletwizardpagepasswordgpg.ui:68
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:55
 #, kde-format
-msgid "Classic, blowfish encrypted file"
-msgstr ""
+msgid "Blowfish encryption"
+msgstr "Blowfish-fersifering"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioGpg)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioGpg)
-#: ksecretd/knewwalletdialogintro.ui:73
-#: ksecretd/kwalletwizardpagepasswordgpg.ui:55
+#: ksecretd/knewwalletdialogintro.ui:80
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:72
 #, kde-format
-msgid "Use GPG encryption, for better protection"
-msgstr ""
+msgid "GPG encryption"
+msgstr "GPG-fersifering"
 
 #: ksecretd/ksecretd.cpp:521
 #, kde-format
@@ -270,13 +271,12 @@ msgstr ""
 "Kin de slûf net iepenje. De slûf moat iepene wurde om it wachtwurd oanpasse "
 "te kinnen."
 
-#: ksecretd/ksecretd.cpp:877
+#: ksecretd/ksecretd.cpp:588
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
-"<b>GPG</b> tools (such as <b>kleopatra</b>) to change the passphrase "
-"associated to that key.</qt>"
-msgstr ""
+"<b>GPG</b> tools to change the passphrase associated to that key.</qt>"
+msgstr "<qt>De slúf <b>%1</b> is fersifere mei GPG-kaai <b>%2</b>. Brûk <b>GPG</b>-ark om de wachtsin fan dy kaai te wizigjen.</qt>"
 
 #: ksecretd/ksecretd.cpp:884
 #, kde-format
@@ -327,69 +327,58 @@ msgstr "Wachtwurden komme net oerien."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_3)
 #: ksecretd/kwalletwizardpageexplanation.ui:17
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "<html><head/><body><p>The KDE Wallet system stores your data in a <span "
 "style=\" font-style:italic;\">wallet</span> file on your local hard disk. "
-"The data is only written in the encrypted form of your choice - blowfish "
-"algorithm with your password as the key or using a GPG encryption key. When "
-"a wallet is opened, the wallet manager application will launch and display "
-"an icon in the system tray. You can use this application to manage all of "
-"your wallets. It even permits you to drag wallets and wallet contents, "
-"allowing you to easily copy a wallet to a remote system.</p></body></html>"
-msgstr ""
-"KWallet bewarret jo data yn in <i>slúf</i>-triem op jo lokale fêste skiif. "
-"De gegevens wurde allinne yn fersifere foarm skreaun, wêrby de blowfish-"
-"algoritme brûkt wurd mei jo wachtwurd as de kaai. As in slúf iepene wurd sil "
-"de slúf behearder start wurde en in byldkaike yn it systeemfak sette. Jo "
-"kinne dizze applikaasje brûke om jo slúven mei te behearen. Jo kinne ek "
-"slúven en slúfynhâld ferpleatse, sadat jo op ienfâldige wize in slúf nei in "
-"ekstern systeem kopiearje kinne."
+"The data is encrypted using your chosen method: the Blowfish algorithm with "
+"your password as the key, or GPG with an encryption key. When a wallet is "
+"opened, the wallet manager will launch and display an icon in the system "
+"tray. You can use this application to manage all of your wallets. It even "
+"permits you to drag-and-drop wallets and their contents, allowing you to "
+"easily copy a wallet to a remote system.</p></body></html>"
+msgstr "<html><head/><body><p>KWallet bewarret jo gegevens yn in <span style=\" font-style:italic;\">slúf</span>-triem op jo lokale fêste skiif. De gegevens wurde fersifere mei de metoade fan jo kar: de Blowfish-algoritme mei jo wachtwurd as kaai, of GPG mei in fersiferingskaai. As in slúf iepene wurdt, wurdt de slúfbehearder start en set dy in byldkaike yn it systeemfak. Jo kinne dizze applikaasje brûke om al jo slúven te behearen. Jo kinne ek slúven en harren ynhâld slepe en loslitte, sadat jo op ienfâldige wize in slúf nei in ekstern systeem kopiearje kinne.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ksecretd/kwalletwizardpagegpgkey.ui:24
 #, kde-format
 msgid ""
-"<html><head/><body><p>The GPG-based wallet use a GPG encryption key to "
-"securely encrypt data on disk. The key must be available when decrypting is "
-"needed or your wallet will not be accessible. For example, if you choose a "
-"SmartCard-based encryption key, the GPG system will prompt you to enter it "
-"and its associated PIN when attempting to open the wallet. <span style=\" "
-"font-weight:600;\">NOTE:</span> this list contains only &quot;ultimate-"
+"<html><head/><body><p>The GPG-based wallet uses a GPG encryption key to "
+"securely encrypt data on disk. The key must be available when the wallet is "
+"decrypted or your wallet will not be accessible. For example, if you choose "
+"a SmartCard-based encryption key, you will be prompted to insert it and "
+"enter its associated PIN when attempting to open the wallet. <span style=\" "
+"font-weight:600;\">Note:</span> this list contains only &quot;ultimate-"
 "level&quot; trusted keys.</p></body></html>"
-msgstr ""
+msgstr "<html><head/><body><p>De GPG-basearre slúf brûkt in GPG-fersiferingskaai om gegevens feilich op skiif te fersiferjen. De kaai moat beskikber wêze as de slúf ûntsifere wurdt, oars is jo slúf net tagonklik. As jo bygelyks in SmartCard-basearre fersiferingskaai kieze, wurdt jo frege om dy yn te stekken en de byhearrende PIN yn te fieren as jo de slúf iepenje. <span style=\" font-weight:600;\">Notysje:</span> dizze list befettet allinne kaaien mei &quot;ultimate-level&quot; fertrouwen.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ksecretd/kwalletwizardpagegpgkey.ui:42
 #, kde-format
-msgid "Select encryption GPG key:"
-msgstr ""
+msgid "Select GPG encryption key:"
+msgstr "Selektearje GPG-fersiferingskaai:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ksecretd/kwalletwizardpagegpgkey.ui:81
 #, kde-format
 msgid ""
-"Unable to locate at least one <b>encrypting GPG key</b>. KDE Wallet needs "
-"such <b>encrypting key</b> to securely store passwords or other sensitive "
-"data on disk. If you still want to setup a GPG-based wallet, then cancel "
-"this wizard, set-up an <b>encrypting GPG key</b>, then retry this assistant. "
-"Otherwise, you may still click back, then choose a classic, blowfish "
-"encrypted file format on the previous page."
-msgstr ""
+"Unable to locate at least one GPG encryption key. KDE Wallet needs a GPG "
+"encryption key to securely store passwords or other sensitive data on disk. "
+"If you still want to setup a GPG-based wallet, exit this wizard, create an "
+"encryption key and return to this wizard. Otherwise, you can return to the "
+"previous page and select Blowfish encryption, which does not require an "
+"encryption key."
+msgstr "Der koe gjin GPG-fersiferingskaai fûn wurde. KDE-slúf hat in GPG-fersiferingskaai nedich om wachtwurden of oare fertroulike gegevens feilich op skiif te bewarjen. As jo dochs in GPG-basearre slúf ynstelle wolle, slút dizze assistint, meitsje in fersiferingskaai oan en kom werom nei dizze assistint. Oars kinne jo weromgean nei de foarige side en Blowfish-fersifering kieze, dêr't gjin fersiferingskaai foar nedich is."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: ksecretd/kwalletwizardpageintro.ui:30
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
-"Welcome to KWallet, the KDE Wallet System.  KWallet allows you to store your "
-"passwords and other personal information on disk in an encrypted file, "
-"preventing others from viewing the information.  This wizard will tell you "
-"about KWallet and help you configure it for the first time."
-msgstr ""
-"Wolkom by KWallet, it KDE slúfsysteem. Mei KWallet kinne jo wachtwurden en "
-"oare persoanlike ynformaasje op de skiif bewarje yn in fersifere triem. "
-"hjirtroch foarkomme jo dat oaren de ynformaasje besjen kinne. Dizze "
-"assistint fertelt jo oer  KWallet en helpt by it ynstallearjen derfan."
+"Welcome to KWallet, the KDE Wallet System. KWallet allows you to store your "
+"passwords and other sensitive information on disk in an encrypted file, "
+"preventing unauthorized access. This wizard will help you set up KWallet for "
+"the first time."
+msgstr "Wolkom by KWallet, it KDE-slúfsysteem. Mei KWallet kinne jo wachtwurden en oare fertroulike ynformaasje op de skiif bewarje yn in fersifere triem, sadat net-foechhawwende tagong foarkommen wurdt. Dizze assistint helpt jo KWallet foar de earste kear yn te stellen."
 
 #. i18n: ectx: property (text), widget (QRadioButton, _basic)
 #: ksecretd/kwalletwizardpageintro.ui:69
@@ -405,19 +394,12 @@ msgstr "&Avansearre opset"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
 #: ksecretd/kwalletwizardpageoptions.ui:16
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
-"The KDE Wallet system allows you to control the level of security of your "
-"personal data.  Some of these settings do impact usability.  While the "
-"default settings are generally acceptable for most users, you may wish to "
-"change some of them.  You may further tune these settings from the KWallet "
-"control module."
-msgstr ""
-"Mei KWallet kinne jo it feiligheidsnivo fan jo persoanlike gegevens "
-"beskiede. Guon fan dizze ynstellings ha daliks effekt op de brûkberheid. Ek "
-"al binne de standertynstellings yn de measte gefallen akseptabel, kin it "
-"wêze dat jo inkele oanpasse wolle. Jo kinne dizze ynstellings fierder "
-"ôfstemme yn de konfiguraasjemodule KWallet."
+"KWallet lets you adjust the security of your personal data. While the "
+"default settings work for most users, you can modify them if needed. "
+"Additional adjustments can be made on the KWallet settings page."
+msgstr "Mei KWallet kinne jo de feiligens fan jo persoanlike gegevens oanpasse. Ek al binne de standertynstellings geskikt foar de measte brûkers, kinne jo se wizigje as it nedich is. Fierdere oanpassings kinne makke wurde op de ynstellingsside fan KWallet."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _closeIdle)
 #: ksecretd/kwalletwizardpageoptions.ui:48
@@ -433,29 +415,20 @@ msgstr "Lokale en netwurkwachtwurden bewarje yn aparte slúftriemen"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: ksecretd/kwalletwizardpagepassword.ui:16
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
-"Various applications may attempt to use the KDE wallet to store passwords or "
-"other information such as web form data and cookies.  If you would like "
-"these applications to use the wallet, you must enable it now and choose a "
-"password.  The password you choose <i>cannot</i> be recovered if it is lost, "
-"and will allow anyone who knows it to obtain all the information contained "
-"in the wallet."
-msgstr ""
-"Ferskate applikaasjes kinne besykje brûk te meitsjen fan de KDE-slúf om "
-"wachtwurden en oare ynformaasje, lykas webformulierdata en koekjes, yn te "
-"bewarjen. As jo wolle dat dizze applikaasje de slúf brûke moat, dan moatte "
-"jo dy no aktivearje en in wachtwurd kieze. It wachtwurd fan jo kar <i>kin "
-"net</i> efterhelle wurde as jo it ferlieze. Hâld it goed ferstoppe, want "
-"eltsenien dy it wachtwurd wit hat tagong ta de folsleine ynhâld fan de slúf."
+"Various applications may request access to the KDE wallet to store "
+"passwords, web form data, or cookies. To allow this, enable the wallet and "
+"set a password. Note that the password <i>cannot</i> be recovered if lost "
+"and grants full access to all information stored in the wallet."
+msgstr "Ferskate applikaasjes kinne tagong freegje ta de KDE-slúf om wachtwurden, webformulierdata of koekjes te bewarjen. Aktivearje de slúf en stel in wachtwurd yn om dit ta te stean. Tink derom dat it wachtwurd <i>net</i> efterhelle wurde kin as jo it ferlieze, en dat it folsleine tagong jout ta alle ynformaasje yn de slúf."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _useWallet)
 #: ksecretd/kwalletwizardpagepassword.ui:29
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:30
-#, fuzzy, kde-format
-msgid "Yes, I wish to use the KDE wallet to store my personal information."
-msgstr ""
-"Ja, ik wol de KDE-slúf brûke om myn persoanlike ynformaasje te bewarjen."
+#, kde-format
+msgid "Use the KDE wallet to store sensitive information"
+msgstr "De KDE-slúf brûke om fertroulike ynformaasje te bewarjen"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
 #: ksecretd/kwalletwizardpagepassword.ui:88
@@ -473,30 +446,22 @@ msgstr "Ferifiearje wachtwurd:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:17
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
-"<html><head/><body><p>Various applications may attempt to use the KDE wallet "
-"to store passwords or other information such as web form data and cookies. "
-"If you would like these applications to use the wallet, you must enable it "
-"now and choose method for its encryption.</p><p>GPG method is more secure, "
-"but you must have configured at least one encrypting key on your system.</"
-"p><p>If you choose the classic format, be warned that the password you "
-"choose <span style=\" font-style:italic;\">cannot</span> be recovered if it "
-"is lost, and will allow anyone who knows it to obtain all the information "
-"contained in the wallet.</p></body></html>"
-msgstr ""
-"Ferskate applikaasjes kinne besykje brûk te meitsjen fan de KDE-slúf om "
-"wachtwurden en oare ynformaasje, lykas webformulierdata en koekjes, yn te "
-"bewarjen. As jo wolle dat dizze applikaasje de slúf brûke moat, dan moatte "
-"jo dy no aktivearje en in wachtwurd kieze. It wachtwurd fan jo kar <i>kin "
-"net</i> efterhelle wurde as jo it ferlieze. Hâld it goed ferstoppe, want "
-"eltsenien dy it wachtwurd wit hat tagong ta de folsleine ynhâld fan de slúf."
+"<html><head/><body><p>Various applications may request access to the KDE "
+"wallet to store passwords, web form data, or cookies. To allow this, enable "
+"the wallet and choose an encryption method. </p><p>GPG encryption is more "
+"secure, but you must have at least one encryption key configured on your "
+"system.</p><p>If you choose the classic format, note that the password <span "
+"style=\" font-style:italic;\">cannot</span> be recovered if lost and grants "
+"full access to all information stored in the wallet.</p></body></html>"
+msgstr "<html><head/><body><p>Ferskate applikaasjes kinne tagong freegje ta de KDE-slúf om wachtwurden, webformulierdata of koekjes te bewarjen. Aktivearje de slúf en kies in fersiferingsmetoade om dit ta te stean. </p><p>GPG-fersifering is feiliger, mar jo moatte op syn minst ien fersiferingskaai op jo systeem ynsteld hawwe.</p><p>As jo it klassike formaat kieze, tink derom dat it wachtwurd <span style=\" font-style:italic;\">net</span> efterhelle wurde kin as jo it ferlieze, en dat it folsleine tagong jout ta alle ynformaasje yn de slúf.</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, _groupBox)
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:46
 #, kde-format
-msgid "What kind of encryption do you wish?"
-msgstr ""
+msgid "Encryption type"
+msgstr "Fersiferingstype"
 
 #: ksecretd/main.cpp:163
 #, kde-format

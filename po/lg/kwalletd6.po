@@ -1,0 +1,767 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kwalletd6\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2026-08-06 00:40+0000\n"
+"PO-Revision-Date: 2026-11-27 12:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Luganda\n"
+"Language: lg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, _allowOnce)
+#: ksecretd/kbetterthankdialogbase.ui:50
+#, kde-format
+msgid "Allow &Once"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, _allowAlways)
+#: ksecretd/kbetterthankdialogbase.ui:60
+#, kde-format
+msgid "Allow &Always"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, _deny)
+#: ksecretd/kbetterthankdialogbase.ui:67
+#, kde-format
+msgid "&Deny"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, _denyForever)
+#: ksecretd/kbetterthankdialogbase.ui:74
+#, kde-format
+msgid "Deny &Forever"
+msgstr ""
+
+#: ksecretd/knewwalletdialog.cpp:51
+#, kde-format
+msgid ""
+"<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used "
+"to securely store sensitive data, such as account passwords. Choose the type "
+"of the new wallet below or click Cancel to deny the application's request.</"
+"qt>"
+msgstr ""
+"<qt>KDE esabye okukola ensawo empya erinnya lyayo '<b>%1</b>'. Ekozesebwa "
+"okutereka mu ngeri ey'obukuumi obubaka obw'ekyama, ng'ebigambo by'ekyama "
+"by'akawunti. Londa ekika ky'ensawo empya wansi oba nyiga Sazaamu okugaana "
+"okusaba kwa pulogulaamu.</qt>"
+
+#: ksecretd/knewwalletdialog.cpp:55
+#, kde-format
+msgid ""
+"<qt>The application '<b>%1</b>' has requested to create a new wallet named "
+"'<b>%2</b>'. This is used to store sensitive data in a secure fashion. "
+"Please choose the new wallet's type below or click cancel to deny the "
+"application's request.</qt>"
+msgstr ""
+
+#: ksecretd/knewwalletdialog.cpp:125 ksecretd/knewwalletdialog.cpp:132
+#: ksecretd/kwalletwizard.cpp:151 ksecretd/kwalletwizard.cpp:157
+#, kde-format
+msgid ""
+"The GpgME library failed to initialize for the OpenPGP protocol. Please "
+"check your system's configuration then try again."
+msgstr ""
+
+#: ksecretd/knewwalletdialog.cpp:176
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"No suitable GPG encryption keys were found. To create one, choose one of the "
+"following options:<list><item>Install Kleopatra and use it to create a new "
+"key. See these <link url='https://docs.kde.org/stable_kf6/en/kleopatra/"
+"kleopatra/functions-newkey.html'>instructions</link>.</item><item>Open a "
+"terminal and enter <command>gpg --full-gen-key</command>.</item><item>Go "
+"back and use Blowfish encryption instead, which only requires a password.</"
+"item></list>"
+msgstr ""
+"Tewali bisumuluzo bya GPG eby'okukweka ebisaanidde ebizuuliddwa. Okukola "
+"kimu, londa emu ku ngeri zino:<list><item>Teeka Kleopatra era ogikozese "
+"okukola ekisumuluzo ekipya. Laba <link url='https://docs.kde.org/stable_kf6/"
+"en/kleopatra/kleopatra/functions-newkey.html'>ebiragiro</link> bino.</"
+"item><item>Ggulawo terminal era owandiike <command>gpg --full-gen-key</"
+"command>.</item><item>Ddayo emabega okozese okukweka kwa Blowfish mu kifo "
+"ky'ekyo, okwetaaga ekigambo eky'ekyama kyokka.</item></list>"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ksecretd/knewwalletdialoggpg.ui:17
+#, kde-format
+msgid "Select the signing key from the list below:"
+msgstr "Londa ekisumuluzo ky'okussaako omukono okuva ku lukalala wansi:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ksecretd/knewwalletdialoggpg.ui:24
+#, kde-format
+msgid ""
+"<html><head/><body><p><span style=\" font-weight:600;\">Note:</span> this "
+"list shows only &quot;ultimate-level&quot; trusted keys</p></body></html>"
+msgstr ""
+"<html><head/><body><p><span style=\" font-weight:600;\">Weetegereze:</span> "
+"olukalala luno lulaga ebisumuluzo byokka ebyesigibwa ku ddaala lya "
+"&quot;ultimate-level&quot;</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
+#: ksecretd/knewwalletdialoggpg.ui:59
+#, kde-format
+msgid "Name"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
+#: ksecretd/knewwalletdialoggpg.ui:64
+#, kde-format
+msgid "E-Mail"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
+#: ksecretd/knewwalletdialoggpg.ui:69
+#, kde-format
+msgid "Key-ID"
+msgstr ""
+
+#. i18n: ectx: property (comment), widget (KTitleWidget, ktitlewidget)
+#: ksecretd/knewwalletdialogintro.ui:17 ksecretd/kwalletwizardpageintro.ui:17
+#, kde-format
+msgid "The KDE Wallet System"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, labelIntro)
+#: ksecretd/knewwalletdialogintro.ui:30
+#, no-c-format, kde-format
+msgid ""
+"<html><head/><body><p>The application '<span style=\" font-weight:600;\">%1</"
+"span>' has requested to open the KDE wallet. This is used to securely store "
+"sensitive data, such as account passwords. Choose the type of the new wallet "
+"below or click Cancel to deny the application's request.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Pulogulaamu '<span style=\" font-weight:600;\">%1</"
+"span>' esabye okuggulawo ensawo ya KDE. Ekozesebwa okutereka mu ngeri "
+"ey'obukuumi obubaka obw'ekyama, ng'ebigambo by'ekyama by'akawunti. Londa "
+"ekika ky'ensawo empya wansi oba nyiga Sazaamu okugaana okusaba kwa "
+"pulogulaamu.</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioBlowfish)
+#. i18n: ectx: property (text), widget (QRadioButton, _radioBlowfish)
+#: ksecretd/knewwalletdialogintro.ui:66
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:55
+#, kde-format
+msgid "Blowfish encryption"
+msgstr "Okukweka kwa Blowfish"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioGpg)
+#. i18n: ectx: property (text), widget (QRadioButton, _radioGpg)
+#: ksecretd/knewwalletdialogintro.ui:80
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:72
+#, kde-format
+msgid "GPG encryption"
+msgstr "Okukweka kwa GPG"
+
+#: ksecretd/ksecretd.cpp:521
+#, kde-format
+msgid ""
+"<qt>KDE has requested to open the wallet '<b>%1</b>'. Please enter the "
+"password for this wallet below.</qt>"
+msgstr ""
+
+#: ksecretd/ksecretd.cpp:525
+#, kde-format
+msgid ""
+"<qt>The application '<b>%1</b>' has requested to open the wallet '<b>%2</"
+"b>'. Please enter the password for this wallet below.</qt>"
+msgstr ""
+
+#. i18n( "&Open" ), "wallet-open"));
+#: ksecretd/ksecretd.cpp:536 ksecretd/ksecretd.cpp:645
+#: ksecretd/ksecretd.cpp:749 ksecretd/ksecretd.cpp:862
+#: ksecretd/ksecretd.cpp:885 ksecretd/ksecretd.cpp:896
+#: ksecretd/ksecretd.cpp:901 ksecretd/ksecretd.cpp:1308 ksecretd/main.cpp:159
+#: ksecretd/main.cpp:161
+#, kde-format
+msgid "KDE Wallet Service"
+msgstr ""
+
+#: ksecretd/ksecretd.cpp:551
+#, kde-format
+msgid "An application has requested to open a wallet (%1)."
+msgstr ""
+
+#: ksecretd/ksecretd.cpp:552
+#, kde-format
+msgctxt ""
+"Text of a button for switching to the (unnamed) application requesting a "
+"password"
+msgid "Switch there"
+msgstr ""
+
+#: ksecretd/ksecretd.cpp:554
+#, kde-format
+msgid "<b>%1</b> has requested to open a wallet (%2)."
+msgstr ""
+
+#: ksecretd/ksecretd.cpp:556
+#, kde-format
+msgctxt ""
+"Text of a button for switching to the application requesting a password"
+msgid "Switch to %1"
+msgstr ""
+
+#: ksecretd/ksecretd.cpp:573 ksecretd/ksecretd.cpp:655
+#, kde-format
+msgid ""
+"<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code "
+"%2: %3)</qt>"
+msgstr ""
+
+#: ksecretd/ksecretd.cpp:621
+#, kde-format
+msgid ""
+"KDE has requested to open the wallet. This is used to store sensitive data "
+"in a secure fashion. Please enter a password to use with this wallet or "
+"click cancel to deny the application's request."
+msgstr ""
+
+#: ksecretd/ksecretd.cpp:626
+#, kde-format
+msgid ""
+"<qt>The application '<b>%1</b>' has requested to open the KDE wallet. This "
+"is used to store sensitive data in a secure fashion. Please enter a password "
+"to use with this wallet or click cancel to deny the application's request.</"
+"qt>"
+msgstr ""
+
+#: ksecretd/ksecretd.cpp:634
+#, kde-format
+msgid ""
+"<qt>KDE has requested to create a new wallet named '<b>%1</b>'. Please "
+"choose a password for this wallet, or cancel to deny the application's "
+"request.</qt>"
+msgstr ""
+
+#: ksecretd/ksecretd.cpp:639
+#, kde-format
+msgid ""
+"<qt>The application '<b>%1</b>' has requested to create a new wallet named "
+"'<b>%2</b>'. Please choose a password for this wallet, or cancel to deny the "
+"application's request.</qt>"
+msgstr ""
+
+#: ksecretd/ksecretd.cpp:751
+#, kde-format
+msgid "<qt>KDE has requested access to the open wallet '<b>%1</b>'.</qt>"
+msgstr ""
+
+#: ksecretd/ksecretd.cpp:753
+#, kde-format
+msgid ""
+"<qt>The application '<b>%1</b>' has requested access to the open wallet "
+"'<b>%2</b>'.</qt>"
+msgstr ""
+
+#: ksecretd/ksecretd.cpp:861
+#, kde-format
+msgid ""
+"Unable to open wallet. The wallet must be opened in order to change the "
+"password."
+msgstr ""
+
+#: ksecretd/ksecretd.cpp:588
+#, kde-format
+msgid ""
+"<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
+"<b>GPG</b> tools to change the passphrase associated to that key.</qt>"
+msgstr ""
+"<qt>Ensawo <b>%1</b> ekwekeddwa n'ekisumuluzo kya GPG <b>%2</b>. Kozesa "
+"ebikozesebwa bya <b>GPG</b> okukyusa ebigambo by'ekyama ebikwatagana "
+"n'ekisumuluzo ekyo.</qt>"
+
+#: ksecretd/ksecretd.cpp:884
+#, kde-format
+msgid "<qt>Please choose a new password for the wallet '<b>%1</b>'.</qt>"
+msgstr ""
+
+#: ksecretd/ksecretd.cpp:896
+#, kde-format
+msgid "Error re-encrypting the wallet. Password was not changed."
+msgstr ""
+
+#: ksecretd/ksecretd.cpp:901
+#, kde-format
+msgid "Error reopening the wallet. Data may be lost."
+msgstr ""
+
+#: ksecretd/ksecretd.cpp:1307
+#, kde-format
+msgid ""
+"There have been repeated failed attempts to gain access to a wallet. An "
+"application may be misbehaving."
+msgstr ""
+
+#: ksecretd/kwalletwizard.cpp:40
+#, kde-format
+msgid "KWallet"
+msgstr ""
+
+#: ksecretd/kwalletwizard.cpp:272
+#, kde-format
+msgid "<qt>Password is empty.  <b>(WARNING: Insecure)</b></qt>"
+msgstr ""
+
+#: ksecretd/kwalletwizard.cpp:274
+#, kde-format
+msgid "Passwords match."
+msgstr ""
+
+#: ksecretd/kwalletwizard.cpp:277
+#, kde-format
+msgid "Passwords do not match."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_3)
+#: ksecretd/kwalletwizardpageexplanation.ui:17
+#, kde-format
+msgid ""
+"<html><head/><body><p>The KDE Wallet system stores your data in a <span "
+"style=\" font-style:italic;\">wallet</span> file on your local hard disk. "
+"The data is encrypted using your chosen method: the Blowfish algorithm with "
+"your password as the key, or GPG with an encryption key. When a wallet is "
+"opened, the wallet manager will launch and display an icon in the system "
+"tray. You can use this application to manage all of your wallets. It even "
+"permits you to drag-and-drop wallets and their contents, allowing you to "
+"easily copy a wallet to a remote system.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Enkola y'ensawo za KDE etereka obubaka bwo mu fayiro "
+"y'<span style=\" font-style:italic;\">ensawo</span> ku disiki yo enkalubo. "
+"Obubaka bukwekebwa mu ngeri gy'olonze: enkola ya Blowfish ng'ekigambo kyo "
+"eky'ekyama kye kisumuluzo, oba GPG n'ekisumuluzo ky'okukweka. Ensawo "
+"bw'eggulwawo, omuddukanya w'ensawo atandika era alaga akabonero mu kifo "
+"ky'enkola. Osobola okukozesa pulogulaamu eno okuddukanya ensawo zo zonna. "
+"Era ekukkiriza okusika n'okuta ensawo n'ebirimu, osobole okukoppa ensawo "
+"okugitwala ku nkola ey'ewala mu bwangu.</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ksecretd/kwalletwizardpagegpgkey.ui:24
+#, kde-format
+msgid ""
+"<html><head/><body><p>The GPG-based wallet uses a GPG encryption key to "
+"securely encrypt data on disk. The key must be available when the wallet is "
+"decrypted or your wallet will not be accessible. For example, if you choose "
+"a SmartCard-based encryption key, you will be prompted to insert it and "
+"enter its associated PIN when attempting to open the wallet. <span style=\" "
+"font-weight:600;\">Note:</span> this list contains only &quot;ultimate-"
+"level&quot; trusted keys.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Ensawo ey'ekika kya GPG ekozesa ekisumuluzo kya GPG "
+"eky'okukweka okukweka obubaka obuli ku disiki mu ngeri ey'obukuumi. "
+"Ekisumuluzo kirina okubaawo nga ensawo ebikkulwa, bwe kitaba bwe kityo tojja "
+"kusobola kuyingira mu nsawo yo. Okugeza, bw'olonda ekisumuluzo ky'okukweka "
+"ekiri ku SmartCard, ojja kusabibwa okukiyingiza n'okuwandiika PIN yaakyo "
+"ng'ogezaako okuggulawo ensawo. <span style=\" font-weight:600;\">Weetegereze:"
+"</span> olukalala luno lulimu ebisumuluzo byokka ebyesigibwa ku ddaala lya "
+"&quot;ultimate-level&quot;.</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ksecretd/kwalletwizardpagegpgkey.ui:42
+#, kde-format
+msgid "Select GPG encryption key:"
+msgstr "Londa ekisumuluzo kya GPG eky'okukweka:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ksecretd/kwalletwizardpagegpgkey.ui:81
+#, kde-format
+msgid ""
+"Unable to locate at least one GPG encryption key. KDE Wallet needs a GPG "
+"encryption key to securely store passwords or other sensitive data on disk. "
+"If you still want to setup a GPG-based wallet, exit this wizard, create an "
+"encryption key and return to this wizard. Otherwise, you can return to the "
+"previous page and select Blowfish encryption, which does not require an "
+"encryption key."
+msgstr ""
+"Tekisobose kuzuula wadde ekisumuluzo kimu ekya GPG eky'okukweka. Ensawo ya "
+"KDE yeetaaga ekisumuluzo kya GPG eky'okukweka okutereka ebigambo by'ekyama "
+"oba obubaka obulala obw'ekyama ku disiki mu ngeri ey'obukuumi. Bw'oba "
+"okyayagala okuteekateeka ensawo ey'ekika kya GPG, va mu muyambi ono, kola "
+"ekisumuluzo ky'okukweka era odde mu muyambi ono. Bwe kitaba bwe kityo, "
+"osobola okuddayo ku lupapula oluvuddeko n'olonda okukweka kwa Blowfish, "
+"okutetaaga kisumuluzo ky'okukweka."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: ksecretd/kwalletwizardpageintro.ui:30
+#, kde-format
+msgid ""
+"Welcome to KWallet, the KDE Wallet System. KWallet allows you to store your "
+"passwords and other sensitive information on disk in an encrypted file, "
+"preventing unauthorized access. This wizard will help you set up KWallet for "
+"the first time."
+msgstr ""
+"Tukwanirizza mu KWallet, enkola y'ensawo za KDE. KWallet ekukkiriza "
+"okutereka ebigambo byo eby'ekyama n'obubaka obulala obw'ekyama ku disiki mu "
+"fayiro ekwekeddwa, ekiziyiza abatakkirizibwa okuyingira. Omuyambi ono ajja "
+"kukuyamba okuteekateeka KWallet omulundi ogusooka."
+
+#. i18n: ectx: property (text), widget (QRadioButton, _basic)
+#: ksecretd/kwalletwizardpageintro.ui:69
+#, kde-format
+msgid "&Basic setup (recommended)"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, _advanced)
+#: ksecretd/kwalletwizardpageintro.ui:79
+#, kde-format
+msgid "&Advanced setup"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
+#: ksecretd/kwalletwizardpageoptions.ui:16
+#, kde-format
+msgid ""
+"KWallet lets you adjust the security of your personal data. While the "
+"default settings work for most users, you can modify them if needed. "
+"Additional adjustments can be made on the KWallet settings page."
+msgstr ""
+"KWallet ekukkiriza okutereeza obukuumi bw'obubaka bwo obw'obuntu. Wadde "
+"ng'ensengeka ezisookerwako zikola bulungi eri abakozesa abasinga, osobola "
+"okuzikyusa bwe kiba kyetaagisa. Ensengeka endala zisobola okukolebwa ku "
+"lupapula lw'ensengeka za KWallet."
+
+#. i18n: ectx: property (text), widget (QCheckBox, _closeIdle)
+#: ksecretd/kwalletwizardpageoptions.ui:48
+#, kde-format
+msgid "Automatically close idle wallets"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, _networkWallet)
+#: ksecretd/kwalletwizardpageoptions.ui:55
+#, kde-format
+msgid "Store network passwords and local passwords in separate wallet files"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: ksecretd/kwalletwizardpagepassword.ui:16
+#, kde-format
+msgid ""
+"Various applications may request access to the KDE wallet to store "
+"passwords, web form data, or cookies. To allow this, enable the wallet and "
+"set a password. Note that the password <i>cannot</i> be recovered if lost "
+"and grants full access to all information stored in the wallet."
+msgstr ""
+"Pulogulaamu ez'enjawulo ziyinza okusaba okuyingira mu nsawo ya KDE okutereka "
+"ebigambo by'ekyama, obubaka bwa foomu z'oku mukutu, oba cookies. Okukkiriza "
+"kino, kozesa ensawo era oteekewo ekigambo eky'ekyama. Weetegereze nti "
+"ekigambo eky'ekyama <i>tekisobola</i> kuzzibwawo nga kibuze, era kiwa "
+"obuyinza obujjuvu ku bubaka bwonna obuterekeddwa mu nsawo."
+
+#. i18n: ectx: property (text), widget (QCheckBox, _useWallet)
+#: ksecretd/kwalletwizardpagepassword.ui:29
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:30
+#, kde-format
+msgid "Use the KDE wallet to store sensitive information"
+msgstr "Kozesa ensawo ya KDE okutereka obubaka obw'ekyama"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
+#: ksecretd/kwalletwizardpagepassword.ui:88
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:106
+#, kde-format
+msgid "Enter a new password:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_3)
+#: ksecretd/kwalletwizardpagepassword.ui:104
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:122
+#, kde-format
+msgid "Verify password:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:17
+#, kde-format
+msgid ""
+"<html><head/><body><p>Various applications may request access to the KDE "
+"wallet to store passwords, web form data, or cookies. To allow this, enable "
+"the wallet and choose an encryption method. </p><p>GPG encryption is more "
+"secure, but you must have at least one encryption key configured on your "
+"system.</p><p>If you choose the classic format, note that the password <span "
+"style=\" font-style:italic;\">cannot</span> be recovered if lost and grants "
+"full access to all information stored in the wallet.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Pulogulaamu ez'enjawulo ziyinza okusaba okuyingira mu "
+"nsawo ya KDE okutereka ebigambo by'ekyama, obubaka bwa foomu z'oku mukutu, "
+"oba cookies. Okukkiriza kino, kozesa ensawo era olonde engeri y'okukweka. </"
+"p><p>Okukweka kwa GPG kwa bukuumi nnyo, naye olina okuba n'ekisumuluzo "
+"ky'okukweka kimu waakiri ekiteekeddwateekeddwa ku nkola yo.</p><p>Bw'olonda "
+"enkola ey'edda, weetegereze nti ekigambo eky'ekyama <span style=\" font-"
+"style:italic;\">tekisobola</span> kuzzibwawo nga kibuze, era kiwa obuyinza "
+"obujjuvu ku bubaka bwonna obuterekeddwa mu nsawo.</p></body></html>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, _groupBox)
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:46
+#, kde-format
+msgid "Encryption type"
+msgstr "Ekika ky'okukweka"
+
+#: ksecretd/main.cpp:163
+#, kde-format
+msgid "(C) 2002-2025, The KDE Developers"
+msgstr ""
+
+#: ksecretd/main.cpp:164
+#, kde-format
+msgid "Valentin Rusu"
+msgstr ""
+
+#: ksecretd/main.cpp:164
+#, kde-format
+msgid "Former Maintainer, GPG backend support"
+msgstr ""
+
+#: ksecretd/main.cpp:165
+#, kde-format
+msgid "Michael Leupold"
+msgstr ""
+
+#: ksecretd/main.cpp:165
+#, kde-format
+msgid "Former Maintainer"
+msgstr ""
+
+#: ksecretd/main.cpp:166
+#, kde-format
+msgid "George Staikos"
+msgstr ""
+
+#: ksecretd/main.cpp:166
+#, kde-format
+msgid "Former maintainer"
+msgstr ""
+
+#: ksecretd/main.cpp:167
+#, kde-format
+msgid "Thiago Maceira"
+msgstr ""
+
+#: ksecretd/main.cpp:167
+#, kde-format
+msgid "D-Bus Interface"
+msgstr ""
+
+#: kwalletbackend/backendpersisthandler.cpp:395
+#, kde-format
+msgid ""
+"<qt>Error when attempting to initialize OpenPGP while attempting to save the "
+"wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
+"configuration, then try again.</qt>"
+msgstr ""
+
+#: kwalletbackend/backendpersisthandler.cpp:407
+#, kde-format
+msgid ""
+"<qt>Error when attempting to initialize OpenPGP while attempting to save the "
+"wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
+msgstr ""
+
+#: kwalletbackend/backendpersisthandler.cpp:461
+#, kde-format
+msgid ""
+"<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error "
+"code is <b>%2 (%3)</b>. Please fix your system configuration, then try "
+"again. This error may occur if you are not using a full trust GPG key. "
+"Please ensure you have the secret key for the key you are using.</qt>"
+msgstr ""
+
+#: kwalletbackend/backendpersisthandler.cpp:478
+#, kde-format
+msgid ""
+"<qt>File handling error while attempting to save the wallet <b>%1</b>. Error "
+"was <b>%2</b>. Please fix your system configuration, then try again.</qt>"
+msgstr ""
+
+#: kwalletbackend/backendpersisthandler.cpp:500
+#, kde-format
+msgid ""
+"<qt>Error when attempting to initialize OpenPGP while attempting to open the "
+"wallet <b>%1</b>. Error code is <b>%2</b>. Please fix your system "
+"configuration, then try again.</qt>"
+msgstr ""
+
+#: kwalletbackend/backendpersisthandler.cpp:522
+#, kde-format
+msgid ""
+"<qt>Error when attempting to initialize OpenPGP while attempting to open the "
+"wallet <b>%1</b>. Please fix your system configuration, then try again.</qt>"
+msgstr ""
+
+#: kwalletbackend/backendpersisthandler.cpp:535
+#, kde-format
+msgid "Retry"
+msgstr ""
+
+#: kwalletbackend/backendpersisthandler.cpp:540
+#, kde-format
+msgid ""
+"<qt>Error when attempting to decrypt the wallet <b>%1</b> using GPG. If "
+"you're using a SmartCard, please ensure it's inserted then try again."
+"<br><br>GPG error was <b>%2</b></qt>"
+msgstr ""
+
+#: kwalletbackend/backendpersisthandler.cpp:544
+#, kde-format
+msgid "kwalletd GPG backend"
+msgstr ""
+
+#: kwalletbackend/backendpersisthandler.cpp:590
+#, kde-format
+msgid ""
+"<qt>Error when attempting to open the wallet <b>%1</b>. The wallet was "
+"encrypted using the GPG Key ID <b>%2</b> but this key was not found on your "
+"system.</qt>"
+msgstr ""
+
+#: kwalletbackend/kwalletbackend.cc:290
+#, kde-format
+msgid "Already open."
+msgstr ""
+
+#: kwalletbackend/kwalletbackend.cc:292
+#, kde-format
+msgid "Error opening file."
+msgstr ""
+
+#: kwalletbackend/kwalletbackend.cc:294
+#, kde-format
+msgid "Not a wallet file."
+msgstr ""
+
+#: kwalletbackend/kwalletbackend.cc:296
+#, kde-format
+msgid "Unsupported file format revision."
+msgstr ""
+
+#: kwalletbackend/kwalletbackend.cc:300
+#, kde-format
+msgid "Unknown encryption scheme."
+msgstr ""
+
+#: kwalletbackend/kwalletbackend.cc:302
+#, kde-format
+msgid "Corrupt file?"
+msgstr ""
+
+#: kwalletbackend/kwalletbackend.cc:304
+#, kde-format
+msgid "Error validating wallet integrity. Possibly corrupted."
+msgstr ""
+
+#: kwalletbackend/kwalletbackend.cc:308
+#, kde-format
+msgid "Read error - possibly incorrect password."
+msgstr ""
+
+#: kwalletbackend/kwalletbackend.cc:310
+#, kde-format
+msgid "Decryption error."
+msgstr ""
+
+#: kwalletbackend/kwalletbackend.cc:490
+#, kde-format
+msgid ""
+"Failed to sync wallet <b>%1</b> to disk. Error codes are:\n"
+"RC <b>%2</b>\n"
+"SF <b>%3</b>. Please file a BUG report using this information to bugs.kde.org"
+msgstr ""
+
+#: kwalletd/kwalletd.cpp:96
+#, kde-format
+msgid "Migrating the wallet \"%1\". Please provide the password to unlock."
+msgstr ""
+
+#: kwalletd/main.cpp:31
+#, kde-format
+msgid "kwalletd"
+msgstr ""
+
+#: kwalletd/main.cpp:33
+#, kde-format
+msgid "A KWallet compatibility service, wrapping upon Secret Service"
+msgstr ""
+
+#: kwalletd/main.cpp:35
+#, kde-format
+msgid "(C) 2025, The KDE Developers"
+msgstr ""
+
+#: kwalletd/main.cpp:37
+#, kde-format
+msgid "Marco Martin"
+msgstr ""
+
+#: kwalletd/main.cpp:37
+#, kde-format
+msgid "Author"
+msgstr ""
+
+#: kwalletd/secretserviceclient.cpp:248
+#, kde-format
+msgid "Item not found"
+msgstr ""
+
+#: kwalletd/secretserviceclient.cpp:268
+#, kde-format
+msgid "Could not connect to Secret Service"
+msgstr ""
+
+#: kwalletd/secretserviceclient.cpp:440
+#, kde-format
+msgid "Unable to unlock collectionName %1"
+msgstr ""
+
+#: kwalletd/secretserviceclient.cpp:533
+#, kde-format
+msgid "No collections"
+msgstr ""
+
+#: kwalletd/secretserviceclient.cpp:570 kwalletd/secretserviceclient.cpp:617
+#: kwalletd/secretserviceclient.cpp:720
+#, kde-format
+msgid "No entries"
+msgstr ""
+
+#: kwalletd/secretserviceclient.cpp:635
+#, kde-format
+msgid "Entry not found, key: %1, folder: %2"
+msgstr ""
+
+#: kwalletd/secretserviceclient.cpp:744
+#, kde-format
+msgid "Unable to unlock item"
+msgstr ""
+
+#: kwalletd/secretserviceclient.cpp:787 kwalletd/secretserviceclient.cpp:905
+#, kde-format
+msgid "Entry to rename not found"
+msgstr ""
+
+#: kwalletd/secretserviceclient.cpp:794
+#, kde-format
+msgid "Entry named %1 in folder %2 and wallet %3 already exists."
+msgstr ""
+
+#: kwalletd/secretserviceclient.cpp:809 kwalletd/secretserviceclient.cpp:824
+#, kde-format
+msgid "Entry to rename incomplete"
+msgstr ""
+
+#: kwalletd/secretserviceclient.cpp:869
+#, kde-format
+msgid "Failed to create SecretValue"
+msgstr ""

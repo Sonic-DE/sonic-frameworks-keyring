@@ -53,16 +53,14 @@ msgstr "&Diúltaigh"
 msgid "Deny &Forever"
 msgstr "Diúltaigh i g&Cónaí"
 
-#: ksecretd/knewwalletdialog.cpp:50
+#: ksecretd/knewwalletdialog.cpp:51
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used "
-"to store sensitive data in a secure fashion. Please choose the new wallet's "
-"type below or click cancel to deny the application's request.</qt>"
-msgstr ""
-"<qt>Tá KDE ag iarraidh an sparán '<b>%1</b>' a chruthú. Úsáidtear an sparán "
-"chun sonraí íogaire a stóráil go slán. Roghnaigh cineál an sparáin thíos nó "
-"cliceáil Cealaigh chun iarratas an fheidhmchláir a dhiúltú.</qt>"
+"to securely store sensitive data, such as account passwords. Choose the type "
+"of the new wallet below or click Cancel to deny the application's request.</"
+"qt>"
+msgstr "<qt>Tá KDE ag iarraidh sparán nua darb ainm '<b>%1</b>' a chruthú. Úsáidtear an sparán chun sonraí íogaire, mar shampla focail fhaire cuntas, a stóráil go slán. Roghnaigh cineál an sparáin nua thíos nó cliceáil Cealaigh chun iarratas an fheidhmchláir a dhiúltú.</qt>"
 
 #: ksecretd/knewwalletdialog.cpp:55
 #, kde-format
@@ -81,26 +79,32 @@ msgid ""
 "check your system's configuration then try again."
 msgstr ""
 
-#: ksecretd/knewwalletdialog.cpp:153
-#, kde-format
+#: ksecretd/knewwalletdialog.cpp:176
+#, kde-kuit-format
+msgctxt "@info"
 msgid ""
-"Seems that your system has no keys suitable for encryption. Please set-up at "
-"least one encryption key, then try again."
-msgstr ""
+"No suitable GPG encryption keys were found. To create one, choose one of the "
+"following options:<list><item>Install Kleopatra and use it to create a new "
+"key. See these <link url='https://docs.kde.org/stable_kf6/en/kleopatra/"
+"kleopatra/functions-newkey.html'>instructions</link>.</item><item>Open a "
+"terminal and enter <command>gpg --full-gen-key</command>.</item><item>Go "
+"back and use Blowfish encryption instead, which only requires a password.</"
+"item></list>"
+msgstr "Níor aimsíodh aon eochair chriptithe GPG oiriúnach. Chun ceann a chruthú, roghnaigh ceann de na roghanna seo a leanas:<list><item>Suiteáil Kleopatra agus úsáid é chun eochair nua a chruthú. Féach na <link url='https://docs.kde.org/stable_kf6/en/kleopatra/kleopatra/functions-newkey.html'>treoracha</link> seo.</item><item>Oscail teirminéal agus iontráil <command>gpg --full-gen-key</command>.</item><item>Téigh siar agus úsáid criptiú Blowfish ina ionad, nach dteastaíonn uaidh ach focal faire.</item></list>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ksecretd/knewwalletdialoggpg.ui:17
 #, kde-format
-msgid "Please select the signing key from the list below:"
-msgstr ""
+msgid "Select the signing key from the list below:"
+msgstr "Roghnaigh an eochair sínithe ón liosta thíos:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ksecretd/knewwalletdialoggpg.ui:24
 #, kde-format
 msgid ""
-"<html><head/><body><p><span style=\" font-weight:600;\">NOTE:</span> this "
+"<html><head/><body><p><span style=\" font-weight:600;\">Note:</span> this "
 "list shows only &quot;ultimate-level&quot; trusted keys</p></body></html>"
-msgstr ""
+msgstr "<html><head/><body><p><span style=\" font-weight:600;\">Nóta:</span> ní thaispeánann an liosta seo ach eochracha a bhfuil muinín &quot;ag an leibhéal is airde&quot; astu</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
 #: ksecretd/knewwalletdialoggpg.ui:59
@@ -131,26 +135,26 @@ msgstr "Córas Sparáin KDE"
 #, no-c-format, kde-format
 msgid ""
 "<html><head/><body><p>The application '<span style=\" font-weight:600;\">%1</"
-"span>' has requested to open the KDE wallet. This is used to store sensitive "
-"data in a secure fashion. Please choose the new wallet's type below or click "
-"cancel to deny the application's request.</p></body></html>"
-msgstr ""
+"span>' has requested to open the KDE wallet. This is used to securely store "
+"sensitive data, such as account passwords. Choose the type of the new wallet "
+"below or click Cancel to deny the application's request.</p></body></html>"
+msgstr "<html><head/><body><p>Tá an feidhmchlár '<span style=\" font-weight:600;\">%1</span>' ag iarraidh an sparán KDE a oscailt. Úsáidtear an sparán chun sonraí íogaire, mar shampla focail fhaire cuntas, a stóráil go slán. Roghnaigh cineál an sparáin nua thíos nó cliceáil Cealaigh chun iarratas an fheidhmchláir a dhiúltú.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioBlowfish)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioBlowfish)
 #: ksecretd/knewwalletdialogintro.ui:66
-#: ksecretd/kwalletwizardpagepasswordgpg.ui:68
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:55
 #, kde-format
-msgid "Classic, blowfish encrypted file"
-msgstr ""
+msgid "Blowfish encryption"
+msgstr "Criptiú Blowfish"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioGpg)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioGpg)
-#: ksecretd/knewwalletdialogintro.ui:73
-#: ksecretd/kwalletwizardpagepasswordgpg.ui:55
+#: ksecretd/knewwalletdialogintro.ui:80
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:72
 #, kde-format
-msgid "Use GPG encryption, for better protection"
-msgstr ""
+msgid "GPG encryption"
+msgstr "Criptiú GPG"
 
 #: ksecretd/ksecretd.cpp:521
 #, kde-format
@@ -284,13 +288,12 @@ msgstr ""
 "Ní féidir an sparán a oscailt. Caithfear é a oscailt chun an focal faire a "
 "athrú."
 
-#: ksecretd/ksecretd.cpp:877
+#: ksecretd/ksecretd.cpp:588
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
-"<b>GPG</b> tools (such as <b>kleopatra</b>) to change the passphrase "
-"associated to that key.</qt>"
-msgstr ""
+"<b>GPG</b> tools to change the passphrase associated to that key.</qt>"
+msgstr "<qt>Tá an sparán <b>%1</b> criptithe le heochair GPG <b>%2</b>. Bain úsáid as uirlisí <b>GPG</b> chun an frása faire a bhaineann leis an eochair sin a athrú.</qt>"
 
 #: ksecretd/ksecretd.cpp:884
 #, kde-format
@@ -344,59 +347,54 @@ msgstr "Ní ionann na focail fhaire."
 msgid ""
 "<html><head/><body><p>The KDE Wallet system stores your data in a <span "
 "style=\" font-style:italic;\">wallet</span> file on your local hard disk. "
-"The data is only written in the encrypted form of your choice - blowfish "
-"algorithm with your password as the key or using a GPG encryption key. When "
-"a wallet is opened, the wallet manager application will launch and display "
-"an icon in the system tray. You can use this application to manage all of "
-"your wallets. It even permits you to drag wallets and wallet contents, "
-"allowing you to easily copy a wallet to a remote system.</p></body></html>"
-msgstr ""
+"The data is encrypted using your chosen method: the Blowfish algorithm with "
+"your password as the key, or GPG with an encryption key. When a wallet is "
+"opened, the wallet manager will launch and display an icon in the system "
+"tray. You can use this application to manage all of your wallets. It even "
+"permits you to drag-and-drop wallets and their contents, allowing you to "
+"easily copy a wallet to a remote system.</p></body></html>"
+msgstr "<html><head/><body><p>Stórálann Córas Sparáin KDE do chuid sonraí i gcomhad <span style=\" font-style:italic;\">sparáin</span> ar do dhiosca crua logánta. Criptítear na sonraí leis an modh a roghnaíonn tú: an algartam Blowfish le d'fhocal faire mar eochair, nó GPG le heochair chriptithe. Nuair a osclaítear sparán, tosóidh an bainisteoir sparán agus taispeánfaidh sé deilbhín sa tráidire córais. Is féidir leat an feidhmchlár seo a úsáid chun do chuid sparán go léir a bhainistiú. Ligeann sé duit fiú sparáin agus a n-ábhar a tharraingt agus a scaoileadh, ionas gur féidir leat sparán a chóipeáil go córas cianda go héasca.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ksecretd/kwalletwizardpagegpgkey.ui:24
 #, kde-format
 msgid ""
-"<html><head/><body><p>The GPG-based wallet use a GPG encryption key to "
-"securely encrypt data on disk. The key must be available when decrypting is "
-"needed or your wallet will not be accessible. For example, if you choose a "
-"SmartCard-based encryption key, the GPG system will prompt you to enter it "
-"and its associated PIN when attempting to open the wallet. <span style=\" "
-"font-weight:600;\">NOTE:</span> this list contains only &quot;ultimate-"
+"<html><head/><body><p>The GPG-based wallet uses a GPG encryption key to "
+"securely encrypt data on disk. The key must be available when the wallet is "
+"decrypted or your wallet will not be accessible. For example, if you choose "
+"a SmartCard-based encryption key, you will be prompted to insert it and "
+"enter its associated PIN when attempting to open the wallet. <span style=\" "
+"font-weight:600;\">Note:</span> this list contains only &quot;ultimate-"
 "level&quot; trusted keys.</p></body></html>"
-msgstr ""
+msgstr "<html><head/><body><p>Úsáideann sparán bunaithe ar GPG eochair chriptithe GPG chun sonraí a chriptiú go slán ar an diosca. Caithfidh an eochair a bheith ar fáil nuair a dhíchriptítear an sparán, nó ní bheidh tú in ann an sparán a rochtain. Mar shampla, má roghnaíonn tú eochair chriptithe bunaithe ar SmartCard, iarrfar ort í a chur isteach agus an PIN a bhaineann léi a iontráil nuair a dhéanann tú iarracht an sparán a oscailt. <span style=\" font-weight:600;\">Nóta:</span> níl sa liosta seo ach eochracha a bhfuil muinín &quot;ag an leibhéal is airde&quot; astu.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ksecretd/kwalletwizardpagegpgkey.ui:42
 #, kde-format
-msgid "Select encryption GPG key:"
-msgstr ""
+msgid "Select GPG encryption key:"
+msgstr "Roghnaigh eochair chriptithe GPG:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ksecretd/kwalletwizardpagegpgkey.ui:81
 #, kde-format
 msgid ""
-"Unable to locate at least one <b>encrypting GPG key</b>. KDE Wallet needs "
-"such <b>encrypting key</b> to securely store passwords or other sensitive "
-"data on disk. If you still want to setup a GPG-based wallet, then cancel "
-"this wizard, set-up an <b>encrypting GPG key</b>, then retry this assistant. "
-"Otherwise, you may still click back, then choose a classic, blowfish "
-"encrypted file format on the previous page."
-msgstr ""
+"Unable to locate at least one GPG encryption key. KDE Wallet needs a GPG "
+"encryption key to securely store passwords or other sensitive data on disk. "
+"If you still want to setup a GPG-based wallet, exit this wizard, create an "
+"encryption key and return to this wizard. Otherwise, you can return to the "
+"previous page and select Blowfish encryption, which does not require an "
+"encryption key."
+msgstr "Níorbh fhéidir eochair chriptithe GPG ar bith a aimsiú. Teastaíonn eochair chriptithe GPG ón Sparán KDE chun focail fhaire nó sonraí íogaire eile a stóráil go slán ar an diosca. Más mian leat sparán bunaithe ar GPG a shocrú fós, scoir den treoraí seo, cruthaigh eochair chriptithe agus fill ar an treoraí seo. Nó, is féidir leat filleadh ar an leathanach roimhe seo agus criptiú Blowfish a roghnú, nach dteastaíonn eochair chriptithe uaidh."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: ksecretd/kwalletwizardpageintro.ui:30
 #, kde-format
 msgid ""
-"Welcome to KWallet, the KDE Wallet System.  KWallet allows you to store your "
-"passwords and other personal information on disk in an encrypted file, "
-"preventing others from viewing the information.  This wizard will tell you "
-"about KWallet and help you configure it for the first time."
-msgstr ""
-"Fáilte romhat go dtí KWallet, an Córas Sparáin KDE. Ceadaíonn KWallet duit "
-"do chuid focal faire agus faisnéis phearsanta eile a stóráil i gcomhad "
-"criptithe, sa chaoi nach mbeidh daoine eile in ann an fhaisnéis a léamh. "
-"Míneoidh an treoraí seo KWallet duit agus cabhróidh sé leat é a chumrú den "
-"chéad uair."
+"Welcome to KWallet, the KDE Wallet System. KWallet allows you to store your "
+"passwords and other sensitive information on disk in an encrypted file, "
+"preventing unauthorized access. This wizard will help you set up KWallet for "
+"the first time."
+msgstr "Fáilte romhat go dtí KWallet, an Córas Sparáin KDE. Ceadaíonn KWallet duit do chuid focal faire agus faisnéis íogair eile a stóráil ar an diosca i gcomhad criptithe, sa chaoi nach féidir rochtain gan chead a fháil uirthi. Cabhróidh an treoraí seo leat KWallet a chumrú den chéad uair."
 
 #. i18n: ectx: property (text), widget (QRadioButton, _basic)
 #: ksecretd/kwalletwizardpageintro.ui:69
@@ -414,17 +412,10 @@ msgstr "&Ardsocrú"
 #: ksecretd/kwalletwizardpageoptions.ui:16
 #, kde-format
 msgid ""
-"The KDE Wallet system allows you to control the level of security of your "
-"personal data.  Some of these settings do impact usability.  While the "
-"default settings are generally acceptable for most users, you may wish to "
-"change some of them.  You may further tune these settings from the KWallet "
-"control module."
-msgstr ""
-"Ceadaíonn an Córas Sparáin KDE duit an leibhéal slándála de do chuid sonraí "
-"a rialú. Rachaidh socruithe áirithe i bhfeidhm ar inúsáidteacht.  Cé go "
-"mbeidh na réamhshocruithe inghlactha ag formhór na n-úsáideoirí, b'fhéidir "
-"gur mian leat roinnt acu a athrú. Is féidir na socruithe seo a mhionathrú a "
-"thuilleadh ón mhodúl rialaithe KWallet."
+"KWallet lets you adjust the security of your personal data. While the "
+"default settings work for most users, you can modify them if needed. "
+"Additional adjustments can be made on the KWallet settings page."
+msgstr "Ligeann KWallet duit slándáil do chuid sonraí pearsanta a choigeartú. Cé go n-oireann na réamhshocruithe d'fhormhór na n-úsáideoirí, is féidir leat iad a athrú más gá. Is féidir coigeartuithe breise a dhéanamh ar leathanach socruithe KWallet."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _closeIdle)
 #: ksecretd/kwalletwizardpageoptions.ui:48
@@ -443,27 +434,18 @@ msgstr ""
 #: ksecretd/kwalletwizardpagepassword.ui:16
 #, kde-format
 msgid ""
-"Various applications may attempt to use the KDE wallet to store passwords or "
-"other information such as web form data and cookies.  If you would like "
-"these applications to use the wallet, you must enable it now and choose a "
-"password.  The password you choose <i>cannot</i> be recovered if it is lost, "
-"and will allow anyone who knows it to obtain all the information contained "
-"in the wallet."
-msgstr ""
-"Déanfaidh feidhmchláir éagsúla iarracht ar fhocail fhaire nó faisnéis eile, "
-"mar shampla sonraí ó fhoirmeacha Gréasáin nó fianáin, a stóráil sa sparán "
-"KDE. Más mian leat go mbainfidh na feidhmchláir seo úsáid as an sparán, "
-"caithfidh tú é a chumasú anois agus focal faire a roghnú.  <i>Ní</i> bheidh "
-"tú in ann an focal faire a fháil ar ais dá mbeadh sé caillte, agus b'fhéidir "
-"le héinne a bhfuil an focal faire ar a eolas an fhaisnéis go léir sa sparán "
-"a rochtain."
+"Various applications may request access to the KDE wallet to store "
+"passwords, web form data, or cookies. To allow this, enable the wallet and "
+"set a password. Note that the password <i>cannot</i> be recovered if lost "
+"and grants full access to all information stored in the wallet."
+msgstr "D'fhéadfadh feidhmchláir éagsúla rochtain ar an sparán KDE a iarraidh chun focail fhaire, sonraí ó fhoirmeacha Gréasáin nó fianáin a stóráil. Chun é seo a cheadú, cumasaigh an sparán agus socraigh focal faire. Tabhair faoi deara <i>nach féidir</i> an focal faire a fháil ar ais má chailltear é, agus go dtugann sé rochtain iomlán ar an bhfaisnéis go léir atá stóráilte sa sparán."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _useWallet)
 #: ksecretd/kwalletwizardpagepassword.ui:29
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:30
 #, kde-format
-msgid "Yes, I wish to use the KDE wallet to store my personal information."
-msgstr "Is mian liom mo chuid faisnéise pearsanta a stóráil sa sparán KDE."
+msgid "Use the KDE wallet to store sensitive information"
+msgstr "Úsáid an sparán KDE chun faisnéis íogair a stóráil"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
 #: ksecretd/kwalletwizardpagepassword.ui:88
@@ -483,22 +465,20 @@ msgstr "Deimhnigh an focal faire:"
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:17
 #, kde-format
 msgid ""
-"<html><head/><body><p>Various applications may attempt to use the KDE wallet "
-"to store passwords or other information such as web form data and cookies. "
-"If you would like these applications to use the wallet, you must enable it "
-"now and choose method for its encryption.</p><p>GPG method is more secure, "
-"but you must have configured at least one encrypting key on your system.</"
-"p><p>If you choose the classic format, be warned that the password you "
-"choose <span style=\" font-style:italic;\">cannot</span> be recovered if it "
-"is lost, and will allow anyone who knows it to obtain all the information "
-"contained in the wallet.</p></body></html>"
-msgstr ""
+"<html><head/><body><p>Various applications may request access to the KDE "
+"wallet to store passwords, web form data, or cookies. To allow this, enable "
+"the wallet and choose an encryption method. </p><p>GPG encryption is more "
+"secure, but you must have at least one encryption key configured on your "
+"system.</p><p>If you choose the classic format, note that the password <span "
+"style=\" font-style:italic;\">cannot</span> be recovered if lost and grants "
+"full access to all information stored in the wallet.</p></body></html>"
+msgstr "<html><head/><body><p>D'fhéadfadh feidhmchláir éagsúla rochtain ar an sparán KDE a iarraidh chun focail fhaire, sonraí ó fhoirmeacha Gréasáin nó fianáin a stóráil. Chun é seo a cheadú, cumasaigh an sparán agus roghnaigh modh criptithe. </p><p>Tá criptiú GPG níos sláine, ach caithfidh eochair chriptithe amháin ar a laghad a bheith cumraithe ar do chóras.</p><p>Má roghnaíonn tú an fhormáid chlasaiceach, tabhair faoi deara <span style=\" font-style:italic;\">nach féidir</span> an focal faire a fháil ar ais má chailltear é, agus go dtugann sé rochtain iomlán ar an bhfaisnéis go léir atá stóráilte sa sparán.</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, _groupBox)
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:46
 #, kde-format
-msgid "What kind of encryption do you wish?"
-msgstr ""
+msgid "Encryption type"
+msgstr "Cineál criptithe"
 
 #: ksecretd/main.cpp:163
 #, kde-format

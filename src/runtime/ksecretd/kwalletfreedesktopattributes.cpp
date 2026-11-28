@@ -33,8 +33,7 @@ void KWalletFreedesktopAttributes::read()
     QByteArray content;
     {
         QFile file(_path);
-        file.open(QIODevice::ReadOnly | QIODevice::Text);
-        if (!file.isOpen()) {
+        if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
             qCDebug(KSECRETD_LOG) << "Can't read attributes file " << _path;
             return;
         }

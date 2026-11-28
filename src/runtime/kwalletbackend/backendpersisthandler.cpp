@@ -21,6 +21,7 @@
 #include <gpgme++/data.h>
 #include <gpgme++/decryptionresult.h>
 #include <gpgme++/encryptionresult.h>
+#include <gpgme++/gpgmepp_version.h>
 #include <gpgme++/key.h>
 #include <gpgme++/keylistresult.h>
 #endif
@@ -379,6 +380,16 @@ GpgME::Error initGpgME()
     return err;
 }
 
+static QString gpgErrorText(const GpgME::Error& err)
+{
+    // asStdString() is new in 1.24.0, which deprecated asString()
+#if GPGMEPP_VERSION >= ((1 << 16) | (24 << 8))
+    return QString::fromStdString(err.asStdString());
+#else
+    return QString::fromLocal8Bit(err.asString());
+#endif
+}
+
 int GpgPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &version)
 {
     version[2] = KWALLET_CIPHER_GPG;
@@ -458,12 +469,12 @@ int GpgPersistHandler::write(Backend *wb, QSaveFile &sf, QByteArray &version)
     if (res.error()) {
         const int gpgerr = res.error().code();
         KMessageBox::error(nullptr,
-                           i18n("<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error code is <b>%2 (%3)</b>. Please fix your system "
-                                "configuration, then try again. This error may occur if you are not using a full trust GPG key. Please ensure you have the "
-                                "secret key for the key you are using.</qt>",
-                                wb->_name.toHtmlEscaped(),
-                                gpgerr,
-                                res.error().asString()));
+            i18n("<qt>Encryption error while attempting to save the wallet <b>%1</b>. Error code is <b>%2 (%3)</b>. Please fix your system "
+                 "configuration, then try again. This error may occur if you are not using a full trust GPG key. Please ensure you have the "
+                 "secret key for the key you are using.</qt>",
+                wb->_name.toHtmlEscaped(),
+                gpgerr,
+                gpgErrorText(res.error())));
         qCDebug(KWALLETBACKEND_LOG) << "GpgME encryption error: " << gpgerr;
         sf.cancelWriting();
         return -7;
@@ -530,20 +541,19 @@ retry_label:
     encryptedData.seek(0, SEEK_SET);
     GpgME::DecryptionResult res = ctx->decrypt(encryptedData, decryptedData);
     if (res.error()) {
-        qCDebug(KWALLETBACKEND_LOG) << "Error decrypting message: " << res.error().asString() << ", code " << res.error().code() << ", source "
+        qCDebug(KWALLETBACKEND_LOG) << "Error decrypting message: " << gpgErrorText(res.error()) << ", code " << res.error().code() << ", source "
                                     << res.error().source();
         KGuiItem btnRetry(i18n("Retry"));
         // FIXME the logic here should be a little more elaborate; a dialog box should be used with "retry", "cancel", but also "troubleshoot" with options to
         // show card status and to kill scdaemon
-        int userChoice =
-            KMessageBox::warningTwoActionsWId(w,
-                                              i18n("<qt>Error when attempting to decrypt the wallet <b>%1</b> using GPG. If you're using a SmartCard, "
-                                                   "please ensure it's inserted then try again.<br><br>GPG error was <b>%2</b></qt>",
-                                                   wb->_name.toHtmlEscaped(),
-                                                   res.error().asString()),
-                                              i18n("kwalletd GPG backend"),
-                                              btnRetry,
-                                              KStandardGuiItem::cancel());
+        int userChoice = KMessageBox::warningTwoActionsWId(w,
+            i18n("<qt>Error when attempting to decrypt the wallet <b>%1</b> using GPG. If you're using a SmartCard, "
+                 "please ensure it's inserted then try again.<br><br>GPG error was <b>%2</b></qt>",
+                wb->_name.toHtmlEscaped(),
+                gpgErrorText(res.error())),
+            i18n("kwalletd GPG backend"),
+            btnRetry,
+            KStandardGuiItem::cancel());
         if (userChoice == KMessageBox::PrimaryAction) {
             decryptedData.seek(0, SEEK_SET);
             goto retry_label;

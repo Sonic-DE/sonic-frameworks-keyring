@@ -14,7 +14,12 @@
 #include <QApplication>
 #include <QCommandLineParser>
 
+#include <Sonic/Logging/Log>
+#include <Sonic/Logging/Logging>
+
 #include "kwalletsettings.h"
+
+SONIC_LOGGING_COMPONENT("org.sonicde.frameworks.keyring.kwalletd")
 
 static bool isWalletEnabled()
 {
@@ -24,6 +29,8 @@ static bool isWalletEnabled()
 
 int main(int argc, char **argv)
 {
+    Sonic::Logging::install();
+
     QCoreApplication::setAttribute(Qt::AA_DisableSessionManager);
     QApplication application(argc, argv);
 
@@ -50,7 +57,7 @@ int main(int argc, char **argv)
 
     // check if kwallet is disabled
     if (!isWalletEnabled()) {
-        qCDebug(KWALLETD_LOG) << "kwallet is disabled!";
+        sonicDebug() << "kwallet is disabled!";
 
         return (-1);
     }

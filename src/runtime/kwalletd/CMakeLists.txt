@@ -53,14 +53,6 @@ target_sources(kwalletd6 PRIVATE
 
 kconfig_target_kcfg_file(kwalletd6 FILE ${CMAKE_SOURCE_DIR}/src/kwalletsettings.kcfg CLASS_NAME KWalletSettings MUTATORS)
 
-ecm_qt_declare_logging_category(kwalletd6
-    HEADER kwalletd_debug.h
-    IDENTIFIER KWALLETD_LOG
-    CATEGORY_NAME kf.wallet.kwalletd
-    DESCRIPTION "kwalletd"
-    EXPORT KWALLET
-)
-
 target_link_libraries(kwalletd6
     KF6WalletBackend
     KF6::ConfigGui
@@ -72,6 +64,7 @@ target_link_libraries(kwalletd6
     KF6::Wallet
     Qt6::Widgets
     Qt::DBus
+    Sonic::Logging
     ${LIBSECRET_LIBRARIES}
 )
 

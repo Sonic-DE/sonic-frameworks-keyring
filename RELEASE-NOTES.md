@@ -6,7 +6,7 @@ Sonic Frameworks Keyring is SonicDE's secure, desktop-wide store for your passwo
 
 - The wallet setup assistant speaks your language: its texts are translated into every language SonicDE ships, including 30 languages that had no translation for it before.
 - Sandboxed apps that ask the keyring for their secret are told when it can't be handed over, instead of being told it worked when they received nothing.
-- Behind the scenes: builds cleanly against current GPGME releases.
+- Behind the scenes: builds without compiler warnings, including against current GPGME releases.
 
 ## 6.31.0 (2026-10-20)
 

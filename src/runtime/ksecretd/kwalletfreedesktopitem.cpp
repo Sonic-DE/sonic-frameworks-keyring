@@ -7,7 +7,6 @@
 #include "kwalletfreedesktopitem.h"
 
 #include "ksecretd.h"
-#include "ksecretd_debug.h"
 #include "kwallet.h"
 #include "kwalletfreedesktopcollection.h"
 #include "kwalletfreedesktopitemadaptor.h"

@@ -7,7 +7,7 @@
 */
 
 #include "ksecretd.h"
-#include "ksecretd_debug.h"
+#include <Sonic/Logging/Log>
 
 #include "kwalletfreedesktopcollection.h"
 #include "kwalletfreedesktopitem.h"
@@ -224,7 +224,7 @@ void KSecretD::setupDialog(QWidget *dialog, WId wId, bool modal)
         dialog->setAttribute(Qt::WA_NativeWindow, true);
         KWindowSystem::setMainWindow(dialog->windowHandle(), wId);
     } else {
-        qWarning() << "Using kwallet without parent window!";
+        sonicWarning() << "Using kwallet without parent window!";
         // allow dialog activation even if it interrupts, better than trying
         // hacks
         // with keeping the dialog on top or on all desktops
@@ -306,7 +306,7 @@ int KSecretD::internalOpen(const QString &wallet, WId w, bool modal)
     int rc = walletInfo.first;
     if (rc == -1) {
         if (_wallets.count() > 20) {
-            qCDebug(KSECRETD_LOG) << "Too many wallets open.";
+            sonicDebug() << "Too many wallets open.";
             return -1;
         }
 
@@ -376,7 +376,7 @@ int KSecretD::internalOpen(const QString &wallet, WId w, bool modal)
                             int rc = b->open(password.toUtf8());
                             if (!b->isOpen()) {
                                 const auto errorStr = KWallet::Backend::openRCToString(rc);
-                                qCWarning(KSECRETD_LOG) << "Failed to open wallet" << wallet << errorStr;
+                                sonicWarning() << "Failed to open wallet" << wallet << errorStr;
                                 kpd->setPrompt(i18n("<qt>Error opening the wallet '<b>%1</b>'. Please try again.<br />(Error code %2: %3)</qt>",
                                                     wallet.toHtmlEscaped(),
                                                     rc,
@@ -592,8 +592,8 @@ void KSecretD::doTransactionChangePassword(const QString &wallet, qlonglong wId)
         QString keyID = w->gpgKey().shortKeyID();
         assert(!keyID.isNull());
         KMessageBox::errorWId((WId)wId,
-                              i18n("<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use <b>GPG</b> tools (such "
-                                   "as <b>kleopatra</b>) to change the passphrase associated to that key.</qt>",
+                              i18n("<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use <b>GPG</b> tools to "
+                                   "change the passphrase associated to that key.</qt>",
                                    wallet.toHtmlEscaped(),
                                    keyID));
     } else {
@@ -705,7 +705,7 @@ void KSecretD::timedOutSync(int handle)
     if (_wallets.contains(handle) && _wallets[handle]) {
         _wallets[handle]->sync();
     } else {
-        qDebug("wallet not found for sync!");
+        sonicDebug() << "wallet not found for sync!";
     }
 }
 

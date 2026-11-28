@@ -51,16 +51,14 @@ msgstr "&Тыйым салу"
 msgid "Deny &Forever"
 msgstr "&Ылғи тыйым салу"
 
-#: ksecretd/knewwalletdialog.cpp:50
+#: ksecretd/knewwalletdialog.cpp:51
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used "
-"to store sensitive data in a secure fashion. Please choose the new wallet's "
-"type below or click cancel to deny the application's request.</qt>"
-msgstr ""
-"<qt>KDE жаңа '<b>%1</b>' деген әмиянды құруды сұрайды. Ол маңызды деректерді "
-"шифрланған түрде сақтауға пайдаланады. төменде жаңа әмиянның түрін "
-"келтіріңіз немесе қолданбаның талабын елемей қалдыру үшін бас тартыңыз</qt>"
+"to securely store sensitive data, such as account passwords. Choose the type "
+"of the new wallet below or click Cancel to deny the application's request.</"
+"qt>"
+msgstr "<qt>KDE жаңа '<b>%1</b>' деген әмиянды құруды сұрайды. Ол тіркелгі парольдері сияқты маңызды деректерді қауіпсіз сақтауға пайдаланады. Жаңа әмиянның түрін төменде таңдаңыз немесе қолданбаның талабын елемей қалдыру үшін Бас тарту батырмасын басыңыз.</qt>"
 
 #: ksecretd/knewwalletdialog.cpp:55
 #, kde-format
@@ -88,31 +86,32 @@ msgstr ""
 "QGpgME жиын файлы OpenPGP протоколын бастау күйіне келтіре алмады. "
 "Жүйеңіздің баптауын тексеріп, қайталап көріңіз."
 
-#: ksecretd/knewwalletdialog.cpp:153
-#, fuzzy, kde-format
-#| msgid ""
-#| "Seems that your system has no keys suitable for encryption. Please set-up "
-#| "at least an encryption key, then try again."
+#: ksecretd/knewwalletdialog.cpp:176
+#, kde-kuit-format
+msgctxt "@info"
 msgid ""
-"Seems that your system has no keys suitable for encryption. Please set-up at "
-"least one encryption key, then try again."
-msgstr ""
-"Жүйеңізде шифлрлауға қажетті кілттер жоқ секілді. Кемінде бір шифрлау кілтін "
-"орнатып, қайталап көріңіз."
+"No suitable GPG encryption keys were found. To create one, choose one of the "
+"following options:<list><item>Install Kleopatra and use it to create a new "
+"key. See these <link url='https://docs.kde.org/stable_kf6/en/kleopatra/"
+"kleopatra/functions-newkey.html'>instructions</link>.</item><item>Open a "
+"terminal and enter <command>gpg --full-gen-key</command>.</item><item>Go "
+"back and use Blowfish encryption instead, which only requires a password.</"
+"item></list>"
+msgstr "Жарамды GPG шифрлау кілттері табылмады. Біреуін жасау үшін келесі нұсқалардың бірін таңдаңыз:<list><item>Kleopatra-ны орнатып, оның көмегімен жаңа кілт жасаңыз. Мына <link url='https://docs.kde.org/stable_kf6/en/kleopatra/kleopatra/functions-newkey.html'>нұсқауларды</link> қараңыз.</item><item>Терминалды ашып, <command>gpg --full-gen-key</command> деп енгізіңіз.</item><item>Артқа қайтып, оның орнына тек пароль қажет ететін Blowfish шифрлауын қолданыңыз.</item></list>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ksecretd/knewwalletdialoggpg.ui:17
 #, kde-format
-msgid "Please select the signing key from the list below:"
-msgstr "Төмендегі тізімінен қолтаңбалау кілтін таңдаңыз:"
+msgid "Select the signing key from the list below:"
+msgstr "Төмендегі тізімнен қолтаңбалау кілтін таңдаңыз:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ksecretd/knewwalletdialoggpg.ui:24
 #, kde-format
 msgid ""
-"<html><head/><body><p><span style=\" font-weight:600;\">NOTE:</span> this "
+"<html><head/><body><p><span style=\" font-weight:600;\">Note:</span> this "
 "list shows only &quot;ultimate-level&quot; trusted keys</p></body></html>"
-msgstr ""
+msgstr "<html><head/><body><p><span style=\" font-weight:600;\">Ескерту:</span> бұл тізімде тек &quot;ең жоғары деңгейде&quot; сенімді кілттер көрсетіледі</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
 #: ksecretd/knewwalletdialoggpg.ui:59
@@ -143,30 +142,26 @@ msgstr "KDE Әмиян жүйесі"
 #, no-c-format, kde-format
 msgid ""
 "<html><head/><body><p>The application '<span style=\" font-weight:600;\">%1</"
-"span>' has requested to open the KDE wallet. This is used to store sensitive "
-"data in a secure fashion. Please choose the new wallet's type below or click "
-"cancel to deny the application's request.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>'<span style=\" font-weight:600;\">%1</span>' "
-"қолданбасы KDE әмиянды ашуды сұрайды. Ол маңызды деректерді шифрланған түрде "
-"сақтауға пайдаланады. Жаңа әмиянның түрін төменде келтіріңіз немесе "
-"қолданбаның талабын елемей қалдыру үшін бас тартыңыз.</p></body></html>"
+"span>' has requested to open the KDE wallet. This is used to securely store "
+"sensitive data, such as account passwords. Choose the type of the new wallet "
+"below or click Cancel to deny the application's request.</p></body></html>"
+msgstr "<html><head/><body><p>'<span style=\" font-weight:600;\">%1</span>' қолданбасы KDE әмиянды ашуды сұрайды. Ол тіркелгі парольдері сияқты маңызды деректерді қауіпсіз сақтауға пайдаланады. Жаңа әмиянның түрін төменде таңдаңыз немесе қолданбаның талабын елемей қалдыру үшін Бас тарту батырмасын басыңыз.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioBlowfish)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioBlowfish)
 #: ksecretd/knewwalletdialogintro.ui:66
-#: ksecretd/kwalletwizardpagepasswordgpg.ui:68
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:55
 #, kde-format
-msgid "Classic, blowfish encrypted file"
-msgstr "Классикалық, blowfish шифрлаған файл"
+msgid "Blowfish encryption"
+msgstr "Blowfish шифрлауы"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioGpg)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioGpg)
-#: ksecretd/knewwalletdialogintro.ui:73
-#: ksecretd/kwalletwizardpagepasswordgpg.ui:55
+#: ksecretd/knewwalletdialogintro.ui:80
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:72
 #, kde-format
-msgid "Use GPG encryption, for better protection"
-msgstr "Мықтылық үшін GPG шифрлау қолданылсын"
+msgid "GPG encryption"
+msgstr "GPG шифрлауы"
 
 #: ksecretd/ksecretd.cpp:521
 #, kde-format
@@ -300,16 +295,12 @@ msgid ""
 "password."
 msgstr "Әмиян ашылмайды. Әмиянды паролін ауыстыру үшін ашу керек."
 
-#: ksecretd/ksecretd.cpp:877
+#: ksecretd/ksecretd.cpp:588
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
-"<b>GPG</b> tools (such as <b>kleopatra</b>) to change the passphrase "
-"associated to that key.</qt>"
-msgstr ""
-"<qt><b>%1</b> әмияны <b>%2</b> GPG кілтімен шифрланған. Ол кілтпен "
-"байланысты паролін өзгерту үшін <b>GPG</b> құралдарын (<b>kleopatra</b> "
-"секілді) қолданған абзал.</qt>"
+"<b>GPG</b> tools to change the passphrase associated to that key.</qt>"
+msgstr "<qt><b>%1</b> әмияны <b>%2</b> GPG кілтімен шифрланған. Ол кілтпен байланысты паролін өзгерту үшін <b>GPG</b> құралдарын қолданған абзал.</qt>"
 
 #: ksecretd/ksecretd.cpp:884
 #, kde-format
@@ -361,83 +352,54 @@ msgstr "Парольдер сәйкес келмейді."
 msgid ""
 "<html><head/><body><p>The KDE Wallet system stores your data in a <span "
 "style=\" font-style:italic;\">wallet</span> file on your local hard disk. "
-"The data is only written in the encrypted form of your choice - blowfish "
-"algorithm with your password as the key or using a GPG encryption key. When "
-"a wallet is opened, the wallet manager application will launch and display "
-"an icon in the system tray. You can use this application to manage all of "
-"your wallets. It even permits you to drag wallets and wallet contents, "
-"allowing you to easily copy a wallet to a remote system.</p></body></html>"
-msgstr ""
-"<html><head/> <body><p>KDE Әмиян жүйесі дерегіңізді компьютеріңіздің "
-"дискіңізде <span style=\" font-style:italic;\">әмиян</span> файлында "
-"сақтайды. Деректер шифрлау түрі қалауыңыз бойынша жазылады. Шифрлау үшін, "
-"паролін кілті ретінде жұмсалып, blowfish алгоритмі немесе GPG шифрлауы "
-"пайдаланады. Әмиян ашылғанда, әмиянды басқару бағдарламасы жегіліп, "
-"таңбашасы жүйелік сөреде көрсетіледі. Ол бағдарламаны әмияныңызды басқаруға "
-"қолдана аласыз. Бағдарламаның көмегімен әмиянды және оның мазмұның сүйреп, "
-"қашықтағы жүйеге оңай түрде көшіруге болады.</p></body></html>"
+"The data is encrypted using your chosen method: the Blowfish algorithm with "
+"your password as the key, or GPG with an encryption key. When a wallet is "
+"opened, the wallet manager will launch and display an icon in the system "
+"tray. You can use this application to manage all of your wallets. It even "
+"permits you to drag-and-drop wallets and their contents, allowing you to "
+"easily copy a wallet to a remote system.</p></body></html>"
+msgstr "<html><head/><body><p>KDE Әмиян жүйесі дерегіңізді компьютеріңіздің дискіңізде <span style=\" font-style:italic;\">әмиян</span> файлында сақтайды. Деректер таңдаған тәсіліңізбен шифрланады: пароліңіз кілт ретінде қолданылатын Blowfish алгоритмі немесе шифрлау кілті бар GPG. Әмиян ашылғанда, әмиян менеджері жегіліп, таңбашасы жүйелік сөреде көрсетіледі. Ол бағдарламаны барлық әмияндарыңызды басқаруға қолдана аласыз. Бағдарламаның көмегімен әмияндарды және олардың мазмұнын сүйреп апарып тастап, қашықтағы жүйеге оңай түрде көшіруге болады.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ksecretd/kwalletwizardpagegpgkey.ui:24
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>The GPG-based wallet use a GPG encryption key to "
-#| "securely encrypt data on disk. The key must be available when decrypting "
-#| "is needed or your wallet will not be accessible. For example, if you "
-#| "choose a SmartCard-based encryption key, the GPG system will prompt you "
-#| "to enter it and its associated PIN when attempting to open the wallet.</"
-#| "p></body></html>"
+#, kde-format
 msgid ""
-"<html><head/><body><p>The GPG-based wallet use a GPG encryption key to "
-"securely encrypt data on disk. The key must be available when decrypting is "
-"needed or your wallet will not be accessible. For example, if you choose a "
-"SmartCard-based encryption key, the GPG system will prompt you to enter it "
-"and its associated PIN when attempting to open the wallet. <span style=\" "
-"font-weight:600;\">NOTE:</span> this list contains only &quot;ultimate-"
+"<html><head/><body><p>The GPG-based wallet uses a GPG encryption key to "
+"securely encrypt data on disk. The key must be available when the wallet is "
+"decrypted or your wallet will not be accessible. For example, if you choose "
+"a SmartCard-based encryption key, you will be prompted to insert it and "
+"enter its associated PIN when attempting to open the wallet. <span style=\" "
+"font-weight:600;\">Note:</span> this list contains only &quot;ultimate-"
 "level&quot; trusted keys.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>GPG-негіздеген әмиян дискіге жазылған деректерді "
-"шифрлау үшін GPG шифрлау кілтін пайдаланады. Шифрын шешу керек болғанда ол "
-"кілтіңіз болу керек, әйтпесе әмиян ашылмайды. Егер, мысалы, SmartCard-"
-"негіздеген шифрлау кілтті таңдасаңыз, әимянды ашар кезде GPG жүйесі оны және "
-"онымен байланысты PIN-кодын енгізуді сұрайды.</p></body></html>"
+msgstr "<html><head/><body><p>GPG-негіздеген әмиян дискіге жазылған деректерді қауіпсіз шифрлау үшін GPG шифрлау кілтін пайдаланады. Әмиянның шифры шешілгенде ол кілт қолжетімді болу керек, әйтпесе әмиян ашылмайды. Егер, мысалы, SmartCard-негіздеген шифрлау кілтін таңдасаңыз, әмиянды ашар кезде оны салып, онымен байланысты PIN-кодын енгізу сұралады. <span style=\" font-weight:600;\">Ескерту:</span> бұл тізімде тек &quot;ең жоғары деңгейде&quot; сенімді кілттер бар.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ksecretd/kwalletwizardpagegpgkey.ui:42
 #, kde-format
-msgid "Select encryption GPG key:"
-msgstr "Қолданатын GPG шифрлау кілті:"
+msgid "Select GPG encryption key:"
+msgstr "GPG шифрлау кілтін таңдаңыз:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ksecretd/kwalletwizardpagegpgkey.ui:81
 #, kde-format
 msgid ""
-"Unable to locate at least one <b>encrypting GPG key</b>. KDE Wallet needs "
-"such <b>encrypting key</b> to securely store passwords or other sensitive "
-"data on disk. If you still want to setup a GPG-based wallet, then cancel "
-"this wizard, set-up an <b>encrypting GPG key</b>, then retry this assistant. "
-"Otherwise, you may still click back, then choose a classic, blowfish "
-"encrypted file format on the previous page."
-msgstr ""
-"Бірдебір <b>GPG шифрлау кілті</b> жоқ. Парольдер және басқа сырлы деректерді "
-"қауіпсіз сақтау үшін KDE Wallet <b>шифрлау кілтті</b> қажет етеді. Егерде "
-"GPG-негіздеген әмиянды орнатуды қаласаңыз, онда бұл шеберді тастаңыз да, "
-"<b>GPG шифрлау кілтін</b> орнатып, осы көмекшіні қайта шақрыңыз. Немесе, "
-"артқа шегініп, класиқалық blowfish файл шифрлау пішімін таңдаңыз."
+"Unable to locate at least one GPG encryption key. KDE Wallet needs a GPG "
+"encryption key to securely store passwords or other sensitive data on disk. "
+"If you still want to setup a GPG-based wallet, exit this wizard, create an "
+"encryption key and return to this wizard. Otherwise, you can return to the "
+"previous page and select Blowfish encryption, which does not require an "
+"encryption key."
+msgstr "Бірде-бір GPG шифрлау кілті табылмады. Парольдер және басқа сырлы деректерді дискіде қауіпсіз сақтау үшін KDE Wallet GPG шифрлау кілтін қажет етеді. Егерде GPG-негіздеген әмиянды орнатуды қаласаңыз, бұл шеберден шығып, шифрлау кілтін жасаңыз да, осы шеберге қайта оралыңыз. Немесе, алдыңғы бетке қайтып, шифрлау кілтін қажет етпейтін Blowfish шифрлауын таңдай аласыз."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: ksecretd/kwalletwizardpageintro.ui:30
 #, kde-format
 msgid ""
-"Welcome to KWallet, the KDE Wallet System.  KWallet allows you to store your "
-"passwords and other personal information on disk in an encrypted file, "
-"preventing others from viewing the information.  This wizard will tell you "
-"about KWallet and help you configure it for the first time."
-msgstr ""
-"KWallet - KDE Әмиян жүйесіне қош келдіңіз. KWallet пароліңіздерді, басқа да "
-"дербес мәліметіңізді дискіде, басқалар оқи алмайтын шифрланған түрде "
-"сақтауға мүмкіндік береді. Бұл Шебердің көмегімен KWallet туралы мәліметті "
-"алып, бастапқы баптауын өткізе аласыз."
+"Welcome to KWallet, the KDE Wallet System. KWallet allows you to store your "
+"passwords and other sensitive information on disk in an encrypted file, "
+"preventing unauthorized access. This wizard will help you set up KWallet for "
+"the first time."
+msgstr "KWallet - KDE Әмиян жүйесіне қош келдіңіз. KWallet парольдеріңізді және басқа да сырлы мәліметіңізді дискіде шифрланған файлда сақтап, рұқсатсыз қатынаудан қорғайды. Бұл шебер KWallet-ты алғаш рет баптауға көмектеседі."
 
 #. i18n: ectx: property (text), widget (QRadioButton, _basic)
 #: ksecretd/kwalletwizardpageintro.ui:69
@@ -455,17 +417,10 @@ msgstr "Қ&осымша баптау"
 #: ksecretd/kwalletwizardpageoptions.ui:16
 #, kde-format
 msgid ""
-"The KDE Wallet system allows you to control the level of security of your "
-"personal data.  Some of these settings do impact usability.  While the "
-"default settings are generally acceptable for most users, you may wish to "
-"change some of them.  You may further tune these settings from the KWallet "
-"control module."
-msgstr ""
-"KDE Әмиян жүйесі дербес деректеріңіздің қауіпсіздік деңгейін басқаруға "
-"мүмкіндік береді. Кейбір баптау параметрлері ыңғайлығына әсер етеді. "
-"Дегенмен, әдетті баптауы көпшілікке сай болса да, қаласаңыз - кейбір "
-"параметрлерді өзгерте аласыз. Оларды KWallet басқару модулі арқылы лайықтап "
-"алуға болады."
+"KWallet lets you adjust the security of your personal data. While the "
+"default settings work for most users, you can modify them if needed. "
+"Additional adjustments can be made on the KWallet settings page."
+msgstr "KWallet дербес деректеріңіздің қауіпсіздігін баптауға мүмкіндік береді. Әдетті баптаулар көпшілікке сай болса да, қажет болса, оларды өзгерте аласыз. Қосымша баптауларды KWallet баптаулары бетінде жасауға болады."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _closeIdle)
 #: ksecretd/kwalletwizardpageoptions.ui:48
@@ -483,25 +438,18 @@ msgstr "Желі және жергілікті парольдер бөлек ә�
 #: ksecretd/kwalletwizardpagepassword.ui:16
 #, kde-format
 msgid ""
-"Various applications may attempt to use the KDE wallet to store passwords or "
-"other information such as web form data and cookies.  If you would like "
-"these applications to use the wallet, you must enable it now and choose a "
-"password.  The password you choose <i>cannot</i> be recovered if it is lost, "
-"and will allow anyone who knows it to obtain all the information contained "
-"in the wallet."
-msgstr ""
-"Түрлі қолданбалар KDE әмиянды парольдерін және басқа, веб пішіндер "
-"деректері, cookie-лері сияқты мәліметтерді сақтауға талпынады. Ондайды "
-"қолдасаңыз, мұнда рұқсат етіңіз де паролін таңдаңыз. Таңдаған пароліңіз "
-"ұмытылса, оны қайтаратын жол <i>жоқ</i> және оны білген, әмияндағы бүкіл "
-"мәліметке қол жеткізе алады."
+"Various applications may request access to the KDE wallet to store "
+"passwords, web form data, or cookies. To allow this, enable the wallet and "
+"set a password. Note that the password <i>cannot</i> be recovered if lost "
+"and grants full access to all information stored in the wallet."
+msgstr "Түрлі қолданбалар парольдерді, веб пішіндер деректерін немесе cookie-лерді сақтау үшін KDE әмиянына қатынауды сұрауы мүмкін. Оған рұқсат беру үшін әмиянды қосып, пароль орнатыңыз. Пароль жоғалса, оны қалпына келтіру <i>мүмкін емес</i> екенін және ол әмияндағы бүкіл мәліметке толық қатынау беретінін ескеріңіз."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _useWallet)
 #: ksecretd/kwalletwizardpagepassword.ui:29
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:30
 #, kde-format
-msgid "Yes, I wish to use the KDE wallet to store my personal information."
-msgstr "Иә, KDE әмиянында дербес мәліметімді сақтауды қалаймын."
+msgid "Use the KDE wallet to store sensitive information"
+msgstr "Сырлы мәліметті сақтау үшін KDE әмиянын қолдану"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
 #: ksecretd/kwalletwizardpagepassword.ui:88
@@ -521,30 +469,20 @@ msgstr "Паролінің қайталауы:"
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:17
 #, kde-format
 msgid ""
-"<html><head/><body><p>Various applications may attempt to use the KDE wallet "
-"to store passwords or other information such as web form data and cookies. "
-"If you would like these applications to use the wallet, you must enable it "
-"now and choose method for its encryption.</p><p>GPG method is more secure, "
-"but you must have configured at least one encrypting key on your system.</"
-"p><p>If you choose the classic format, be warned that the password you "
-"choose <span style=\" font-style:italic;\">cannot</span> be recovered if it "
-"is lost, and will allow anyone who knows it to obtain all the information "
-"contained in the wallet.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Түрлі қолданбалар KDE әмиянды парольдерін және басқа, "
-"веб пішіндер деректері, cookie-лері сияқты мәліметтерді сақтауға талпынады. "
-"Ондайды қолдасаңыз, мұнда рұқсат етіңіз де шифрлау тәсілін таңдаңыз.</"
-"p><p>GPG тәсілі мықтырақ, бірақ жүйеңізде кемінде бір шифрлау кілті орнатулы "
-"болғанын талап етеді.</p><p>Классикалық пішімді таңдалғанда, пароліңіз "
-"ұмытылса, оны қайтаратын жол <span style=\" font-style:italic;\"> жоқ</span> "
-"және оны білген, әмияндағы бүкіл мәліметке қол жеткізе алады екенін "
-"ескеріңіз.</p></body></html>"
+"<html><head/><body><p>Various applications may request access to the KDE "
+"wallet to store passwords, web form data, or cookies. To allow this, enable "
+"the wallet and choose an encryption method. </p><p>GPG encryption is more "
+"secure, but you must have at least one encryption key configured on your "
+"system.</p><p>If you choose the classic format, note that the password <span "
+"style=\" font-style:italic;\">cannot</span> be recovered if lost and grants "
+"full access to all information stored in the wallet.</p></body></html>"
+msgstr "<html><head/><body><p>Түрлі қолданбалар парольдерді, веб пішіндер деректерін немесе cookie-лерді сақтау үшін KDE әмиянына қатынауды сұрауы мүмкін. Оған рұқсат беру үшін әмиянды қосып, шифрлау тәсілін таңдаңыз. </p><p>GPG шифрлауы мықтырақ, бірақ жүйеңізде кемінде бір шифрлау кілті орнатулы болғанын талап етеді.</p><p>Классикалық пішімді таңдасаңыз, пароль жоғалса, оны қалпына келтіру <span style=\" font-style:italic;\">мүмкін емес</span> екенін және ол әмияндағы бүкіл мәліметке толық қатынау беретінін ескеріңіз.</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, _groupBox)
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:46
 #, kde-format
-msgid "What kind of encryption do you wish?"
-msgstr "Қай шифрлау тәсілін қалайсыз?"
+msgid "Encryption type"
+msgstr "Шифрлау түрі"
 
 #: ksecretd/main.cpp:163
 #, kde-format

@@ -100,10 +100,3 @@ QFuture<int> KSecretD::open(const QString & /*wallet*/, qlonglong /*wId*/)
     promise.finish();
     return promise.future();
 }
-
-#include <QLoggingCategory>
-const QLoggingCategory &KSECRETD_LOG()
-{
-    static const QLoggingCategory category("kf.wallet.ksecretd", QtFatalMsg);
-    return category;
-}

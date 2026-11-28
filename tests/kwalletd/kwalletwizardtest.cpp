@@ -6,7 +6,11 @@
 
 #include <QApplication>
 
+#include <Sonic/Logging/Log>
+
 #include <kwalletwizard.h>
+
+SONIC_LOGGING_COMPONENT("org.sonicde.frameworks.keyring.wizard.test")
 
 int main(int argc, char **argv)
 {

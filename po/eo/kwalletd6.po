@@ -54,16 +54,14 @@ msgstr "&Malpermesi"
 msgid "Deny &Forever"
 msgstr "Malpermesi ĉ&iam"
 
-#: ksecretd/knewwalletdialog.cpp:50
+#: ksecretd/knewwalletdialog.cpp:51
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used "
-"to store sensitive data in a secure fashion. Please choose the new wallet's "
-"type below or click cancel to deny the application's request.</qt>"
-msgstr ""
-"<qt>KDE petis krei novan monujon nomitan '<b>%1</b>'. Ĉi tio estas uzata por "
-"konservi sentemajn datumojn en sekura modo. Bonvolu elekti la tipon de la "
-"nova monujo sube aŭ klaku nuligi por rifuzi la peton de la aplikaĵo.</qt>"
+"to securely store sensitive data, such as account passwords. Choose the type "
+"of the new wallet below or click Cancel to deny the application's request.</"
+"qt>"
+msgstr "<qt>KDE petis krei novan monujon nomitan '<b>%1</b>'. Ĝi estas uzata por sekure konservi sentemajn datumojn, ekzemple kontajn pasvortojn. Elektu la tipon de la nova monujo sube aŭ alklaku Nuligi por rifuzi la peton de la aplikaĵo.</qt>"
 
 #: ksecretd/knewwalletdialog.cpp:55
 #, kde-format
@@ -88,31 +86,32 @@ msgstr ""
 "La GpgME-biblioteko ne pravigis por la OpenPGP-protokolo. Bonvolu kontroli "
 "la agordon de via sistemo kaj provu denove."
 
-#: ksecretd/knewwalletdialog.cpp:153
-#, kde-format
+#: ksecretd/knewwalletdialog.cpp:176
+#, kde-kuit-format
+msgctxt "@info"
 msgid ""
-"Seems that your system has no keys suitable for encryption. Please set-up at "
-"least one encryption key, then try again."
-msgstr ""
-"Ŝajnas, ke via sistemo ne havas ŝlosilojn taŭgajn por ĉifrado. Bonvolu "
-"agordi almenaŭ unu ĉifradŝlosilon, kaj provu denove."
+"No suitable GPG encryption keys were found. To create one, choose one of the "
+"following options:<list><item>Install Kleopatra and use it to create a new "
+"key. See these <link url='https://docs.kde.org/stable_kf6/en/kleopatra/"
+"kleopatra/functions-newkey.html'>instructions</link>.</item><item>Open a "
+"terminal and enter <command>gpg --full-gen-key</command>.</item><item>Go "
+"back and use Blowfish encryption instead, which only requires a password.</"
+"item></list>"
+msgstr "Neniuj taŭgaj GPG-ĉifradŝlosiloj troviĝis. Por krei unu, elektu unu el la jenaj eblecoj:<list><item>Instalu Kleopatra kaj uzu ĝin por krei novan ŝlosilon. Vidu ĉi tiujn <link url='https://docs.kde.org/stable_kf6/en/kleopatra/kleopatra/functions-newkey.html'>instrukciojn</link>.</item><item>Malfermu terminalon kaj enigu <command>gpg --full-gen-key</command>.</item><item>Reiru kaj uzu anstataŭe Blowfish-ĉifradon, kiu bezonas nur pasvorton.</item></list>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ksecretd/knewwalletdialoggpg.ui:17
 #, kde-format
-msgid "Please select the signing key from the list below:"
-msgstr "Bonvolu elekti la subskriban ŝlosilon el la suba listo:"
+msgid "Select the signing key from the list below:"
+msgstr "Elektu la subskriban ŝlosilon el la suba listo:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ksecretd/knewwalletdialoggpg.ui:24
 #, kde-format
 msgid ""
-"<html><head/><body><p><span style=\" font-weight:600;\">NOTE:</span> this "
+"<html><head/><body><p><span style=\" font-weight:600;\">Note:</span> this "
 "list shows only &quot;ultimate-level&quot; trusted keys</p></body></html>"
-msgstr ""
-"<html><head/><body><p><span style=\" font-weight:600;\">SCIU:</span> ĉi tiu "
-"listo montras nur &quot;finnivelajn&quot; fidindajn ŝlosilojn</p></body></"
-"html>"
+msgstr "<html><head/><body><p><span style=\" font-weight:600;\">Notu:</span> ĉi tiu listo montras nur &quot;finnivelajn&quot; fidindajn ŝlosilojn</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
 #: ksecretd/knewwalletdialoggpg.ui:59
@@ -143,30 +142,26 @@ msgstr "La sistemo de sekretejo por KDE"
 #, no-c-format, kde-format
 msgid ""
 "<html><head/><body><p>The application '<span style=\" font-weight:600;\">%1</"
-"span>' has requested to open the KDE wallet. This is used to store sensitive "
-"data in a secure fashion. Please choose the new wallet's type below or click "
-"cancel to deny the application's request.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>La aplikaĵo '<span style=\" font-weight:600;\">%1</"
-"span>' petis malfermi la KDE-monujon. Ĉi tio estas uzata por konservi "
-"sentemajn datumojn en sekura modo. Bonvolu elekti la tipon de la nova monujo "
-"sube aŭ alklaku nuligi por rifuzi la peton de la aplikaĵo.</p></body></html>"
+"span>' has requested to open the KDE wallet. This is used to securely store "
+"sensitive data, such as account passwords. Choose the type of the new wallet "
+"below or click Cancel to deny the application's request.</p></body></html>"
+msgstr "<html><head/><body><p>La aplikaĵo '<span style=\" font-weight:600;\">%1</span>' petis malfermi la KDE-monujon. Ĝi estas uzata por sekure konservi sentemajn datumojn, ekzemple kontajn pasvortojn. Elektu la tipon de la nova monujo sube aŭ alklaku Nuligi por rifuzi la peton de la aplikaĵo.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioBlowfish)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioBlowfish)
 #: ksecretd/knewwalletdialogintro.ui:66
-#: ksecretd/kwalletwizardpagepasswordgpg.ui:68
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:55
 #, kde-format
-msgid "Classic, blowfish encrypted file"
-msgstr "Klasika, blowfish ĉifrita dosiero"
+msgid "Blowfish encryption"
+msgstr "Blowfish-ĉifrado"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioGpg)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioGpg)
-#: ksecretd/knewwalletdialogintro.ui:73
-#: ksecretd/kwalletwizardpagepasswordgpg.ui:55
+#: ksecretd/knewwalletdialogintro.ui:80
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:72
 #, kde-format
-msgid "Use GPG encryption, for better protection"
-msgstr "Uzi GPG-ĉifradon, por pli bona protekto"
+msgid "GPG encryption"
+msgstr "GPG-ĉifrado"
 
 #: ksecretd/ksecretd.cpp:521
 #, kde-format
@@ -299,16 +294,12 @@ msgstr ""
 "Ne eblas malfermi monujon. La monujo devas esti malfermita por ŝanĝi la "
 "pasvorton."
 
-#: ksecretd/ksecretd.cpp:877
+#: ksecretd/ksecretd.cpp:588
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
-"<b>GPG</b> tools (such as <b>kleopatra</b>) to change the passphrase "
-"associated to that key.</qt>"
-msgstr ""
-"<qt>La <b>%1</b> monujo estas ĉifrita per GPG-ŝlosilo <b>%2</b>. Bonvolu uzi "
-"<b>GPG</b>-iloj (kiel <b>kleopatra</b>) por ŝanĝi la pasfrazon asociitan al "
-"tiu ŝlosilo.</qt>"
+"<b>GPG</b> tools to change the passphrase associated to that key.</qt>"
+msgstr "<qt>La monujo <b>%1</b> estas ĉifrita per GPG-ŝlosilo <b>%2</b>. Bonvolu uzi <b>GPG</b>-ilojn por ŝanĝi la pasfrazon asociitan al tiu ŝlosilo.</qt>"
 
 #: ksecretd/ksecretd.cpp:884
 #, kde-format
@@ -360,80 +351,54 @@ msgstr "Pasvortoj ne kongruas."
 msgid ""
 "<html><head/><body><p>The KDE Wallet system stores your data in a <span "
 "style=\" font-style:italic;\">wallet</span> file on your local hard disk. "
-"The data is only written in the encrypted form of your choice - blowfish "
-"algorithm with your password as the key or using a GPG encryption key. When "
-"a wallet is opened, the wallet manager application will launch and display "
-"an icon in the system tray. You can use this application to manage all of "
-"your wallets. It even permits you to drag wallets and wallet contents, "
-"allowing you to easily copy a wallet to a remote system.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>La KDE Wallet-sistemo konservas viajn datumojn en "
-"<span style=\" font-style:italic;\">monujo</span> dosiero sur via loka "
-"malmola disko. La datumoj estas skribitaj nur en la ĉifrita formo de via "
-"elekto - blowfish-algoritmo kun via pasvorto kiel ŝlosilo aŭ uzante GPG-"
-"ĉifradŝlosilon. Kiam monujo estas malfermita, la aplikaĵo de administranto "
-"de monujo lanĉos kaj montros piktogramon en la sistempleto. Vi povas uzi ĉi "
-"tiun aplikaĵon por administri ĉiujn viajn monujojn. Ĝi eĉ permesas vin treni "
-"monujojn kaj monujon enhavon, ebligante vin facile kopii monujon al fora "
-"sistemo.</p></body></html>"
+"The data is encrypted using your chosen method: the Blowfish algorithm with "
+"your password as the key, or GPG with an encryption key. When a wallet is "
+"opened, the wallet manager will launch and display an icon in the system "
+"tray. You can use this application to manage all of your wallets. It even "
+"permits you to drag-and-drop wallets and their contents, allowing you to "
+"easily copy a wallet to a remote system.</p></body></html>"
+msgstr "<html><head/><body><p>La KDE Wallet-sistemo konservas viajn datumojn en <span style=\" font-style:italic;\">monujo</span>-dosiero sur via loka malmola disko. La datumoj estas ĉifrataj per la metodo, kiun vi elektas: la Blowfish-algoritmo kun via pasvorto kiel ŝlosilo, aŭ GPG kun ĉifradŝlosilo. Kiam monujo estas malfermita, la monujo-administranto lanĉiĝos kaj montros piktogramon en la sistempleto. Vi povas uzi ĉi tiun aplikaĵon por administri ĉiujn viajn monujojn. Ĝi eĉ permesas treni kaj demeti monujojn kaj ilian enhavon, por ke vi facile kopiu monujon al fora sistemo.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ksecretd/kwalletwizardpagegpgkey.ui:24
 #, kde-format
 msgid ""
-"<html><head/><body><p>The GPG-based wallet use a GPG encryption key to "
-"securely encrypt data on disk. The key must be available when decrypting is "
-"needed or your wallet will not be accessible. For example, if you choose a "
-"SmartCard-based encryption key, the GPG system will prompt you to enter it "
-"and its associated PIN when attempting to open the wallet. <span style=\" "
-"font-weight:600;\">NOTE:</span> this list contains only &quot;ultimate-"
+"<html><head/><body><p>The GPG-based wallet uses a GPG encryption key to "
+"securely encrypt data on disk. The key must be available when the wallet is "
+"decrypted or your wallet will not be accessible. For example, if you choose "
+"a SmartCard-based encryption key, you will be prompted to insert it and "
+"enter its associated PIN when attempting to open the wallet. <span style=\" "
+"font-weight:600;\">Note:</span> this list contains only &quot;ultimate-"
 "level&quot; trusted keys.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>La GPG-bazita monujo uzas GPG-ĉifradŝlosilon por "
-"sekure ĉifri datumojn sur disko. La ŝlosilo devas esti havebla kiam "
-"malĉifrido estas necesa aŭ via monujo ne estos alirebla. Ekzemple, se vi "
-"elektas ĉifradŝlosilon bazitan sur SmartCard, la GPG-sistemo petos vin enigi "
-"ĝin kaj ĝian rilatan PIN kiam vi provas malfermi la monujon. <span style=\" "
-"font-weight:600;\">NOTU:</span> ĉi tiu listo enhavas nur \"finnivelajn\" "
-"fidindajn ŝlosilojn.</p></body></html>"
+msgstr "<html><head/><body><p>La GPG-bazita monujo uzas GPG-ĉifradŝlosilon por sekure ĉifri datumojn sur disko. La ŝlosilo devas esti havebla kiam la monujo estas malĉifrata, alie via monujo ne estos alirebla. Ekzemple, se vi elektas ĉifradŝlosilon bazitan sur SmartCard, vi estos petata enmeti ĝin kaj enigi ĝian rilatan PIN kiam vi provas malfermi la monujon. <span style=\" font-weight:600;\">Notu:</span> ĉi tiu listo enhavas nur &quot;finnivelajn&quot; fidindajn ŝlosilojn.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ksecretd/kwalletwizardpagegpgkey.ui:42
 #, kde-format
-msgid "Select encryption GPG key:"
-msgstr "Elektu ĉifradan GPG-ŝlosilon:"
+msgid "Select GPG encryption key:"
+msgstr "Elektu GPG-ĉifradŝlosilon:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ksecretd/kwalletwizardpagegpgkey.ui:81
 #, kde-format
 msgid ""
-"Unable to locate at least one <b>encrypting GPG key</b>. KDE Wallet needs "
-"such <b>encrypting key</b> to securely store passwords or other sensitive "
-"data on disk. If you still want to setup a GPG-based wallet, then cancel "
-"this wizard, set-up an <b>encrypting GPG key</b>, then retry this assistant. "
-"Otherwise, you may still click back, then choose a classic, blowfish "
-"encrypted file format on the previous page."
-msgstr ""
-"Ne eblas trovi almenaŭ unu <b>ĉifradan GPG-ŝlosilon</b>. KDE-Monujo bezonas "
-"tian <b>ĉifradan ŝlosilon</b> por sekure konservi pasvortojn aŭ aliajn "
-"sentemajn datumojn sur disko. Se vi ankoraŭ volas agordi GPG-bazitan "
-"monujon, tiam nuligi ĉi tiun asistanton, agordu <b>ĉifradan GPG-ŝlosilon</"
-"b>, tiam reprovu ĉi tiun asistanton. Alie, vi ankoraŭ povas alklaki reen, "
-"tiam elekti klasikan, blowfish ĉifritan dosierformaton sur la antaŭa paĝo."
+"Unable to locate at least one GPG encryption key. KDE Wallet needs a GPG "
+"encryption key to securely store passwords or other sensitive data on disk. "
+"If you still want to setup a GPG-based wallet, exit this wizard, create an "
+"encryption key and return to this wizard. Otherwise, you can return to the "
+"previous page and select Blowfish encryption, which does not require an "
+"encryption key."
+msgstr "Ne eblas trovi almenaŭ unu GPG-ĉifradŝlosilon. KDE-Monujo bezonas GPG-ĉifradŝlosilon por sekure konservi pasvortojn aŭ aliajn sentemajn datumojn sur disko. Se vi ankoraŭ volas agordi GPG-bazitan monujon, eliru el ĉi tiu asistanto, kreu ĉifradŝlosilon kaj revenu al ĉi tiu asistanto. Alie, vi povas reiri al la antaŭa paĝo kaj elekti Blowfish-ĉifradon, kiu ne bezonas ĉifradŝlosilon."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: ksecretd/kwalletwizardpageintro.ui:30
 #, kde-format
 msgid ""
-"Welcome to KWallet, the KDE Wallet System.  KWallet allows you to store your "
-"passwords and other personal information on disk in an encrypted file, "
-"preventing others from viewing the information.  This wizard will tell you "
-"about KWallet and help you configure it for the first time."
-msgstr ""
-"Bonvenon al KWallet, la KDE Monujo-Sistemo. KWallet permesas vin konservi "
-"viajn pasvortojn kaj aliajn personajn informojn sur disko en ĉifrita "
-"dosiero, malhelpante aliajn vidi la informojn. Ĉi tiu sorĉisto rakontos al "
-"vi pri KWallet kaj helpos vin agordi ĝin por la unua fojo."
+"Welcome to KWallet, the KDE Wallet System. KWallet allows you to store your "
+"passwords and other sensitive information on disk in an encrypted file, "
+"preventing unauthorized access. This wizard will help you set up KWallet for "
+"the first time."
+msgstr "Bonvenon al KWallet, la KDE Monujo-Sistemo. KWallet permesas al vi konservi viajn pasvortojn kaj aliajn sentemajn informojn sur disko en ĉifrita dosiero, malhelpante nepermesitan aliron. Ĉi tiu asistanto helpos vin agordi KWallet por la unua fojo."
 
 #. i18n: ectx: property (text), widget (QRadioButton, _basic)
 #: ksecretd/kwalletwizardpageintro.ui:69
@@ -451,17 +416,10 @@ msgstr "&Altnivela agordado"
 #: ksecretd/kwalletwizardpageoptions.ui:16
 #, kde-format
 msgid ""
-"The KDE Wallet system allows you to control the level of security of your "
-"personal data.  Some of these settings do impact usability.  While the "
-"default settings are generally acceptable for most users, you may wish to "
-"change some of them.  You may further tune these settings from the KWallet "
-"control module."
-msgstr ""
-"La KDE Wallet-sistemo permesas vin kontroli la nivelon de sekureco de viaj "
-"personaj datumoj. Iuj el ĉi tiuj agordoj efikas al uzeblo. Kvankam la "
-"defaŭltaj agordoj estas ĝenerale akcepteblaj por la plej multaj uzantoj, vi "
-"eble volas ŝanĝi kelkajn el ili. Vi povas plu agordi ĉi tiujn agordojn de la "
-"KWallet-kontrolmodulo."
+"KWallet lets you adjust the security of your personal data. While the "
+"default settings work for most users, you can modify them if needed. "
+"Additional adjustments can be made on the KWallet settings page."
+msgstr "KWallet ebligas al vi alĝustigi la sekurecon de viaj personaj datumoj. Kvankam la defaŭltaj agordoj taŭgas por la plej multaj uzantoj, vi povas ŝanĝi ilin laŭbezone. Pliaj alĝustigoj eblas en la agorda paĝo de KWallet."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _closeIdle)
 #: ksecretd/kwalletwizardpageoptions.ui:48
@@ -480,28 +438,18 @@ msgstr ""
 #: ksecretd/kwalletwizardpagepassword.ui:16
 #, kde-format
 msgid ""
-"Various applications may attempt to use the KDE wallet to store passwords or "
-"other information such as web form data and cookies.  If you would like "
-"these applications to use the wallet, you must enable it now and choose a "
-"password.  The password you choose <i>cannot</i> be recovered if it is lost, "
-"and will allow anyone who knows it to obtain all the information contained "
-"in the wallet."
-msgstr ""
-"Diversaj aplikaĵoj eble volas uzi la sekretejon de KDE por konservi "
-"pasvortojn aŭ aliajn informojn, kiel datumoj de retformularoj aŭ kuketoj. Se "
-"vi volas, ke ĉi tiuj aplikaĵoj uzas la sekretejon, vi devas enŝalti ĝin nun "
-"kaj elektu pasvorton. La pasvorton, kiun vi elektas, <i>ne povas</i> esti "
-"restaŭrigita, se vi perdas ĝin, kaj ĝi permesas iun ajn personon, kiu konas "
-"la pasvorton, obteni ĉiujn viajn informojn en la sekretejo."
+"Various applications may request access to the KDE wallet to store "
+"passwords, web form data, or cookies. To allow this, enable the wallet and "
+"set a password. Note that the password <i>cannot</i> be recovered if lost "
+"and grants full access to all information stored in the wallet."
+msgstr "Diversaj aplikaĵoj povas peti aliron al la sekretejo de KDE por konservi pasvortojn, retformularajn datumojn aŭ kuketojn. Por permesi tion, enŝaltu la sekretejon kaj difinu pasvorton. Notu, ke la pasvorto <i>ne povas</i> esti restaŭrigita se ĝi perdiĝas, kaj ĝi donas plenan aliron al ĉiuj informoj konservitaj en la sekretejo."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _useWallet)
 #: ksecretd/kwalletwizardpagepassword.ui:29
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:30
 #, kde-format
-msgid "Yes, I wish to use the KDE wallet to store my personal information."
-msgstr ""
-"Jes, mi volas uzi la sekretejon de KDE por konservi miajn personajn "
-"informojn."
+msgid "Use the KDE wallet to store sensitive information"
+msgstr "Uzi la sekretejon de KDE por konservi sentemajn informojn"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
 #: ksecretd/kwalletwizardpagepassword.ui:88
@@ -521,31 +469,20 @@ msgstr "Konfirmu pasvorton:"
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:17
 #, kde-format
 msgid ""
-"<html><head/><body><p>Various applications may attempt to use the KDE wallet "
-"to store passwords or other information such as web form data and cookies. "
-"If you would like these applications to use the wallet, you must enable it "
-"now and choose method for its encryption.</p><p>GPG method is more secure, "
-"but you must have configured at least one encrypting key on your system.</"
-"p><p>If you choose the classic format, be warned that the password you "
-"choose <span style=\" font-style:italic;\">cannot</span> be recovered if it "
-"is lost, and will allow anyone who knows it to obtain all the information "
-"contained in the wallet.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Diversaj aplikaĵoj povas provi uzi la KDE-monujon por "
-"konservi pasvortojn aŭ aliajn informojn kiel retformulardatenojn kaj "
-"kuketojn. Se vi ŝatus, ke ĉi tiuj aplikaĵoj uzu la monujon, vi devas enŝalti "
-"ĝin nun kaj elekti metodon por ĝia ĉifrado.</p><p>GPG-metodo estas pli "
-"sekura, sed vi devas esti agordinta almenaŭ unu ĉifradan ŝlosilon en via "
-"sistemo. </p><p>Se vi elektas la klasikan formaton, estu avertita, ke la "
-"pasvorto, kiun vi elektas, <span style=\" font-style:italic;\">ne povas</"
-"span> esti retrovita se ĝi estas perdita, kaj estos permesi al ĉiu, kiu "
-"konas ĝin, akiri ĉiujn informojn enhavitajn en la monujo.</p></body></html>"
+"<html><head/><body><p>Various applications may request access to the KDE "
+"wallet to store passwords, web form data, or cookies. To allow this, enable "
+"the wallet and choose an encryption method. </p><p>GPG encryption is more "
+"secure, but you must have at least one encryption key configured on your "
+"system.</p><p>If you choose the classic format, note that the password <span "
+"style=\" font-style:italic;\">cannot</span> be recovered if lost and grants "
+"full access to all information stored in the wallet.</p></body></html>"
+msgstr "<html><head/><body><p>Diversaj aplikaĵoj povas peti aliron al la KDE-monujo por konservi pasvortojn, retformularajn datumojn aŭ kuketojn. Por permesi tion, enŝaltu la monujon kaj elektu ĉifradan metodon. </p><p>GPG-ĉifrado estas pli sekura, sed vi devas havi almenaŭ unu ĉifradan ŝlosilon agorditan en via sistemo.</p><p>Se vi elektas la klasikan formaton, notu, ke la pasvorto <span style=\" font-style:italic;\">ne povas</span> esti retrovita se ĝi perdiĝas, kaj ĝi donas plenan aliron al ĉiuj informoj konservitaj en la monujo.</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, _groupBox)
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:46
 #, kde-format
-msgid "What kind of encryption do you wish?"
-msgstr "Kiuspecan ĉifradon vi deziras?"
+msgid "Encryption type"
+msgstr "Tipo de ĉifrado"
 
 #: ksecretd/main.cpp:163
 #, fuzzy, kde-format

@@ -25,6 +25,8 @@ set_target_properties(KF6Wallet PROPERTIES
     EXPORT_NAME Wallet
 )
 
+target_sources(KF6Wallet PRIVATE sonic_logging_component.cpp)
+
 if (MAC_USE_OSXKEYCHAIN)
     find_library(COREFOUNDATION_LIBRARY CoreFoundation)
     find_library(SECURITY_LIBRARY Security)
@@ -47,15 +49,6 @@ else()
     )
 endif()
 
-ecm_qt_declare_logging_category(KF6Wallet
-    HEADER kwallet_api_debug.h
-    IDENTIFIER KWALLET_API_LOG
-    CATEGORY_NAME kf.wallet.api
-    OLD_CATEGORY_NAMES kf5.kwallet.api
-    DESCRIPTION "kwallet api"
-    EXPORT KWALLET
-)
-
 ecm_generate_export_header(KF6Wallet
     BASE_NAME KWallet
     GROUP_BASE_NAME KF
@@ -74,6 +67,7 @@ target_link_libraries(KF6Wallet
     PRIVATE
         Qt6::DBus
         KF6::ConfigGui   # used to store the wallet to be used
+        Sonic::Logging
 )
 
 if(MAC_USE_OSXKEYCHAIN)

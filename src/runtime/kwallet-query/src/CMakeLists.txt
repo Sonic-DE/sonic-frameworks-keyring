@@ -13,6 +13,7 @@ TARGET_LINK_LIBRARIES(kwallet-query
     KF6::CoreAddons
     KF6::I18n
     Qt6::Core
+    Sonic::Logging
 )
 
 ecm_mark_nongui_executable(kwallet-query)

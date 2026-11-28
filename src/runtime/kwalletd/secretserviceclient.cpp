@@ -5,7 +5,8 @@
 */
 
 #include "secretserviceclient.h"
-#include "kwalletd_debug.h"
+
+#include <Sonic/Logging/Log>
 
 #include <KLocalizedString>
 #include <QDBusConnection>
@@ -25,7 +26,15 @@ const SecretSchema *qtKeychainSchema(void)
     static const SecretSchema schema = {
         "org.qt.keychain",
         SECRET_SCHEMA_DONT_MATCH_NAME,
-        {{"user", SECRET_SCHEMA_ATTRIBUTE_STRING}, {"server", SECRET_SCHEMA_ATTRIBUTE_STRING}, {"type", SECRET_SCHEMA_ATTRIBUTE_STRING}}};
+        {{"user", SECRET_SCHEMA_ATTRIBUTE_STRING}, {"server", SECRET_SCHEMA_ATTRIBUTE_STRING}, {"type", SECRET_SCHEMA_ATTRIBUTE_STRING}},
+        0,
+        nullptr,
+        nullptr,
+        nullptr,
+        nullptr,
+        nullptr,
+        nullptr,
+        nullptr};
 
     return &schema;
 }
@@ -75,7 +84,7 @@ static bool wasErrorFree(GError **error)
     if (!*error) {
         return true;
     }
-    qCWarning(KWALLETD_LOG) << QString::fromUtf8((*error)->message);
+    sonicWarning() << QString::fromUtf8((*error)->message);
     g_error_free(*error);
     *error = nullptr;
     return false;
@@ -177,14 +186,14 @@ QString SecretServiceClient::collectionLabelForPath(const QDBusObjectPath &path)
     QDBusInterface collectionInterface(m_serviceBusName, path.path(), QStringLiteral("org.freedesktop.Secret.Collection"), QDBusConnection::sessionBus());
 
     if (!collectionInterface.isValid()) {
-        qCWarning(KWALLETD_LOG) << "Failed to connect to the DBus collection object:" << path.path();
+        sonicWarning() << "Failed to connect to the DBus collection object:" << path.path();
         return {};
     }
 
     QVariant reply = collectionInterface.property("Label");
 
     if (!reply.isValid()) {
-        qCWarning(KWALLETD_LOG) << "Error reading label:" << collectionInterface.lastError();
+        sonicWarning() << "Error reading label:" << collectionInterface.lastError();
         return {};
     }
 
@@ -259,7 +268,7 @@ SecretServiceClient::retrieveItem(const QString &key, const SecretServiceClient:
         }
 
     } else {
-        qCWarning(KWALLETD_LOG) << i18n("Item not found");
+        sonicWarning() << i18n("Item not found");
         *ok = false;
     }
 
@@ -279,7 +288,7 @@ bool SecretServiceClient::attemptConnection()
     bool ok = wasErrorFree(&error);
 
     if (!ok || !m_service) {
-        qCWarning(KWALLETD_LOG) << i18n("Could not connect to Secret Service");
+        sonicWarning() << i18n("Could not connect to Secret Service");
         return false;
     }
 
@@ -297,7 +306,7 @@ void SecretServiceClient::watchCollection(const QString &collectionName, bool *o
 
     // retrieveCollection() may return null; g_dbus_proxy_get_object_path() asserts on that.
     if (!collection || !G_IS_DBUS_PROXY(collection)) {
-        qCWarning(KWALLETD_LOG) << "Not watching collection" << collectionName << "- no valid Secret Service proxy";
+        sonicWarning() << "Not watching collection" << collectionName << "- no valid Secret Service proxy";
         *ok = false;
         return;
     }
@@ -352,7 +361,7 @@ void SecretServiceClient::onServiceOwnerChanged(const QString &serviceName, cons
         m_service.reset();
     }
 
-    qDebug() << "Secret Service availability changed:" << (available ? "Available" : "Unavailable");
+    sonicDebug() << "Secret Service availability changed:" << (available ? "Available" : "Unavailable");
     Q_EMIT serviceChanged();
 }
 
@@ -393,14 +402,14 @@ void SecretServiceClient::onCollectionChanged(const QDBusObjectPath &path)
     QDBusInterface collectionInterface(m_serviceBusName, path.path(), QStringLiteral("org.freedesktop.Secret.Collection"), QDBusConnection::sessionBus());
 
     if (!collectionInterface.isValid()) {
-        qCWarning(KWALLETD_LOG) << "Failed to connect to the DBus collection object:" << path.path();
+        sonicWarning() << "Failed to connect to the DBus collection object:" << path.path();
         return;
     }
 
     QVariant reply = collectionInterface.property("Locked");
 
     if (!reply.isValid()) {
-        qCWarning(KWALLETD_LOG) << "Error reading locked:" << collectionInterface.lastError();
+        sonicWarning() << "Error reading locked:" << collectionInterface.lastError();
         return;
     }
 
@@ -424,7 +433,7 @@ void SecretServiceClient::onSecretItemChanged(const QDBusObjectPath &path)
     // 6 items: /org/freedesktop/secrets/collection/collectionName/itemName
     if (pieces.length() != 6) {
         // unexpected path shape: refresh all collections so the change isn't lost
-        qCWarning(KWALLETD_LOG) << "Secret item changed at unexpected path" << path.path() << "- refreshing all collections";
+        sonicWarning() << "Secret item changed at unexpected path" << path.path() << "- refreshing all collections";
         Q_EMIT collectionListDirty();
         return;
     }
@@ -479,7 +488,7 @@ bool SecretServiceClient::unlockCollection(const QString &collectionName, bool *
         gboolean success = secret_service_unlock_sync(m_service.get(), g_list_append(nullptr, collection), nullptr, nullptr, &error);
         *ok = wasErrorFree(&error);
         if (!success) {
-            qCWarning(KWALLETD_LOG) << i18n("Unable to unlock collectionName %1", collectionName);
+            sonicWarning() << i18n("Unable to unlock collectionName %1", collectionName);
         }
         return success;
     }
@@ -502,7 +511,7 @@ QString SecretServiceClient::defaultCollection(bool *ok)
                                     QDBusConnection::sessionBus());
 
     if (!serviceInterface.isValid()) {
-        qCWarning(KWALLETD_LOG) << "Failed to connect to the DBus SecretService object";
+        sonicWarning() << "Failed to connect to the DBus SecretService object";
         *ok = false;
         return label;
     }
@@ -510,7 +519,7 @@ QString SecretServiceClient::defaultCollection(bool *ok)
     QDBusReply<QDBusObjectPath> reply = serviceInterface.call(QStringLiteral("ReadAlias"), QStringLiteral("default"));
 
     if (!reply.isValid()) {
-        qCWarning(KWALLETD_LOG) << "Error reading label:" << reply.error().message();
+        sonicWarning() << "Error reading label:" << reply.error().message();
         *ok = false;
         return label;
     }
@@ -572,7 +581,7 @@ QStringList SecretServiceClient::listCollections(bool *ok)
             }
         }
     } else {
-        qCDebug(KWALLETD_LOG) << i18n("No collections");
+        sonicDebug() << i18n("No collections");
     }
 
     *ok = true;
@@ -609,7 +618,7 @@ QStringList SecretServiceClient::listFolders(const QString &collectionName, bool
             }
         }
     } else {
-        qCDebug(KWALLETD_LOG) << i18n("No entries");
+        sonicDebug() << i18n("No entries");
     }
     *ok = true;
     return folders.values();
@@ -656,7 +665,7 @@ QStringList SecretServiceClient::listEntries(const QString &folder, const QStrin
             }
         }
     } else {
-        qCDebug(KWALLETD_LOG) << i18n("No entries");
+        sonicDebug() << i18n("No entries");
     }
 
     return items.values();
@@ -674,7 +683,7 @@ QHash<QString, QString> SecretServiceClient::readMetadata(const QString &key, co
     SecretItemPtr item = retrieveItem(key, Unknown, folder, collectionName, ok);
 
     if (!item) {
-        qCWarning(KWALLETD_LOG) << i18n("Entry not found, key: %1, folder: %2", key, folder);
+        sonicWarning() << i18n("Entry not found, key: %1, folder: %2", key, folder);
         return hash;
     }
 
@@ -759,7 +768,7 @@ void SecretServiceClient::deleteFolder(const QString &folder, const QString &col
             g_object_unref(item);
         }
     } else {
-        qCWarning(KWALLETD_LOG) << i18n("No entries");
+        sonicWarning() << i18n("No entries");
     }
 }
 
@@ -783,7 +792,7 @@ SecretServiceClient::readEntry(const QString &key, const SecretServiceClient::Ty
             secret_service_unlock_sync(m_service.get(), g_list_append(nullptr, item.get()), nullptr, nullptr, &error);
             *ok = wasErrorFree(&error);
             if (!ok) {
-                qCWarning(KWALLETD_LOG) << i18n("Unable to unlock item");
+                sonicWarning() << i18n("Unable to unlock item");
                 return data;
             }
 
@@ -826,14 +835,14 @@ void SecretServiceClient::renameEntry(const QString &display_name,
     }
     if (!item) {
         *ok = false;
-        qCWarning(KWALLETD_LOG) << i18n("Entry to rename not found");
+        sonicWarning() << i18n("Entry to rename not found");
         return;
     }
 
     SecretItemPtr existingItem = retrieveItem(newKey, Unknown, folder, collectionName, ok);
     if (existingItem) {
         *ok = false;
-        qCWarning(KWALLETD_LOG) << i18n("Entry named %1 in folder %2 and wallet %3 already exists.", newKey, folder, collectionName);
+        sonicWarning() << i18n("Entry named %1 in folder %2 and wallet %3 already exists.", newKey, folder, collectionName);
         return;
     }
 
@@ -848,7 +857,7 @@ void SecretServiceClient::renameEntry(const QString &display_name,
         }
     } else {
         *ok = false;
-        qCWarning(KWALLETD_LOG) << i18n("Entry to rename incomplete");
+        sonicWarning() << i18n("Entry to rename incomplete");
         return;
     }
 
@@ -863,7 +872,7 @@ void SecretServiceClient::renameEntry(const QString &display_name,
         }
     } else {
         *ok = false;
-        qCWarning(KWALLETD_LOG) << i18n("Entry to rename incomplete");
+        sonicWarning() << i18n("Entry to rename incomplete");
         return;
     }
 
@@ -908,7 +917,7 @@ void SecretServiceClient::writeEntry(const QString &display_name,
     SecretValuePtr secretValue = SecretValuePtr(secret_value_new(data.constData(), -1, mimeType.toLatin1().constData()));
     if (!secretValue) {
         *ok = false;
-        qCWarning(KWALLETD_LOG) << i18n("Failed to create SecretValue");
+        sonicWarning() << i18n("Failed to create SecretValue");
         return;
     }
 
@@ -944,7 +953,7 @@ void SecretServiceClient::deleteEntry(const QString &key, const QString &folder,
     }
     if (!item) {
         *ok = false;
-        qCWarning(KWALLETD_LOG) << i18n("Entry to rename not found");
+        sonicWarning() << i18n("Entry to rename not found");
         return;
     }
     m_updateInProgress = true;

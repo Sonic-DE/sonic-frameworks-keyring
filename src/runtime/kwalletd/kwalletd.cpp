@@ -7,7 +7,7 @@
 #include "kwalletd.h"
 
 #include <QDBusConnection>
-#include <QDebug>
+#include <Sonic/Logging/Log>
 
 #include <KLocalizedString>
 #include <KPasswordDialog>
@@ -40,8 +40,8 @@ KWalletD::KWalletD(QObject *parent)
                 m_structure.insert(wallet, folder);
             }
         }
-        qCDebug(KWALLETD_LOG) << "Structure:" << m_structure;
-        qCDebug(KWALLETD_LOG) << "Default wallet:" << m_backend->defaultCollection(&ok);
+        sonicDebug() << "Structure:" << m_structure;
+        sonicDebug() << "Default wallet:" << m_backend->defaultCollection(&ok);
 
         // This function will only do something if the config file tells it to actually do the migration
         migrateData();
@@ -95,7 +95,7 @@ KWalletD::~KWalletD()
 
 bool KWalletD::migrateWallet(const QString &sourceWallet, const QString &destWallet)
 {
-    qCWarning(KWALLETD_LOG) << "Migrating" << sourceWallet;
+    sonicWarning() << "Migrating" << sourceWallet;
     KWallet::Backend backend(sourceWallet);
     backend.open(QByteArray());
     while (!backend.isOpen()) {
@@ -116,13 +116,13 @@ bool KWalletD::migrateWallet(const QString &sourceWallet, const QString &destWal
         return false;
     }
     if (!allDestWallets.contains(destWallet)) {
-        qCDebug(KWALLETD_LOG) << "Creating" << destWallet;
+        sonicDebug() << "Creating" << destWallet;
         m_backend->createCollection(destWallet, &ok);
         if (!ok) {
             return false;
         }
     }
-    qCDebug(KWALLETD_LOG) << "Unlocking" << destWallet;
+    sonicDebug() << "Unlocking" << destWallet;
     bool unlocked = m_backend->unlockCollection(destWallet, &ok);
     if (!ok || !unlocked) {
         return false;

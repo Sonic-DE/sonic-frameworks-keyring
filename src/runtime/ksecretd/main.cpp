@@ -6,7 +6,6 @@
     SPDX-License-Identifier: LGPL-2.0-only
 */
 
-#include "ksecretd_debug.h"
 #include <KAboutData>
 #include <KCrash>
 #include <KDBusService>
@@ -17,6 +16,9 @@
 #include <QIcon>
 #include <QString>
 
+#include <Sonic/Logging/Log>
+#include <Sonic/Logging/Logging>
+
 #include <stdio.h>
 
 #include "../kwalletbackend/kwalletbackend.h" //For the hash size
@@ -25,11 +27,20 @@
 #include "kwalletbackend.h"
 #include "kwalletfreedesktopservice.h"
 
+SONIC_LOGGING_COMPONENT("org.sonicde.frameworks.keyring.ksecretd")
+
 #ifndef Q_OS_WIN
 #include <sys/socket.h>
 #include <sys/types.h>
 #include <sys/un.h>
 #include <unistd.h>
+
+#include <QDBusConnection>
+#include <QDBusMessage>
+#include <QDBusObjectPath>
+#include <QDBusVariant>
+#include <QTimer>
+#include <QVariantMap>
 
 #define BSIZE 1000
 static int pipefd = 0;
@@ -40,7 +51,7 @@ static int socketfd = 0;
 // Waits until the PAM_MODULE sends the hash
 static char *waitForHash()
 {
-    qCDebug(KSECRETD_LOG) << "ksecretd5: Waiting for hash on" << pipefd;
+    sonicDebug() << "ksecretd5: Waiting for hash on" << pipefd;
     int totalRead = 0;
     int readBytes = 0;
     int attempts = 0;
@@ -63,16 +74,16 @@ static char *waitForHash()
 // Waits until startkde sends the environment variables
 static int waitForEnvironment()
 {
-    qCDebug(KSECRETD_LOG) << "ksecretd5: waitingForEnvironment on:" << socketfd;
+    sonicDebug() << "ksecretd5: waitingForEnvironment on:" << socketfd;
 
     int s2;
     struct sockaddr_un remote;
     socklen_t t = sizeof(remote);
     if ((s2 = accept(socketfd, (struct sockaddr *)&remote, &t)) == -1) {
-        qCWarning(KSECRETD_LOG) << "ksecretd5: Couldn't accept incoming connection";
+        sonicWarning() << "ksecretd5: Couldn't accept incoming connection";
         return -1;
     }
-    qCDebug(KSECRETD_LOG) << "ksecretd5: client connected";
+    sonicDebug() << "ksecretd5: client connected";
 
     char str[BSIZE] = {'\0'};
 
@@ -89,26 +100,26 @@ static int waitForEnvironment()
     }
     fclose(s3);
 
-    qCDebug(KSECRETD_LOG) << "ksecretd5: client disconnected";
+    sonicDebug() << "ksecretd5: client disconnected";
     close(socketfd);
     return 1;
 }
 
 char *checkPamModule(int argc, char **argv)
 {
-    qCDebug(KSECRETD_LOG) << "ksecretd5: Checking for pam module";
+    sonicDebug() << "ksecretd5: Checking for pam module";
     char *hash = nullptr;
     int x = 1;
     for (; x < argc; ++x) {
         if (strcmp(argv[x], "--pam-login") != 0) {
             continue;
         }
-        qCDebug(KSECRETD_LOG) << "ksecretd5: Got pam-login param";
+        sonicDebug() << "ksecretd5: Got pam-login param";
         argv[x] = nullptr;
         x++;
         // We need at least 2 extra arguments after --pam-login
         if (x + 1 > argc) {
-            qCWarning(KSECRETD_LOG) << "ksecretd5: Invalid arguments (less than needed)";
+            sonicWarning() << "ksecretd5: Invalid arguments (less than needed)";
             return nullptr;
         }
 
@@ -123,14 +134,14 @@ char *checkPamModule(int argc, char **argv)
     }
 
     if (!pipefd || !socketfd) {
-        qCWarning(KSECRETD_LOG) << "Lacking a socket, pipe:" << pipefd << "env:" << socketfd;
+        sonicWarning() << "Lacking a socket, pipe:" << pipefd << "env:" << socketfd;
         return nullptr;
     }
 
     hash = waitForHash();
 
     if (hash == nullptr || waitForEnvironment() == -1) {
-        qCWarning(KSECRETD_LOG) << "ksecretd5: Hash or environment not received";
+        sonicWarning() << "ksecretd5: Hash or environment not received";
         free(hash);
         return nullptr;
     }
@@ -139,8 +150,123 @@ char *checkPamModule(int argc, char **argv)
 }
 #endif
 
+#ifndef Q_OS_WIN
+/**
+ * Ties the lifetime of a session-scoped instance to its logind session,
+ * allowing the session to close cleanly.
+ * https://invent.kde.org/frameworks/kwallet/-/merge_requests/201
+ */
+class SessionCloseWatcher : public QObject
+{
+    Q_OBJECT
+public:
+    // pamSessionId names the session of a PAM login instance and is
+    // only a fallback for when logind cannot place this process in a
+    // session; it is empty for other instances, which then stay inert.
+    explicit SessionCloseWatcher(const QString &pamSessionId, QObject *parent = nullptr)
+        : QObject(parent)
+    {
+        QDBusConnection bus = QDBusConnection::systemBus();
+        if (!bus.isConnected()) {
+            return;
+        }
+
+        // Ask logind which session this process runs in. A process
+        // owned by the user manager (e.g. D-Bus-autostarted) is in no
+        // session, gets an error here and stays inert, so it keeps
+        // ending with the user manager as before.
+        m_sessionPath = sessionPathForPid(bus);
+        if (m_sessionPath.isEmpty() && !pamSessionId.isEmpty()) {
+            m_sessionPath = sessionPathForId(bus, pamSessionId);
+        }
+        if (m_sessionPath.isEmpty()) {
+            return;
+        }
+
+        if (!bus.connect(QStringLiteral("org.freedesktop.login1"),
+                         m_sessionPath,
+                         QStringLiteral("org.freedesktop.DBus.Properties"),
+                         QStringLiteral("PropertiesChanged"),
+                         this,
+                         SLOT(slotPropertiesChanged(QString, QVariantMap, QStringList)))) {
+            sonicWarning() << "failed to watch logind session" << m_sessionPath;
+            return;
+        }
+
+        // The session may already be closing before we get here. Check
+        // once the event loop runs; quitting from the constructor would
+        // be lost, as it runs before exec().
+        QTimer::singleShot(0, this, &SessionCloseWatcher::checkSessionState);
+    }
+
+private:
+    static QDBusMessage managerCall(QDBusConnection &bus, const QString &method, const QVariant &argument)
+    {
+        QDBusMessage call = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.login1"),
+                                                           QStringLiteral("/org/freedesktop/login1"),
+                                                           QStringLiteral("org.freedesktop.login1.Manager"),
+                                                           method);
+        call << argument;
+        // Bound the wait: a wedged logind must not stall the start.
+        return bus.call(call, QDBus::Block, 5000);
+    }
+
+    static QString sessionPathFromReply(const QDBusMessage &reply)
+    {
+        if (reply.type() == QDBusMessage::ReplyMessage && !reply.arguments().isEmpty()) {
+            return reply.arguments().at(0).value<QDBusObjectPath>().path();
+        }
+        return QString();
+    }
+
+    static QString sessionPathForPid(QDBusConnection &bus)
+    {
+        const QVariant pid = QVariant::fromValue(uint(QCoreApplication::applicationPid()));
+        return sessionPathFromReply(managerCall(bus, QStringLiteral("GetSessionByPID"), pid));
+    }
+
+    static QString sessionPathForId(QDBusConnection &bus, const QString &sessionId)
+    {
+        return sessionPathFromReply(managerCall(bus, QStringLiteral("GetSession"), QVariant(sessionId)));
+    }
+
+    void checkSessionState()
+    {
+        QDBusMessage call = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.login1"),
+                                                           m_sessionPath,
+                                                           QStringLiteral("org.freedesktop.DBus.Properties"),
+                                                           QStringLiteral("Get"));
+        call << QStringLiteral("org.freedesktop.login1.Session") << QStringLiteral("State");
+        const QDBusMessage reply = QDBusConnection::systemBus().call(call, QDBus::Block, 5000);
+        if (reply.type() != QDBusMessage::ReplyMessage || reply.arguments().isEmpty()) {
+            sonicWarning() << "failed to read the state of logind session" << m_sessionPath;
+            return;
+        }
+        // Properties.Get wraps the value in a variant.
+        if (reply.arguments().at(0).value<QDBusVariant>().variant().toString() == QLatin1String("closing")) {
+            sonicDebug() << "logind session is closing, exiting";
+            QCoreApplication::quit();
+        }
+    }
+
+    QString m_sessionPath;
+
+private Q_SLOTS:
+    void slotPropertiesChanged(const QString &interface, const QVariantMap &changed, const QStringList &invalidated)
+    {
+        Q_UNUSED(invalidated)
+        if (interface == QLatin1String("org.freedesktop.login1.Session") && changed.value(QStringLiteral("State")).toString() == QLatin1String("closing")) {
+            sonicDebug() << "logind session is closing, exiting";
+            QCoreApplication::quit();
+        }
+    }
+};
+#endif
+
 int main(int argc, char **argv)
 {
+    Sonic::Logging::install();
+
     char *hash = nullptr;
 #ifndef Q_OS_WIN
     if (getenv("PAM_KWALLET5_LOGIN")) {
@@ -184,7 +310,7 @@ int main(int argc, char **argv)
 
     // check if kwallet is disabled
     if (!KSecretD::isEnabled()) {
-        qCDebug(KSECRETD_LOG) << "ksecretd is disabled!";
+        sonicDebug() << "ksecretd is disabled!";
 
         /* Do not keep dbus-daemon waiting for the org.freedesktop.secrets if kwallet is disabled */
         KWalletFreedesktopService(nullptr);
@@ -193,18 +319,31 @@ int main(int argc, char **argv)
     }
 
     KSecretD secretd;
-    qCDebug(KSECRETD_LOG) << "ksecretd6 started";
+    sonicDebug() << "ksecretd6 started";
+
+#ifndef Q_OS_WIN
+    // An instance running in a logind session scope must not outlive
+    // that session; the watcher stays inert for instances owned by the
+    // user manager.
+    // Set by pam_systemd, passed by the KWallet PAM module with `execve`.
+    const QString pamSessionId = hash ? qEnvironmentVariable("XDG_SESSION_ID") : QString();
+    const SessionCloseWatcher sessionCloseWatcher(pamSessionId);
+#endif
 
     if (hash) {
         QByteArray passHash(hash, PBKDF2_SHA512_KEYSIZE);
         int wallet = secretd.pamOpen(KWallet::Backend::localWallet(), passHash);
         if (wallet < 0) {
-            qCWarning(KSECRETD_LOG) << "Wallet failed to get opened by PAM, error code is" << wallet;
+            sonicWarning() << "Wallet failed to get opened by PAM, error code is" << wallet;
         } else {
-            qCDebug(KSECRETD_LOG) << "Wallet opened by PAM";
+            sonicDebug() << "Wallet opened by PAM";
         }
         free(hash);
     }
 
     return app.exec();
 }
+
+#ifndef Q_OS_WIN
+#include "main.moc"
+#endif

@@ -53,19 +53,14 @@ msgstr "បដិសេធ"
 msgid "Deny &Forever"
 msgstr "បដិសេធ​ជា​រហូត"
 
-#: ksecretd/knewwalletdialog.cpp:50
-#, fuzzy, kde-format
-#| msgid ""
-#| "KDE has requested to open the wallet. This is used to store sensitive "
-#| "data in a secure fashion. Please enter a password to use with this wallet "
-#| "or click cancel to deny the application's request."
+#: ksecretd/knewwalletdialog.cpp:51
+#, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used "
-"to store sensitive data in a secure fashion. Please choose the new wallet's "
-"type below or click cancel to deny the application's request.</qt>"
-msgstr ""
-"KDE បាន​ស្នើ​ឲ្យ​បើក​កាបូប ។ វា​ត្រូវ​បាន​ប្រើ​ដើម្បី​ទុក​ទិន្នន័យ​នៅ​ក្នុង​របៀប​មាន​សុវត្ថិភាព ។ សូម​បញ្ចូល​ពាក្យ​"
-"សម្ងាត់​ដើម្បី​ប្រើ​ជា​មួយកាបូប ឬ​ចុច​បោះបង់​ដើម្បីបដិសេធ​សំណើ​របស់​កម្មវិធី ។"
+"to securely store sensitive data, such as account passwords. Choose the type "
+"of the new wallet below or click Cancel to deny the application's request.</"
+"qt>"
+msgstr "<qt>KDE បានស្នើឲ្យបង្កើតកាបូបថ្មីមួយដែលមានឈ្មោះ '<b>%1</b>' ។ វាត្រូវបានប្រើដើម្បីទុកទិន្នន័យរសើប ដូចជាពាក្យសម្ងាត់គណនី ដោយសុវត្ថិភាព ។ ជ្រើសប្រភេទកាបូបថ្មីខាងក្រោម ឬចុច បោះបង់ ដើម្បីបដិសេធសំណើរបស់កម្មវិធី ។</qt>"
 
 #: ksecretd/knewwalletdialog.cpp:55
 #, fuzzy, kde-format
@@ -92,26 +87,32 @@ msgid ""
 "check your system's configuration then try again."
 msgstr ""
 
-#: ksecretd/knewwalletdialog.cpp:153
-#, kde-format
+#: ksecretd/knewwalletdialog.cpp:176
+#, kde-kuit-format
+msgctxt "@info"
 msgid ""
-"Seems that your system has no keys suitable for encryption. Please set-up at "
-"least one encryption key, then try again."
-msgstr ""
+"No suitable GPG encryption keys were found. To create one, choose one of the "
+"following options:<list><item>Install Kleopatra and use it to create a new "
+"key. See these <link url='https://docs.kde.org/stable_kf6/en/kleopatra/"
+"kleopatra/functions-newkey.html'>instructions</link>.</item><item>Open a "
+"terminal and enter <command>gpg --full-gen-key</command>.</item><item>Go "
+"back and use Blowfish encryption instead, which only requires a password.</"
+"item></list>"
+msgstr "រកមិនឃើញសោអ៊ិនគ្រីប GPG ដែលសមស្របទេ ។ ដើម្បីបង្កើតមួយ សូមជ្រើសជម្រើសមួយក្នុងចំណោមជម្រើសខាងក្រោម៖<list><item>ដំឡើង Kleopatra ហើយប្រើវាដើម្បីបង្កើតសោថ្មី ។ មើល<link url='https://docs.kde.org/stable_kf6/en/kleopatra/kleopatra/functions-newkey.html'>សេចក្ដីណែនាំ</link>ទាំងនេះ ។</item><item>បើកស្ថានីយ ហើយបញ្ចូល <command>gpg --full-gen-key</command> ។</item><item>ត្រឡប់ក្រោយ ហើយប្រើការអ៊ិនគ្រីប Blowfish ជំនួសវិញ ដែលត្រូវការតែពាក្យសម្ងាត់ប៉ុណ្ណោះ ។</item></list>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ksecretd/knewwalletdialoggpg.ui:17
 #, kde-format
-msgid "Please select the signing key from the list below:"
-msgstr ""
+msgid "Select the signing key from the list below:"
+msgstr "ជ្រើសសោចុះហត្ថលេខាពីបញ្ជីខាងក្រោម៖"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ksecretd/knewwalletdialoggpg.ui:24
 #, kde-format
 msgid ""
-"<html><head/><body><p><span style=\" font-weight:600;\">NOTE:</span> this "
+"<html><head/><body><p><span style=\" font-weight:600;\">Note:</span> this "
 "list shows only &quot;ultimate-level&quot; trusted keys</p></body></html>"
-msgstr ""
+msgstr "<html><head/><body><p><span style=\" font-weight:600;\">ចំណាំ៖</span> បញ្ជីនេះបង្ហាញតែសោដែលទុកចិត្ត &quot;កម្រិតខ្ពស់បំផុត&quot; ប៉ុណ្ណោះ</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
 #: ksecretd/knewwalletdialoggpg.ui:59
@@ -139,37 +140,29 @@ msgstr "ប្រព័ន្ធ​ការបូប​របស់ KDE"
 
 #. i18n: ectx: property (text), widget (QLabel, labelIntro)
 #: ksecretd/knewwalletdialogintro.ui:30
-#, fuzzy, no-c-format, kde-format
-#| msgid ""
-#| "<qt>The application '<b>%1</b>' has requested to open the KDE wallet. "
-#| "This is used to store sensitive data in a secure fashion. Please enter a "
-#| "password to use with this wallet or click cancel to deny the "
-#| "application's request.</qt>"
+#, no-c-format, kde-format
 msgid ""
 "<html><head/><body><p>The application '<span style=\" font-weight:600;\">%1</"
-"span>' has requested to open the KDE wallet. This is used to store sensitive "
-"data in a secure fashion. Please choose the new wallet's type below or click "
-"cancel to deny the application's request.</p></body></html>"
-msgstr ""
-"<qt>កម្មវិធី '<b>%1</b>' បាន​ស្នើ​ឲ្យ​បើកការបូប​របស់ KDE ។ វា​ត្រូវ​បានប្រើ​ដើម្បីទុក​ទិន្នន័យ​នៅ​ក្នុង​"
-"របៀប​មាន​សុវត្ថិភាព ។ សូម​បញ្ចូល​ពាក្យ​សម្ងាត់​ដើម្បី​ប្រើ​ជា​មួយ​ការបូប​នេះ ឬ​ចុច​បោះបង់​ដើម្បី​បោះបង់​សំណើ​របស់​"
-"កម្មវិធី ។</qt>"
+"span>' has requested to open the KDE wallet. This is used to securely store "
+"sensitive data, such as account passwords. Choose the type of the new wallet "
+"below or click Cancel to deny the application's request.</p></body></html>"
+msgstr "<html><head/><body><p>កម្មវិធី '<span style=\" font-weight:600;\">%1</span>' បានស្នើឲ្យបើកកាបូបរបស់ KDE ។ វាត្រូវបានប្រើដើម្បីទុកទិន្នន័យរសើប ដូចជាពាក្យសម្ងាត់គណនី ដោយសុវត្ថិភាព ។ ជ្រើសប្រភេទកាបូបថ្មីខាងក្រោម ឬចុច បោះបង់ ដើម្បីបដិសេធសំណើរបស់កម្មវិធី ។</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioBlowfish)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioBlowfish)
 #: ksecretd/knewwalletdialogintro.ui:66
-#: ksecretd/kwalletwizardpagepasswordgpg.ui:68
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:55
 #, kde-format
-msgid "Classic, blowfish encrypted file"
-msgstr ""
+msgid "Blowfish encryption"
+msgstr "ការអ៊ិនគ្រីប Blowfish"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioGpg)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioGpg)
-#: ksecretd/knewwalletdialogintro.ui:73
-#: ksecretd/kwalletwizardpagepasswordgpg.ui:55
+#: ksecretd/knewwalletdialogintro.ui:80
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:72
 #, kde-format
-msgid "Use GPG encryption, for better protection"
-msgstr ""
+msgid "GPG encryption"
+msgstr "ការអ៊ិនគ្រីប GPG"
 
 #: ksecretd/ksecretd.cpp:521
 #, kde-format
@@ -295,13 +288,12 @@ msgid ""
 "password."
 msgstr "មិនអាច​បើក​កាបូប​បានទេ ។ កាបូប​ត្រូវ​តែ​បាន​បើក​ ដើម្បី​ផ្លាស់ប្ដូរ​ពាក្យស​ម្ងាត់ ។"
 
-#: ksecretd/ksecretd.cpp:877
+#: ksecretd/ksecretd.cpp:588
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
-"<b>GPG</b> tools (such as <b>kleopatra</b>) to change the passphrase "
-"associated to that key.</qt>"
-msgstr ""
+"<b>GPG</b> tools to change the passphrase associated to that key.</qt>"
+msgstr "<qt>កាបូប <b>%1</b> ត្រូវបានអ៊ិនគ្រីបដោយប្រើសោ GPG <b>%2</b> ។ សូមប្រើឧបករណ៍ <b>GPG</b> ដើម្បីផ្លាស់ប្ដូរឃ្លាសម្ងាត់ដែលពាក់ព័ន្ធនឹងសោនោះ ។</qt>"
 
 #: ksecretd/ksecretd.cpp:884
 #, kde-format
@@ -347,75 +339,58 @@ msgstr "ពាក្យសម្ងាត់​មិនផ្គូផ្គង
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_3)
 #: ksecretd/kwalletwizardpageexplanation.ui:17
-#, fuzzy, kde-format
-#| msgid ""
-#| "The KDE Wallet system stores your data in a <i>wallet</i> file on your "
-#| "local hard disk.  The data is only written in encrypted form, presently "
-#| "using the blowfish algorithm with your password as the key.  When a "
-#| "wallet is opened, the wallet manager application will launch and display "
-#| "an icon in the system tray.  You can use this application to manage your "
-#| "wallets.  It even permits you to drag wallets and wallet contents, "
-#| "allowing you to easily copy a wallet to a remote system."
+#, kde-format
 msgid ""
 "<html><head/><body><p>The KDE Wallet system stores your data in a <span "
 "style=\" font-style:italic;\">wallet</span> file on your local hard disk. "
-"The data is only written in the encrypted form of your choice - blowfish "
-"algorithm with your password as the key or using a GPG encryption key. When "
-"a wallet is opened, the wallet manager application will launch and display "
-"an icon in the system tray. You can use this application to manage all of "
-"your wallets. It even permits you to drag wallets and wallet contents, "
-"allowing you to easily copy a wallet to a remote system.</p></body></html>"
-msgstr ""
-"ប្រព័ន្ធ​កាបូប​របស់ KDE ទុក​ទិន្នន័យ​របស់​អ្នកនៅ​ក្នុងឯកសារ <i>កាបូប</i> នៅ​ក្នុង​ថាសរឹង​មូលដ្ឋាន​របស់​"
-"អ្នក ។ ទិន្នន័យ​ត្រូវ​បាន​សរសេរ​ក្នុងទម្រង់​ដែល​បានអ៊ិនគ្រិប​ប៉ុណ្ណោះ  បច្ចុប្បន្ន​ប្រើ​ក្បួន​ដោះស្រាយ blowfish "
-"ជា​មួយ​នឹង​ពាក្យ​សម្ងាត់​របស់​អ្នក​ជា​សោ ។ នៅពេល​កាបូប​ត្រូវ​បាន​បើក ការ​អនុវត្ត​កម្មវិធី​គ្រប់គ្រង​កាបូប​អនុវត្ត​​នឹង​"
-"ចាប់ផ្ដើម និង​បង្ហាញ​រូបង្ហាញ​នៅ​ក្នុង​ថាស​ប្រព័ន្ធ ។  អ្នក​អាច​ប្រើ​កម្មវិធី​នេះ​ដើម្បី​គ្រប់គ្រង​កាបូប​របស់​"
-"អ្នក ។ វា​អនុវត្ត​ អ្នក​ត្រូ​វ​អូស​កាបូប និងមាតិកា​កាបូប ដោយ​អនុញ្ញាត​ឲ្យ​​អ្នក​ចម្លង​កាបូប​យ៉ាង​ងា​យ​ទៅ​កាន់​ប្រព័ន្ធ​"
-"ពី​ចម្ងាយ ។"
+"The data is encrypted using your chosen method: the Blowfish algorithm with "
+"your password as the key, or GPG with an encryption key. When a wallet is "
+"opened, the wallet manager will launch and display an icon in the system "
+"tray. You can use this application to manage all of your wallets. It even "
+"permits you to drag-and-drop wallets and their contents, allowing you to "
+"easily copy a wallet to a remote system.</p></body></html>"
+msgstr "<html><head/><body><p>ប្រព័ន្ធកាបូបរបស់ KDE ទុកទិន្នន័យរបស់អ្នកនៅក្នុងឯកសារ <span style=\" font-style:italic;\">កាបូប</span> នៅក្នុងថាសរឹងមូលដ្ឋានរបស់អ្នក ។ ទិន្នន័យត្រូវបានអ៊ិនគ្រីបដោយប្រើវិធីសាស្ត្រដែលអ្នកបានជ្រើស៖ ក្បួនដោះស្រាយ Blowfish ជាមួយពាក្យសម្ងាត់របស់អ្នកជាសោ ឬ GPG ជាមួយសោអ៊ិនគ្រីប ។ នៅពេលកាបូបត្រូវបានបើក កម្មវិធីគ្រប់គ្រងកាបូបនឹងចាប់ផ្ដើម និងបង្ហាញរូបតំណាងនៅក្នុងថាសប្រព័ន្ធ ។ អ្នកអាចប្រើកម្មវិធីនេះដើម្បីគ្រប់គ្រងកាបូបទាំងអស់របស់អ្នក ។ វាថែមទាំងអនុញ្ញាតឲ្យអ្នកអូស និងទម្លាក់កាបូប និងមាតិការបស់វា ដែលធ្វើឲ្យអ្នកអាចចម្លងកាបូបទៅកាន់ប្រព័ន្ធពីចម្ងាយបានយ៉ាងងាយ ។</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ksecretd/kwalletwizardpagegpgkey.ui:24
 #, kde-format
 msgid ""
-"<html><head/><body><p>The GPG-based wallet use a GPG encryption key to "
-"securely encrypt data on disk. The key must be available when decrypting is "
-"needed or your wallet will not be accessible. For example, if you choose a "
-"SmartCard-based encryption key, the GPG system will prompt you to enter it "
-"and its associated PIN when attempting to open the wallet. <span style=\" "
-"font-weight:600;\">NOTE:</span> this list contains only &quot;ultimate-"
+"<html><head/><body><p>The GPG-based wallet uses a GPG encryption key to "
+"securely encrypt data on disk. The key must be available when the wallet is "
+"decrypted or your wallet will not be accessible. For example, if you choose "
+"a SmartCard-based encryption key, you will be prompted to insert it and "
+"enter its associated PIN when attempting to open the wallet. <span style=\" "
+"font-weight:600;\">Note:</span> this list contains only &quot;ultimate-"
 "level&quot; trusted keys.</p></body></html>"
-msgstr ""
+msgstr "<html><head/><body><p>កាបូបដែលផ្អែកលើ GPG ប្រើសោអ៊ិនគ្រីប GPG ដើម្បីអ៊ិនគ្រីបទិន្នន័យនៅលើថាសដោយសុវត្ថិភាព ។ សោត្រូវតែមាន នៅពេលកាបូបត្រូវបានឌិគ្រីប បើមិនដូច្នោះទេ អ្នកនឹងមិនអាចចូលដំណើរការកាបូបរបស់អ្នកបានទេ ។ ឧទាហរណ៍ ប្រសិនបើអ្នកជ្រើសសោអ៊ិនគ្រីបដែលផ្អែកលើ SmartCard អ្នកនឹងត្រូវបានស្នើឲ្យបញ្ចូលវា និងបញ្ចូល PIN ដែលពាក់ព័ន្ធ នៅពេលព្យាយាមបើកកាបូប ។ <span style=\" font-weight:600;\">ចំណាំ៖</span> បញ្ជីនេះមានតែសោដែលទុកចិត្ត &quot;កម្រិតខ្ពស់បំផុត&quot; ប៉ុណ្ណោះ ។</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ksecretd/kwalletwizardpagegpgkey.ui:42
 #, kde-format
-msgid "Select encryption GPG key:"
-msgstr ""
+msgid "Select GPG encryption key:"
+msgstr "ជ្រើសសោអ៊ិនគ្រីប GPG៖"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ksecretd/kwalletwizardpagegpgkey.ui:81
 #, kde-format
 msgid ""
-"Unable to locate at least one <b>encrypting GPG key</b>. KDE Wallet needs "
-"such <b>encrypting key</b> to securely store passwords or other sensitive "
-"data on disk. If you still want to setup a GPG-based wallet, then cancel "
-"this wizard, set-up an <b>encrypting GPG key</b>, then retry this assistant. "
-"Otherwise, you may still click back, then choose a classic, blowfish "
-"encrypted file format on the previous page."
-msgstr ""
+"Unable to locate at least one GPG encryption key. KDE Wallet needs a GPG "
+"encryption key to securely store passwords or other sensitive data on disk. "
+"If you still want to setup a GPG-based wallet, exit this wizard, create an "
+"encryption key and return to this wizard. Otherwise, you can return to the "
+"previous page and select Blowfish encryption, which does not require an "
+"encryption key."
+msgstr "រកមិនឃើញសោអ៊ិនគ្រីប GPG សូម្បីតែមួយ ។ កាបូប KDE ត្រូវការសោអ៊ិនគ្រីប GPG ដើម្បីទុកពាក្យសម្ងាត់ ឬទិន្នន័យរសើបផ្សេងទៀតនៅលើថាសដោយសុវត្ថិភាព ។ ប្រសិនបើអ្នកនៅតែចង់រៀបចំកាបូបដែលផ្អែកលើ GPG សូមចាកចេញពីអ្នកជំនួយការនេះ បង្កើតសោអ៊ិនគ្រីប ហើយត្រឡប់មកអ្នកជំនួយការនេះវិញ ។ បើមិនដូច្នោះទេ អ្នកអាចត្រឡប់ទៅទំព័រមុន ហើយជ្រើសការអ៊ិនគ្រីប Blowfish ដែលមិនត្រូវការសោអ៊ិនគ្រីប ។"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: ksecretd/kwalletwizardpageintro.ui:30
 #, kde-format
 msgid ""
-"Welcome to KWallet, the KDE Wallet System.  KWallet allows you to store your "
-"passwords and other personal information on disk in an encrypted file, "
-"preventing others from viewing the information.  This wizard will tell you "
-"about KWallet and help you configure it for the first time."
-msgstr ""
-"សូម​ស្វាគមន៍​មក​កាន់ KWallet ប្រព័ន្ធ​កាបូប​របស់ KDE  ។  KWallet អនុញ្ញាត​ឲ្យ​អ្នក​ទុក​ពាក្យ​សម្ងាត់​របស់​"
-"អ្នក និង​ព័ត៌មាន​ផ្ទាល់ខ្លួន​ផ្សេងៗ​ទៀត​នៅ​លើ​ថាស​នៅ​ក្នុង​​ឯកសារ​ដែល​បានអ៊ិនគ្រិប ការ​ពារ​​អ្នក​ដទៃ​មិន​ឲ្យមើល​​"
-"ព័ត៌មាន ។ អ្នក​ជំនួយ​កា​រនេះ​នឹង​ប្រាប់​អ្នក​អំពី KWallet និងជួយ​អ្នក​ឲ្យ​កំណត់​រចនាសម្ព័ន្ធ​វា​សម្រាប់​ពេល​ដំបូង ។"
+"Welcome to KWallet, the KDE Wallet System. KWallet allows you to store your "
+"passwords and other sensitive information on disk in an encrypted file, "
+"preventing unauthorized access. This wizard will help you set up KWallet for "
+"the first time."
+msgstr "សូមស្វាគមន៍មកកាន់ KWallet ប្រព័ន្ធកាបូបរបស់ KDE ។ KWallet អនុញ្ញាតឲ្យអ្នកទុកពាក្យសម្ងាត់របស់អ្នក និងព័ត៌មានរសើបផ្សេងៗទៀតនៅលើថាស នៅក្នុងឯកសារដែលបានអ៊ិនគ្រីប ដោយការពារការចូលដំណើរការដោយគ្មានការអនុញ្ញាត ។ អ្នកជំនួយការនេះនឹងជួយអ្នកឲ្យរៀបចំ KWallet ជាលើកដំបូង ។"
 
 #. i18n: ectx: property (text), widget (QRadioButton, _basic)
 #: ksecretd/kwalletwizardpageintro.ui:69
@@ -433,15 +408,10 @@ msgstr "កា​ររៀបចំ​កម្រិត​ខ្ពស់"
 #: ksecretd/kwalletwizardpageoptions.ui:16
 #, kde-format
 msgid ""
-"The KDE Wallet system allows you to control the level of security of your "
-"personal data.  Some of these settings do impact usability.  While the "
-"default settings are generally acceptable for most users, you may wish to "
-"change some of them.  You may further tune these settings from the KWallet "
-"control module."
-msgstr ""
-"ប្រព័ន្ធកាបូប​របស់ KDE អនុញ្ញាត​ឲ្យ​អ្នក​ត្រួតពិនិត្យ​កម្រិត​សុវត្ថិភាព​នៃ​ទិន្នន័យ​ផ្ទាល់​របស់​អ្នក ។ ការ​កំណត់​មួយ​ចំនួន​"
-"ទាំង​នេះ​មាន​ឥទ្ធិពល​អាច​ប្រើបាន ។ ខណៈពេល​ដែល​ការ​កំណត់​លំនាំដើម​ជាទូទៅ​អាច​ទទួល​យក​បាន​ដោយ​អ្នក​ប្រើ​ភាគ​"
-"ច្រើន អ្នក​អាច​ចង់​ផ្លាស់ប្ដូរ​មួយ​ចំនួន ។ អ្នក​អាច​ត្រឡប់​ការ​កំណត់​ទាំង​នេះ​ពី​ម៉ូឌុល​ត្រួតពិ​និត្យ​របស់ KWallet ។"
+"KWallet lets you adjust the security of your personal data. While the "
+"default settings work for most users, you can modify them if needed. "
+"Additional adjustments can be made on the KWallet settings page."
+msgstr "KWallet អនុញ្ញាតឲ្យអ្នកកែសម្រួលសុវត្ថិភាពនៃទិន្នន័យផ្ទាល់ខ្លួនរបស់អ្នក ។ ទោះបីជាការកំណត់លំនាំដើមសមស្របសម្រាប់អ្នកប្រើភាគច្រើនក៏ដោយ អ្នកអាចផ្លាស់ប្ដូរវាបាន ប្រសិនបើចាំបាច់ ។ ការកែសម្រួលបន្ថែមអាចធ្វើបាននៅលើទំព័រការកំណត់របស់ KWallet ។"
 
 #. i18n: ectx: property (text), widget (QCheckBox, _closeIdle)
 #: ksecretd/kwalletwizardpageoptions.ui:48
@@ -459,24 +429,18 @@ msgstr "ទុក​ពាក្យសម្ងាត់​បណ្ដាញ​
 #: ksecretd/kwalletwizardpagepassword.ui:16
 #, kde-format
 msgid ""
-"Various applications may attempt to use the KDE wallet to store passwords or "
-"other information such as web form data and cookies.  If you would like "
-"these applications to use the wallet, you must enable it now and choose a "
-"password.  The password you choose <i>cannot</i> be recovered if it is lost, "
-"and will allow anyone who knows it to obtain all the information contained "
-"in the wallet."
-msgstr ""
-"កម្មវិធី​ផ្សេង​ប៉ុនប៉ង​ប្រើ​កាបូប​របស់ KDE ដើម្បី​ទុក​ពាក្យ​សម្ងាត់​ ឬ​ព័ត៌មាន​ផ្សេងៗ​ដូចជា ទិន្នន័យ​​សំណុំបែបបទ​"
-"បណ្ដាញ និង​ខូគី ។ ប្រសិន​​បើ​អ្នក​ចង់​ឲ្យ​កម្មវិធី​ទាំង​នេះ​ប្រើ​កាបូប អ្នក​ត្រូវ​តែ​បើក​វា​ឥឡូវ និងជ្រើស​ពាក្យ​"
-"សម្ងាត់ ។  ពាក្យ​សម្ងាត់​ដែល​អ្នក​ <i>មិនអាច</i> ត្រូវ​បានរកឃើញ​ទេ ប្រសិន​បើ​វា​បាត់ ហើយ​នឹង​អនុញ្ញាត​ឲ្យ​"
-"អ្នក​ដឹង​ថាវា​ត្រូវ​ទទួល​យក​ព័ត៌មាន​ទាំងអស់​ដែល​មាន​នៅ​ក្នុងកាបូប ។"
+"Various applications may request access to the KDE wallet to store "
+"passwords, web form data, or cookies. To allow this, enable the wallet and "
+"set a password. Note that the password <i>cannot</i> be recovered if lost "
+"and grants full access to all information stored in the wallet."
+msgstr "កម្មវិធីផ្សេងៗអាចស្នើសុំចូលដំណើរការកាបូបរបស់ KDE ដើម្បីទុកពាក្យសម្ងាត់ ទិន្នន័យសំណុំបែបបទបណ្ដាញ ឬខូគី ។ ដើម្បីអនុញ្ញាតការនេះ សូមបើកកាបូប ហើយកំណត់ពាក្យសម្ងាត់ ។ សូមចំណាំថាពាក្យសម្ងាត់ <i>មិនអាច</i> យកមកវិញបានទេ ប្រសិនបើវាបាត់ ហើយវាផ្ដល់សិទ្ធិចូលដំណើរការពេញលេញទៅកាន់ព័ត៌មានទាំងអស់ដែលបានទុកនៅក្នុងកាបូប ។"
 
 #. i18n: ectx: property (text), widget (QCheckBox, _useWallet)
 #: ksecretd/kwalletwizardpagepassword.ui:29
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:30
 #, kde-format
-msgid "Yes, I wish to use the KDE wallet to store my personal information."
-msgstr "បាទ/ចាស ខ្ញុំ​ចង់​ប្រើ​កាបូប​របស់ KDE ដើម្បីទុក​ព័ត៌មាន​ផ្ទាល់ខ្លួន​របស់​ខ្ញុំ ។"
+msgid "Use the KDE wallet to store sensitive information"
+msgstr "ប្រើកាបូបរបស់ KDE ដើម្បីទុកព័ត៌មានរសើប"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
 #: ksecretd/kwalletwizardpagepassword.ui:88
@@ -494,35 +458,22 @@ msgstr "ផ្ទៀងផ្ទាត់​ពាក្យ​សម្ងាត
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:17
-#, fuzzy, kde-format
-#| msgid ""
-#| "Various applications may attempt to use the KDE wallet to store passwords "
-#| "or other information such as web form data and cookies.  If you would "
-#| "like these applications to use the wallet, you must enable it now and "
-#| "choose a password.  The password you choose <i>cannot</i> be recovered if "
-#| "it is lost, and will allow anyone who knows it to obtain all the "
-#| "information contained in the wallet."
+#, kde-format
 msgid ""
-"<html><head/><body><p>Various applications may attempt to use the KDE wallet "
-"to store passwords or other information such as web form data and cookies. "
-"If you would like these applications to use the wallet, you must enable it "
-"now and choose method for its encryption.</p><p>GPG method is more secure, "
-"but you must have configured at least one encrypting key on your system.</"
-"p><p>If you choose the classic format, be warned that the password you "
-"choose <span style=\" font-style:italic;\">cannot</span> be recovered if it "
-"is lost, and will allow anyone who knows it to obtain all the information "
-"contained in the wallet.</p></body></html>"
-msgstr ""
-"កម្មវិធី​ផ្សេង​ប៉ុនប៉ង​ប្រើ​កាបូប​របស់ KDE ដើម្បី​ទុក​ពាក្យ​សម្ងាត់​ ឬ​ព័ត៌មាន​ផ្សេងៗ​ដូចជា ទិន្នន័យ​​សំណុំបែបបទ​"
-"បណ្ដាញ និង​ខូគី ។ ប្រសិន​​បើ​អ្នក​ចង់​ឲ្យ​កម្មវិធី​ទាំង​នេះ​ប្រើ​កាបូប អ្នក​ត្រូវ​តែ​បើក​វា​ឥឡូវ និងជ្រើស​ពាក្យ​"
-"សម្ងាត់ ។  ពាក្យ​សម្ងាត់​ដែល​អ្នក​ <i>មិនអាច</i> ត្រូវ​បានរកឃើញ​ទេ ប្រសិន​បើ​វា​បាត់ ហើយ​នឹង​អនុញ្ញាត​ឲ្យ​"
-"អ្នក​ដឹង​ថាវា​ត្រូវ​ទទួល​យក​ព័ត៌មាន​ទាំងអស់​ដែល​មាន​នៅ​ក្នុងកាបូប ។"
+"<html><head/><body><p>Various applications may request access to the KDE "
+"wallet to store passwords, web form data, or cookies. To allow this, enable "
+"the wallet and choose an encryption method. </p><p>GPG encryption is more "
+"secure, but you must have at least one encryption key configured on your "
+"system.</p><p>If you choose the classic format, note that the password <span "
+"style=\" font-style:italic;\">cannot</span> be recovered if lost and grants "
+"full access to all information stored in the wallet.</p></body></html>"
+msgstr "<html><head/><body><p>កម្មវិធីផ្សេងៗអាចស្នើសុំចូលដំណើរការកាបូបរបស់ KDE ដើម្បីទុកពាក្យសម្ងាត់ ទិន្នន័យសំណុំបែបបទបណ្ដាញ ឬខូគី ។ ដើម្បីអនុញ្ញាតការនេះ សូមបើកកាបូប ហើយជ្រើសវិធីសាស្ត្រអ៊ិនគ្រីប ។ </p><p>ការអ៊ិនគ្រីប GPG មានសុវត្ថិភាពជាង ប៉ុន្តែអ្នកត្រូវតែមានសោអ៊ិនគ្រីបយ៉ាងហោចណាស់មួយដែលបានកំណត់រចនាសម្ព័ន្ធនៅលើប្រព័ន្ធរបស់អ្នក ។</p><p>ប្រសិនបើអ្នកជ្រើសទ្រង់ទ្រាយបុរាណ សូមចំណាំថាពាក្យសម្ងាត់ <span style=\" font-style:italic;\">មិនអាច</span> យកមកវិញបានទេ ប្រសិនបើវាបាត់ ហើយវាផ្ដល់សិទ្ធិចូលដំណើរការពេញលេញទៅកាន់ព័ត៌មានទាំងអស់ដែលបានទុកនៅក្នុងកាបូប ។</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, _groupBox)
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:46
 #, kde-format
-msgid "What kind of encryption do you wish?"
-msgstr ""
+msgid "Encryption type"
+msgstr "ប្រភេទការអ៊ិនគ្រីប"
 
 #: ksecretd/main.cpp:163
 #, kde-format

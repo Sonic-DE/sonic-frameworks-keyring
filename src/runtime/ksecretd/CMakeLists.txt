@@ -60,15 +60,6 @@ target_sources(ksecretd PRIVATE
 
    kwalletportalsecrets.cpp
 )
-ecm_qt_declare_logging_category(ksecretd
-    HEADER ksecretd_debug.h
-    IDENTIFIER KSECRETD_LOG
-    CATEGORY_NAME kf.wallet.ksecretd
-    OLD_CATEGORY_NAMES kf5.kwallet.ksecretd
-    DESCRIPTION "ksecretd"
-    EXPORT KWALLET
-)
-
 ki18n_wrap_ui(ksecretd
    kwalletwizardpageexplanation.ui
    kwalletwizardpageintro.ui
@@ -135,6 +126,7 @@ target_link_libraries(ksecretd
     KF6::WindowSystem
     KF6::Notifications
     KF6::Crash
+    Sonic::Logging
     ${Qca_LIBRARY})
 if (Gpgmepp_FOUND)
     target_link_libraries(ksecretd Gpgmepp)

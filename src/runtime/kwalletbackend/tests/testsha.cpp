@@ -21,7 +21,7 @@ int main()
     printf("About to process [%s]\n", data);
     rc = sha1->process(data, strlen((char *)data));
 
-    if (rc != strlen((char *)data)) {
+    if (rc != static_cast<int>(strlen((char*)data))) {
         printf("Error processing the data.  rc=%d\n", rc);
     } else {
         printf("Done.\n");

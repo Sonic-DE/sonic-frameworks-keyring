@@ -65,6 +65,7 @@ ecm_add_test(
         KF6::DBusAddons
         KF6::ConfigCore
         KF6::ConfigGui
+        Sonic::Logging
         ${Qca_LIBRARY}
 )
 

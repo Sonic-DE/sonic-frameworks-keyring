@@ -9,8 +9,6 @@
 #include <QDBusContext>
 #include <QObject>
 
-#include "kwalletd_debug.h"
-
 struct Folder {
     QString name;
     QStringList passwords;

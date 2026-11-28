@@ -15,6 +15,10 @@
 #include <QJsonDocument>
 #include <QSignalSpy>
 
+#include <Sonic/Logging/Log>
+
+SONIC_LOGGING_COMPONENT("org.sonicde.frameworks.keyring.ksecretd.test")
+
 void FdoSecretsTest::initTestCase()
 {
     if (qEnvironmentVariableIntValue("KDECI_CANNOT_CREATE_WINDOWS")) {

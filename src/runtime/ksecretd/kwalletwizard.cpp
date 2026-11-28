@@ -18,8 +18,8 @@
 
 #include <KLocalizedString>
 #include <QButtonGroup>
-#include <QDebug>
 #include <QIcon>
+#include <Sonic/Logging/Log>
 
 #ifdef HAVE_GPGMEPP
 #include <KMessageBox>
@@ -145,7 +145,7 @@ public:
         GpgME::initializeLibrary();
         GpgME::Error err = GpgME::checkEngine(GpgME::OpenPGP);
         if (err) {
-            qDebug() << "OpenPGP not supported on your system!";
+            sonicDebug() << "OpenPGP not supported on your system!";
             KMessageBox::error(
                 this,
                 i18n("The GpgME library failed to initialize for the OpenPGP protocol. Please check your system's configuration then try again."));

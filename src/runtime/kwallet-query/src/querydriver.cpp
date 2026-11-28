@@ -9,13 +9,14 @@
 
 #include <iostream>
 
-#include <QDebug>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QScreen>
 #include <QTimer>
 
 #include <KLocalizedString>
+
+#include <Sonic/Logging/Log>
 
 QueryDriver::QueryDriver(int &argc, char *argv[])
     : QCoreApplication(argc, argv)
@@ -38,7 +39,7 @@ void QueryDriver::timerEvent(QTimerEvent *event)
 {
     QCoreApplication::timerEvent(event);
     if (verbose) {
-        qDebug() << "timer event";
+        sonicDebug() << "timer event";
     }
 
     auto wl = Wallet::walletList();
@@ -47,7 +48,7 @@ void QueryDriver::timerEvent(QTimerEvent *event)
         exit(1);
     } else {
         if (verbose) {
-            qDebug() << "standby opening wallet " << walletName;
+            sonicDebug() << "standby opening wallet " << walletName;
         }
 
         theWallet = Wallet::openWallet(walletName, 0, Wallet::Asynchronous);
@@ -116,7 +117,7 @@ void QueryDriver::readEntries()
 void QueryDriver::readValue()
 {
     if (verbose) {
-        qDebug() << "reading" << entryName << "from" << entryFolder << "from" << walletName;
+        sonicDebug() << "reading" << entryName << "from" << entryFolder << "from" << walletName;
     }
     if (!theWallet->setFolder(entryFolder)) {
         std::cout << i18n("The folder %1 does not exist!", entryFolder).toUtf8().constData() << std::endl;
@@ -170,7 +171,7 @@ void QueryDriver::readPasswordValue()
 void QueryDriver::writeValue()
 {
     if (verbose) {
-        qDebug() << "writing" << entryName << "to" << entryFolder << "to" << walletName;
+        sonicDebug() << "writing" << entryName << "to" << entryFolder << "to" << walletName;
     }
     theWallet->setFolder(entryFolder);
 
@@ -187,7 +188,7 @@ void QueryDriver::writeValue()
     Wallet::EntryType kind = theWallet->entryType(entryName);
     if (kind == Wallet::Password) {
         if (verbose) {
-            qDebug() << "about to write" << passwordContents;
+            sonicDebug() << "about to write" << passwordContents;
         }
         int rc = theWallet->writePassword(entryName, passwordContents);
         if (rc != 0) {
@@ -204,7 +205,7 @@ void QueryDriver::writeValue()
                 map.insert(e, values.value(e).toString());
             }
             if (verbose) {
-                qDebug() << "about to write" << map;
+                sonicDebug() << "about to write" << map;
             }
             int rc = theWallet->writeMap(entryName, map);
             if (rc != 0) {

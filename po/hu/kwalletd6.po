@@ -54,17 +54,14 @@ msgstr "&Elutasítás csak most"
 msgid "Deny &Forever"
 msgstr "El&utasítás mindig"
 
-#: ksecretd/knewwalletdialog.cpp:50
+#: ksecretd/knewwalletdialog.cpp:51
 #, kde-format
 msgid ""
 "<qt>KDE has requested to create a new wallet named '<b>%1</b>'. This is used "
-"to store sensitive data in a secure fashion. Please choose the new wallet's "
-"type below or click cancel to deny the application's request.</qt>"
-msgstr ""
-"<qt>A KDE egy új „<b>%1</b>” nevű jelszótároló létrehozását kérte. Ez "
-"érzékeny adatok biztonságos módon történő tárolására használható. Kérjük "
-"válassza ki lent az új jelszótároló típusát, vagy kattintson a mégse gombra "
-"az alkalmazás kérésének megtagadásához.</qt>"
+"to securely store sensitive data, such as account passwords. Choose the type "
+"of the new wallet below or click Cancel to deny the application's request.</"
+"qt>"
+msgstr "<qt>A KDE egy új „<b>%1</b>” nevű jelszótároló létrehozását kérte. Ez érzékeny adatok, például fiókjelszavak biztonságos tárolására használható. Válassza ki lent az új jelszótároló típusát, vagy kattintson a Mégse gombra az alkalmazás kérésének megtagadásához.</qt>"
 
 #: ksecretd/knewwalletdialog.cpp:55
 #, kde-format
@@ -89,31 +86,32 @@ msgstr ""
 "A GpgME könyvtárat nem sikerült előkészíteni az OpenPGP protokollhoz. Kérjük "
 "ellenőrizze a rendszerbeállítását, majd próbálja újra."
 
-#: ksecretd/knewwalletdialog.cpp:153
-#, kde-format
+#: ksecretd/knewwalletdialog.cpp:176
+#, kde-kuit-format
+msgctxt "@info"
 msgid ""
-"Seems that your system has no keys suitable for encryption. Please set-up at "
-"least one encryption key, then try again."
-msgstr ""
-"Úgy tűnik, hogy a rendszerének nincsenek megfelelő kulcsai a titkosításhoz. "
-"Kérjük állítson be legalább egy titkosítási kulcsot, majd próbálja újra."
+"No suitable GPG encryption keys were found. To create one, choose one of the "
+"following options:<list><item>Install Kleopatra and use it to create a new "
+"key. See these <link url='https://docs.kde.org/stable_kf6/en/kleopatra/"
+"kleopatra/functions-newkey.html'>instructions</link>.</item><item>Open a "
+"terminal and enter <command>gpg --full-gen-key</command>.</item><item>Go "
+"back and use Blowfish encryption instead, which only requires a password.</"
+"item></list>"
+msgstr "Nem található megfelelő GPG titkosító kulcs. Kulcs létrehozásához válasszon az alábbi lehetőségek közül:<list><item>Telepítse a Kleopatrát, és hozzon létre vele egy új kulcsot. Lásd ezt az <link url='https://docs.kde.org/stable_kf6/en/kleopatra/kleopatra/functions-newkey.html'>útmutatót</link>.</item><item>Nyisson meg egy terminált, és írja be: <command>gpg --full-gen-key</command>.</item><item>Lépjen vissza, és használja helyette a Blowfish titkosítást, amelyhez csak jelszó szükséges.</item></list>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ksecretd/knewwalletdialoggpg.ui:17
 #, kde-format
-msgid "Please select the signing key from the list below:"
-msgstr "Kérjük válassza ki az aláíró kulcsot a lenti listából:"
+msgid "Select the signing key from the list below:"
+msgstr "Válassza ki az aláíró kulcsot a lenti listából:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ksecretd/knewwalletdialoggpg.ui:24
 #, kde-format
 msgid ""
-"<html><head/><body><p><span style=\" font-weight:600;\">NOTE:</span> this "
+"<html><head/><body><p><span style=\" font-weight:600;\">Note:</span> this "
 "list shows only &quot;ultimate-level&quot; trusted keys</p></body></html>"
-msgstr ""
-"<html><head/><body><p><span style=\" font-weight:600;\">Megjegyzés:</span> "
-"ez a lista csak a &quot;legfelső szintű&quot; megbízható kulcsokat "
-"tartalmazza.</p></body></html>"
+msgstr "<html><head/><body><p><span style=\" font-weight:600;\">Megjegyzés:</span> ez a lista csak a &quot;legfelső szintű&quot; megbízható kulcsokat tartalmazza.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QTableWidget, listCertificates)
 #: ksecretd/knewwalletdialoggpg.ui:59
@@ -144,31 +142,26 @@ msgstr "A KDE jelszókezelő rendszer"
 #, no-c-format, kde-format
 msgid ""
 "<html><head/><body><p>The application '<span style=\" font-weight:600;\">%1</"
-"span>' has requested to open the KDE wallet. This is used to store sensitive "
-"data in a secure fashion. Please choose the new wallet's type below or click "
-"cancel to deny the application's request.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>A(z) „<span style=\" font-weight:600;\">%1</span>” "
-"alkalmazás a KDE jelszókezelő megnyitását kérte. Ez érzékeny adatok "
-"biztonságos módon történő tárolására használható. Kérjük válassza ki lent az "
-"új jelszótároló típusát, vagy kattintson a mégse gombra az alkalmazás "
-"kérésének megtagadásához.</p></body></html>"
+"span>' has requested to open the KDE wallet. This is used to securely store "
+"sensitive data, such as account passwords. Choose the type of the new wallet "
+"below or click Cancel to deny the application's request.</p></body></html>"
+msgstr "<html><head/><body><p>A(z) „<span style=\" font-weight:600;\">%1</span>” alkalmazás a KDE jelszókezelő megnyitását kérte. Ez érzékeny adatok, például fiókjelszavak biztonságos tárolására használható. Válassza ki lent az új jelszótároló típusát, vagy kattintson a Mégse gombra az alkalmazás kérésének megtagadásához.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioBlowfish)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioBlowfish)
 #: ksecretd/knewwalletdialogintro.ui:66
-#: ksecretd/kwalletwizardpagepasswordgpg.ui:68
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:55
 #, kde-format
-msgid "Classic, blowfish encrypted file"
-msgstr "Klasszikus, blowfish titkosított fájl"
+msgid "Blowfish encryption"
+msgstr "Blowfish titkosítás"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioGpg)
 #. i18n: ectx: property (text), widget (QRadioButton, _radioGpg)
-#: ksecretd/knewwalletdialogintro.ui:73
-#: ksecretd/kwalletwizardpagepasswordgpg.ui:55
+#: ksecretd/knewwalletdialogintro.ui:80
+#: ksecretd/kwalletwizardpagepasswordgpg.ui:72
 #, kde-format
-msgid "Use GPG encryption, for better protection"
-msgstr "GPG titkosítás használata a jobb védelemért"
+msgid "GPG encryption"
+msgstr "GPG titkosítás"
 
 #: ksecretd/ksecretd.cpp:521
 #, kde-format
@@ -302,16 +295,12 @@ msgstr ""
 "Nem sikerült megnyitni a jelszótárolót. Egy tárolt jelszó megváltoztatásához "
 "meg kell nyitni a tárolót."
 
-#: ksecretd/ksecretd.cpp:877
+#: ksecretd/ksecretd.cpp:588
 #, kde-format
 msgid ""
 "<qt>The <b>%1</b> wallet is encrypted using GPG key <b>%2</b>. Please use "
-"<b>GPG</b> tools (such as <b>kleopatra</b>) to change the passphrase "
-"associated to that key.</qt>"
-msgstr ""
-"<qt>A(z) <b>%1</b> jelszótároló a(z) <b>%2</b> GPG kulccsal van titkosítva. "
-"Kérjük használja a <b>GPG</b> eszközöket (mint <b>kleopatra</b>) a kulcshoz "
-"rendelt jelmondat megváltoztatásához.</qt>"
+"<b>GPG</b> tools to change the passphrase associated to that key.</qt>"
+msgstr "<qt>A(z) <b>%1</b> jelszótároló a(z) <b>%2</b> GPG kulccsal van titkosítva. Kérjük használja a <b>GPG</b> eszközöket a kulcshoz rendelt jelmondat megváltoztatásához.</qt>"
 
 #: ksecretd/ksecretd.cpp:884
 #, kde-format
@@ -369,82 +358,54 @@ msgstr "A jelszavak nem egyeznek."
 msgid ""
 "<html><head/><body><p>The KDE Wallet system stores your data in a <span "
 "style=\" font-style:italic;\">wallet</span> file on your local hard disk. "
-"The data is only written in the encrypted form of your choice - blowfish "
-"algorithm with your password as the key or using a GPG encryption key. When "
-"a wallet is opened, the wallet manager application will launch and display "
-"an icon in the system tray. You can use this application to manage all of "
-"your wallets. It even permits you to drag wallets and wallet contents, "
-"allowing you to easily copy a wallet to a remote system.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>A KDE jelszótároló rendszer egy <span style=\" font-"
-"style:italic;\">jelszótárolónak</span> nevezett helyi fájlban tárolja az "
-"adatokat. Az adatok mindig a választott titkosított formában kerülnek a "
-"lemezre - blowfish algoritmussal a jelszavát használva kulcsként vagy GPG "
-"titkosító kulcs használatával. A jelszótároló megnyitásakor elindul a "
-"tárolókezelő alkalmazás és megjelenik egy ikon a paneltálcán. Ennek az "
-"alkalmazásnak a használatával kezelheti az összes jelszótárolóját. A tárolók "
-"és a tárolókban levő adatok húzással és ejtéssel is kezelhetők, így például "
-"egy tároló könnyen átmásolható valamilyen távoli gépre.</p></body></html>"
+"The data is encrypted using your chosen method: the Blowfish algorithm with "
+"your password as the key, or GPG with an encryption key. When a wallet is "
+"opened, the wallet manager will launch and display an icon in the system "
+"tray. You can use this application to manage all of your wallets. It even "
+"permits you to drag-and-drop wallets and their contents, allowing you to "
+"easily copy a wallet to a remote system.</p></body></html>"
+msgstr "<html><head/><body><p>A KDE jelszótároló rendszer egy <span style=\" font-style:italic;\">jelszótárolónak</span> nevezett helyi fájlban tárolja az adatokat. Az adatok a választott módszerrel kerülnek titkosításra: a Blowfish algoritmussal, a jelszavát használva kulcsként, vagy GPG-vel egy titkosító kulcs segítségével. A jelszótároló megnyitásakor elindul a tárolókezelő és megjelenik egy ikon a paneltálcán. Ennek az alkalmazásnak a használatával kezelheti az összes jelszótárolóját. A tárolók és a tárolókban levő adatok húzással és ejtéssel is kezelhetők, így például egy tároló könnyen átmásolható valamilyen távoli gépre.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ksecretd/kwalletwizardpagegpgkey.ui:24
 #, kde-format
 msgid ""
-"<html><head/><body><p>The GPG-based wallet use a GPG encryption key to "
-"securely encrypt data on disk. The key must be available when decrypting is "
-"needed or your wallet will not be accessible. For example, if you choose a "
-"SmartCard-based encryption key, the GPG system will prompt you to enter it "
-"and its associated PIN when attempting to open the wallet. <span style=\" "
-"font-weight:600;\">NOTE:</span> this list contains only &quot;ultimate-"
+"<html><head/><body><p>The GPG-based wallet uses a GPG encryption key to "
+"securely encrypt data on disk. The key must be available when the wallet is "
+"decrypted or your wallet will not be accessible. For example, if you choose "
+"a SmartCard-based encryption key, you will be prompted to insert it and "
+"enter its associated PIN when attempting to open the wallet. <span style=\" "
+"font-weight:600;\">Note:</span> this list contains only &quot;ultimate-"
 "level&quot; trusted keys.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>A GPG alapú jelszótároló GPG titkosító kulcsot használ "
-"a lemezen lévő adatok biztonságos titkosításához. A kulcsnak elérhetőnek "
-"kell lennie, amikor a visszafejtés igényli, különben a jelszótároló nem lesz "
-"hozzáférhető. Például ha egy okoskártya alapú titkosító kulcsot választ, a "
-"GPG rendszer kérni fogja annak megadását és a hozzá tartozó PIN-kódot, "
-"amikor megpróbálja megnyitni a jelszótárolót.<span style=\" font-weight:600;"
-"\">Megjegyzés:</span> ez a lista csak a &quot;legfelső szintű&quot; "
-"megbízható kulcsokat tartalmazza.</p></body></html>"
+msgstr "<html><head/><body><p>A GPG alapú jelszótároló GPG titkosító kulcsot használ a lemezen lévő adatok biztonságos titkosításához. A kulcsnak elérhetőnek kell lennie a jelszótároló visszafejtésekor, különben a jelszótároló nem lesz hozzáférhető. Például ha egy okoskártya alapú titkosító kulcsot választ, a jelszótároló megnyitásakor a rendszer kérni fogja, hogy helyezze be a kártyát, és adja meg a hozzá tartozó PIN-kódot. <span style=\" font-weight:600;\">Megjegyzés:</span> ez a lista csak a &quot;legfelső szintű&quot; megbízható kulcsokat tartalmazza.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ksecretd/kwalletwizardpagegpgkey.ui:42
 #, kde-format
-msgid "Select encryption GPG key:"
+msgid "Select GPG encryption key:"
 msgstr "GPG titkosítási kulcs kiválasztása:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ksecretd/kwalletwizardpagegpgkey.ui:81
 #, kde-format
 msgid ""
-"Unable to locate at least one <b>encrypting GPG key</b>. KDE Wallet needs "
-"such <b>encrypting key</b> to securely store passwords or other sensitive "
-"data on disk. If you still want to setup a GPG-based wallet, then cancel "
-"this wizard, set-up an <b>encrypting GPG key</b>, then retry this assistant. "
-"Otherwise, you may still click back, then choose a classic, blowfish "
-"encrypted file format on the previous page."
-msgstr ""
-"Nem található legalább egy <b>titkosító GPG key</b>. A KDE jelszótárolónak "
-"szüksége van egy ilyen <b>titkosító kulcsra</b> a jelszavak vagy a lemezen "
-"lévő egyéb érzékeny adatok biztonságos tárolásához. Ha szeretne egy GPG "
-"alapú jelszótárolót beállítani, zárja be ezt a varázslót, állítson be egy "
-"<b>titkosító GPG kulcsot</b>, majd futtassa újra ezt a segédet. Egyébként "
-"kattintson vissza, és válassza a hagyományos blowfish algoritmussal "
-"titkosított fájlformátumot az előző oldalon."
+"Unable to locate at least one GPG encryption key. KDE Wallet needs a GPG "
+"encryption key to securely store passwords or other sensitive data on disk. "
+"If you still want to setup a GPG-based wallet, exit this wizard, create an "
+"encryption key and return to this wizard. Otherwise, you can return to the "
+"previous page and select Blowfish encryption, which does not require an "
+"encryption key."
+msgstr "Nem található egyetlen GPG titkosító kulcs sem. A KDE jelszótárolónak GPG titkosító kulcsra van szüksége a jelszavak vagy egyéb érzékeny adatok biztonságos lemezre mentéséhez. Ha mégis GPG alapú jelszótárolót szeretne beállítani, lépjen ki ebből a varázslóból, hozzon létre egy titkosító kulcsot, majd térjen vissza ehhez a varázslóhoz. Egyébként visszaléphet az előző oldalra, és választhatja a Blowfish titkosítást, amelyhez nem kell titkosító kulcs."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: ksecretd/kwalletwizardpageintro.ui:30
 #, kde-format
 msgid ""
-"Welcome to KWallet, the KDE Wallet System.  KWallet allows you to store your "
-"passwords and other personal information on disk in an encrypted file, "
-"preventing others from viewing the information.  This wizard will tell you "
-"about KWallet and help you configure it for the first time."
-msgstr ""
-"Üdvözöljük a KWallet jelszótároló programban! Ennek segítségével jelszavak "
-"és más bizalmas adatok titkosított fájlba menthetők, hogy illetéktelenek ne "
-"férhessenek hozzá. Ez a varázsló elmagyarázza röviden a működési módot és "
-"segít elvégezni a szükséges beállításokat."
+"Welcome to KWallet, the KDE Wallet System. KWallet allows you to store your "
+"passwords and other sensitive information on disk in an encrypted file, "
+"preventing unauthorized access. This wizard will help you set up KWallet for "
+"the first time."
+msgstr "Üdvözöljük a KWallet jelszótároló programban! Ennek segítségével jelszavak és más bizalmas adatok titkosított fájlba menthetők a lemezen, megakadályozva az illetéktelen hozzáférést. Ez a varázsló segít a KWallet első beállításában."
 
 #. i18n: ectx: property (text), widget (QRadioButton, _basic)
 #: ksecretd/kwalletwizardpageintro.ui:69
@@ -462,17 +423,10 @@ msgstr "&Teljes beállítás"
 #: ksecretd/kwalletwizardpageoptions.ui:16
 #, kde-format
 msgid ""
-"The KDE Wallet system allows you to control the level of security of your "
-"personal data.  Some of these settings do impact usability.  While the "
-"default settings are generally acceptable for most users, you may wish to "
-"change some of them.  You may further tune these settings from the KWallet "
-"control module."
-msgstr ""
-"A KDE jelszótárolóval beállítható a kívánt titkosítási szint a jelszavak és "
-"más személyes adatok védelmére. Bizonyos beállítások azt eredményezik, hogy "
-"nehezebb lesz a kezelhetőség. Az alapértelmezett értékek legtöbbször "
-"elfogadhatóak, de könnyen testreszabhatók az elvárásoknak megfelelően. A "
-"beállítások a Jelszókezelő beállítómodulból is megváltoztathatóak."
+"KWallet lets you adjust the security of your personal data. While the "
+"default settings work for most users, you can modify them if needed. "
+"Additional adjustments can be made on the KWallet settings page."
+msgstr "A KWallet lehetővé teszi személyes adatai biztonságának beállítását. Bár az alapértelmezett beállítások a legtöbb felhasználónak megfelelnek, szükség esetén módosíthatja őket. További beállításokat a KWallet beállítóoldalán végezhet."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _closeIdle)
 #: ksecretd/kwalletwizardpageoptions.ui:48
@@ -490,26 +444,18 @@ msgstr "A hálózati és a helyi jelszavak külön fájlba kerüljenek"
 #: ksecretd/kwalletwizardpagepassword.ui:16
 #, kde-format
 msgid ""
-"Various applications may attempt to use the KDE wallet to store passwords or "
-"other information such as web form data and cookies.  If you would like "
-"these applications to use the wallet, you must enable it now and choose a "
-"password.  The password you choose <i>cannot</i> be recovered if it is lost, "
-"and will allow anyone who knows it to obtain all the information contained "
-"in the wallet."
-msgstr ""
-"Az alkalmazások kérést küldhetnek a jelszótárolónak, ha például egy webes "
-"űrlap vagy cookie adatait el akarják tárolni. Ha engedélyezni szeretné "
-"ezeknek a kéréseknek a feldolgozását, engedélyezze azt, és adjon meg egy "
-"védelmi jelszót.A beírt jelszót <i>nem lehet visszanyerni</i>, ha elveszik. "
-"Ha a jelszó illetéktelen kézbe kerül, akkor az illető a jelszótároló teljes "
-"tartalmához hozzáfér."
+"Various applications may request access to the KDE wallet to store "
+"passwords, web form data, or cookies. To allow this, enable the wallet and "
+"set a password. Note that the password <i>cannot</i> be recovered if lost "
+"and grants full access to all information stored in the wallet."
+msgstr "Különféle alkalmazások kérhetnek hozzáférést a KDE jelszótárolóhoz jelszavak, webes űrlapadatok vagy sütik tárolására. Ennek engedélyezéséhez kapcsolja be a jelszótárolót, és adjon meg egy jelszót. Vegye figyelembe, hogy a jelszót <i>nem lehet visszanyerni</i>, ha elveszik, és teljes hozzáférést biztosít a jelszótárolóban tárolt összes információhoz."
 
 #. i18n: ectx: property (text), widget (QCheckBox, _useWallet)
 #: ksecretd/kwalletwizardpagepassword.ui:29
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:30
 #, kde-format
-msgid "Yes, I wish to use the KDE wallet to store my personal information."
-msgstr "Igen, használni szeretném a KWallet jelszótárolót."
+msgid "Use the KDE wallet to store sensitive information"
+msgstr "A KDE jelszótároló használata bizalmas adatok tárolására"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
 #: ksecretd/kwalletwizardpagepassword.ui:88
@@ -529,33 +475,20 @@ msgstr "Még egyszer:"
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:17
 #, kde-format
 msgid ""
-"<html><head/><body><p>Various applications may attempt to use the KDE wallet "
-"to store passwords or other information such as web form data and cookies. "
-"If you would like these applications to use the wallet, you must enable it "
-"now and choose method for its encryption.</p><p>GPG method is more secure, "
-"but you must have configured at least one encrypting key on your system.</"
-"p><p>If you choose the classic format, be warned that the password you "
-"choose <span style=\" font-style:italic;\">cannot</span> be recovered if it "
-"is lost, and will allow anyone who knows it to obtain all the information "
-"contained in the wallet.</p></body></html>"
-msgstr ""
-"<html><head/><body><p>Különféle alkalmazások próbálhatják a KDE "
-"jelszótárolót használni jelszavak és egyéb információk, úgymint webes "
-"űrlapok és sütik tárolására. Ha azt szeretné, hogy ezek az alkalmazások "
-"használják a jelszótárolót, most kell azt engedélyeznie és a titkosítási "
-"módszerüket kiválasztania.</p><p>A GPG módszer sokkal biztonságosabb, de "
-"legalább egy titkosító kulcs beállítása szükséges hozzá a rendszerén.</"
-"p><p>Ha a hagyományos formátumot választja, vegye figyelembe azt, hogy a "
-"választott jelszót <span style=\" font-style:italic;\">nem lehet</span> "
-"visszaállítani, ha elveszíti, valamint bárki számára, aki ismeri a jelszót, "
-"lehetővé fog válni a jelszótárolóban lévő minden információ megszerzése.</"
-"p></body></html>"
+"<html><head/><body><p>Various applications may request access to the KDE "
+"wallet to store passwords, web form data, or cookies. To allow this, enable "
+"the wallet and choose an encryption method. </p><p>GPG encryption is more "
+"secure, but you must have at least one encryption key configured on your "
+"system.</p><p>If you choose the classic format, note that the password <span "
+"style=\" font-style:italic;\">cannot</span> be recovered if lost and grants "
+"full access to all information stored in the wallet.</p></body></html>"
+msgstr "<html><head/><body><p>Különféle alkalmazások kérhetnek hozzáférést a KDE jelszótárolóhoz jelszavak, webes űrlapadatok vagy sütik tárolására. Ennek engedélyezéséhez kapcsolja be a jelszótárolót, és válasszon titkosítási módszert. </p><p>A GPG titkosítás biztonságosabb, de legalább egy titkosító kulcsnak beállítva kell lennie a rendszerén.</p><p>Ha a hagyományos formátumot választja, vegye figyelembe, hogy a jelszót <span style=\" font-style:italic;\">nem lehet</span> visszaállítani, ha elveszíti, és teljes hozzáférést biztosít a jelszótárolóban tárolt összes információhoz.</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, _groupBox)
 #: ksecretd/kwalletwizardpagepasswordgpg.ui:46
 #, kde-format
-msgid "What kind of encryption do you wish?"
-msgstr "Milyen típusú titkosítást szeretne?"
+msgid "Encryption type"
+msgstr "Titkosítás típusa"
 
 #: ksecretd/main.cpp:163
 #, kde-format

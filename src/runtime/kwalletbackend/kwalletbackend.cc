@@ -6,7 +6,8 @@
 */
 
 #include "kwalletbackend.h"
-#include "kwalletbackend_debug.h"
+
+#include <Sonic/Logging/Log>
 
 #include <stdlib.h>
 
@@ -88,7 +89,7 @@ gcry_error_t ensureGcryptInit()
     }
     gcry_error_t error = gcry_control(GCRYCTL_INIT_SECMEM, 32768, 0);
     if (error != 0) {
-        qCWarning(KWALLETBACKEND_LOG) << "Can't get secure memory:" << error;
+        sonicWarning() << "Can't get secure memory:" << error;
         return error;
     }
     gcry_secmem_init = true;
@@ -139,7 +140,7 @@ QString Backend::getSaveLocation()
         }
     }
 
-    // qCDebug(KWALLETBACKEND_LOG) << "Using saveLocation " + writeLocation;
+    // sonicDebug() << "Using saveLocation " + writeLocation;
     return writeLocation;
 }
 
@@ -153,7 +154,7 @@ void Backend::setCipherType(BackendCipherType ct)
 static int password2PBKDF2_SHA512(const QByteArray &password, QByteArray &hash, const QByteArray &salt)
 {
     if (!gcry_check_version("1.5.0")) {
-        qCWarning(KWALLETBACKEND_LOG) << "libcrypt version is too old";
+        sonicWarning() << "libcrypt version is too old";
         return GPG_ERR_USER_2;
     }
 
@@ -264,7 +265,7 @@ static int password2hash(const QByteArray &password, QByteArray &hash)
 int Backend::deref()
 {
     if (--_ref < 0) {
-        qCDebug(KWALLETBACKEND_LOG) << "refCount negative!";
+        sonicDebug() << "refCount negative!";
         _ref = 0;
     }
     return _ref;
@@ -387,10 +388,10 @@ int Backend::openInternal(WId w)
 
     //0 has been the MINOR version until 4.13, from that point we use it to upgrade the hash
     if (magicBuf[1] == 1) {
-        qCDebug(KWALLETBACKEND_LOG) << "Wallet new enough, using new hash";
+        sonicDebug() << "Wallet new enough, using new hash";
         swapToNewHash();
     } else if (magicBuf[1] != 0) {
-        qCDebug(KWALLETBACKEND_LOG) << "Wallet is old, sad panda :(";
+        sonicDebug() << "Wallet is old, sad panda :(";
         return -4;  // unknown version
     }
 
@@ -407,7 +408,7 @@ void Backend::swapToNewHash()
 {
     //Runtime error happened and we can't use the new hash
     if (!_useNewHash) {
-        qCDebug(KWALLETBACKEND_LOG) << "Runtime error on the new hash";
+        sonicDebug() << "Runtime error on the new hash";
         return;
     }
     _passhash.fill(0);//Making sure the old passhash is not around in memory
@@ -772,7 +773,7 @@ void Backend::setPassword(const QByteArray &password)
     }
 
     if (!salt.isEmpty() && password2PBKDF2_SHA512(password, _newPassHash,  salt) == 0) {
-        qCDebug(KWALLETBACKEND_LOG) << "Setting useNewHash to true";
+        sonicDebug() << "Setting useNewHash to true";
         _useNewHash = true;
     }
 }

@@ -51,14 +51,7 @@ target_sources(KF6WalletBackend PRIVATE
    kwalletentry.cc
    kwalletbackend.cc
    backendpersisthandler.cpp
-)
-ecm_qt_declare_logging_category(KF6WalletBackend
-    HEADER kwalletbackend_debug.h
-    IDENTIFIER KWALLETBACKEND_LOG
-    CATEGORY_NAME kf.wallet.backend
-    OLD_CATEGORY_NAMES kf5.kwallet.kwalletbackend
-    DESCRIPTION "kwalletbackend"
-    EXPORT KWALLET
+   sonic_logging_component.cpp
 )
 
 kconfig_target_kcfg_file(KF6WalletBackend FILE ${CMAKE_SOURCE_DIR}/src/kwalletsettings.kcfg CLASS_NAME KWalletSettings)
@@ -74,6 +67,7 @@ target_link_libraries(KF6WalletBackend
     KF6::Notifications
     KF6::ConfigGui
     KF6::I18n
+    Sonic::Logging
     ${LIBGCRYPT_LIBRARIES}
 )
 if(Gpgmepp_FOUND)

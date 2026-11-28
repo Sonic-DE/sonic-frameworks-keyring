@@ -6,7 +6,9 @@
 */
 
 #include "cbc.h"
-#include "kwalletbackend_debug.h"
+
+#include <Sonic/Logging/Log>
+
 #include <string.h>
 
 CipherBlockChain::CipherBlockChain(BlockCipher *cipher, bool useECBforReading) :
@@ -81,7 +83,7 @@ int CipherBlockChain::encrypt(void *block, int len)
         initRegister();
 
         if ((len % _len) >0) {
-            qCDebug(KWALLETBACKEND_LOG) << "Block length given encrypt (" << len << ") is not a multiple of " << _len;
+            sonicDebug() << "Block length given encrypt (" << len << ") is not a multiple of " << _len;
             return -1;
         }
 
@@ -151,7 +153,7 @@ int CipherBlockChain::decryptECB(void *block, int len) {
 int CipherBlockChain::decrypt(void *block, int len)
 {
     if (_useECBforReading) {
-        qCDebug(KWALLETBACKEND_LOG) << "decrypting using ECB!";
+        sonicDebug() << "decrypting using ECB!";
         return decryptECB(block, len);
     }
 
@@ -163,7 +165,7 @@ int CipherBlockChain::decrypt(void *block, int len)
         initRegister();
 
         if ((len % _len) >0) {
-            qCDebug(KWALLETBACKEND_LOG) << "Block length given for decrypt (" << len << ") is not a multiple of " << _len;
+            sonicDebug() << "Block length given for decrypt (" << len << ") is not a multiple of " << _len;
             return -1;
         }
 

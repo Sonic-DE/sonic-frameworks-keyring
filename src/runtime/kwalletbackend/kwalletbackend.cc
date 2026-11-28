@@ -136,7 +136,7 @@ QString Backend::getSaveLocation()
     QDir writeDir(writeLocation);
     if (!writeDir.exists()) {
         if (!writeDir.mkpath(writeLocation)) {
-            qFatal("Cannot create wallet save location!");
+            sonicFatal() << "Cannot create wallet save location!";
         }
     }
 

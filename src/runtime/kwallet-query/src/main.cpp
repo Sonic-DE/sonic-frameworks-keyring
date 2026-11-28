@@ -6,16 +6,25 @@
 */
 
 #include <QCommandLineParser>
+#include <QLoggingCategory>
 #include <QStringList>
 #include <iostream>
 
 #include <KAboutData>
 #include <KLocalizedString>
 
+#include <Sonic/Logging/Log>
+#include <Sonic/Logging/Logging>
+
 #include "querydriver.h"
+
+SONIC_LOGGING_COMPONENT("org.sonicde.frameworks.keyring.query")
 
 int main(int argc, char *argv[])
 {
+    // Verbose output can name the secret being written, so it goes to the terminal only
+    Sonic::Logging::install({.journald = false, .writeLogFile = false});
+
     KLocalizedString::setApplicationDomain("kwallet6-query");
 
     QueryDriver app(argc, argv);
@@ -78,6 +87,7 @@ int main(int argc, char *argv[])
         app.setEntryFolder(cmdParser.value(folderOption));
     }
     if (cmdParser.isSet(verboseOption)) {
+        QLoggingCategory::setFilterRules(QLatin1String(sonicLoggingComponent().categoryName()) + QLatin1String(".debug=true"));
         app.setVerbose();
     }
 

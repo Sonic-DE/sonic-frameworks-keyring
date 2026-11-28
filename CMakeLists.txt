@@ -47,6 +47,7 @@ endif()
 set(EXCLUDE_DEPRECATED_BEFORE_AND_AT 0 CACHE STRING "Control the range of deprecated API excluded from the build [default=0].")
 
 find_package(KF6Config ${KF_DEP_VERSION} REQUIRED)
+find_package(SonicLogging ${KF_VERSION} CONFIG REQUIRED)
 
 if(BUILD_KSECRETD)
     find_package(KF6 ${KF_DEP_VERSION} REQUIRED COMPONENTS WindowSystem)

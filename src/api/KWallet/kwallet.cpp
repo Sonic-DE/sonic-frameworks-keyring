@@ -9,7 +9,8 @@
 */
 
 #include "kwallet.h"
-#include "kwallet_api_debug.h"
+
+#include <Sonic/Logging/Log>
 
 #include <QDBusConnection>
 #include <QRegularExpression>
@@ -56,7 +57,7 @@ const QString Wallet::LocalWallet()
     if (walletLauncher()->m_walletEnabled) {
         QDBusReply<QString> r = walletLauncher()->getInterface().localWallet();
         if (!r.isValid()) {
-            qCDebug(KWALLET_API_LOG) << "Invalid DBus reply: " << r.error();
+            sonicDebug() << "Invalid DBus reply: " << r.error();
             return QString();
         } else {
             return r;
@@ -71,7 +72,7 @@ const QString Wallet::NetworkWallet()
     if (walletLauncher()->m_walletEnabled) {
         QDBusReply<QString> r = walletLauncher()->getInterface().networkWallet();
         if (!r.isValid()) {
-            qCDebug(KWALLET_API_LOG) << "Invalid DBus reply: " << r.error();
+            sonicDebug() << "Invalid DBus reply: " << r.error();
             return QString();
         } else {
             return r;
@@ -143,8 +144,8 @@ Wallet::~Wallet()
         if (!walletLauncher.isDestroyed()) {
             walletLauncher()->getInterface().close(d->handle, false, appid());
         } else {
-            qCDebug(KWALLET_API_LOG) << "Problem with static destruction sequence."
-                                        "Destroy any static Wallet before the event-loop exits.";
+            sonicDebug() << "Problem with static destruction sequence."
+                            "Destroy any static Wallet before the event-loop exits.";
         }
         d->handle = -1;
         d->folder.clear();
@@ -160,7 +161,7 @@ QStringList Wallet::walletList()
         QDBusReply<QStringList> r = walletLauncher()->getInterface().wallets();
 
         if (!r.isValid()) {
-            qCDebug(KWALLET_API_LOG) << "Invalid DBus reply: " << r.error();
+            sonicDebug() << "Invalid DBus reply: " << r.error();
         } else {
             result = r;
         }
@@ -171,7 +172,7 @@ QStringList Wallet::walletList()
 void Wallet::changePassword(const QString &name, WId w)
 {
     if (w == 0) {
-        qCDebug(KWALLET_API_LOG) << "Pass a valid window to KWallet::Wallet::changePassword().";
+        sonicDebug() << "Pass a valid window to KWallet::Wallet::changePassword().";
     }
 
     if (walletLauncher()->m_walletEnabled) {
@@ -190,7 +191,7 @@ bool Wallet::isOpen(const QString &name)
         QDBusReply<bool> r = walletLauncher()->getInterface().isOpen(name);
 
         if (!r.isValid()) {
-            qCDebug(KWALLET_API_LOG) << "Invalid DBus reply: " << r.error();
+            sonicDebug() << "Invalid DBus reply: " << r.error();
             return false;
         } else {
             return r;
@@ -206,7 +207,7 @@ int Wallet::closeWallet(const QString &name, bool force)
         QDBusReply<int> r = walletLauncher()->getInterface().close(name, force);
 
         if (!r.isValid()) {
-            qCDebug(KWALLET_API_LOG) << "Invalid DBus reply: " << r.error();
+            sonicDebug() << "Invalid DBus reply: " << r.error();
             return -1;
         } else {
             return r;
@@ -222,7 +223,7 @@ int Wallet::deleteWallet(const QString &name)
         QDBusReply<int> r = walletLauncher()->getInterface().deleteWallet(name);
 
         if (!r.isValid()) {
-            qCDebug(KWALLET_API_LOG) << "Invalid DBus reply: " << r.error();
+            sonicDebug() << "Invalid DBus reply: " << r.error();
             return -1;
         } else {
             return r;
@@ -235,11 +236,11 @@ int Wallet::deleteWallet(const QString &name)
 Wallet *Wallet::openWallet(const QString &name, WId w, OpenType ot)
 {
     if (w == 0) {
-        qCDebug(KWALLET_API_LOG) << "Pass a valid window to KWallet::Wallet::openWallet().";
+        sonicDebug() << "Pass a valid window to KWallet::Wallet::openWallet().";
     }
 
     if (!walletLauncher()->m_walletEnabled) {
-        qCDebug(KWALLET_API_LOG) << "User disabled the wallet system so returning 0 here.";
+        sonicDebug() << "User disabled the wallet system so returning 0 here.";
         return nullptr;
     }
 
@@ -268,7 +269,7 @@ Wallet *Wallet::openWallet(const QString &name, WId w, OpenType ot)
     }
     // error communicating with the daemon (maybe not running)
     if (!r.isValid()) {
-        qCDebug(KWALLET_API_LOG) << "Invalid DBus reply: " << r.error();
+        sonicDebug() << "Invalid DBus reply: " << r.error();
         delete wallet;
         return nullptr;
     }
@@ -298,7 +299,7 @@ bool Wallet::disconnectApplication(const QString &wallet, const QString &app)
         QDBusReply<bool> r = walletLauncher()->getInterface().disconnectApplication(wallet, app);
 
         if (!r.isValid()) {
-            qCDebug(KWALLET_API_LOG) << "Invalid DBus reply: " << r.error();
+            sonicDebug() << "Invalid DBus reply: " << r.error();
             return false;
         } else {
             return r;
@@ -313,7 +314,7 @@ QStringList Wallet::users(const QString &name)
     if (walletLauncher()->m_walletEnabled) {
         QDBusReply<QStringList> r = walletLauncher()->getInterface().users(name);
         if (!r.isValid()) {
-            qCDebug(KWALLET_API_LOG) << "Invalid DBus reply: " << r.error();
+            sonicDebug() << "Invalid DBus reply: " << r.error();
             return QStringList();
         } else {
             return r;
@@ -349,7 +350,7 @@ int Wallet::lockWallet()
     if (r.isValid()) {
         return r;
     } else {
-        qCDebug(KWALLET_API_LOG) << "Invalid DBus reply: " << r.error();
+        sonicDebug() << "Invalid DBus reply: " << r.error();
         return -1;
     }
 }
@@ -369,7 +370,7 @@ bool Wallet::isOpen() const
 void Wallet::requestChangePassword(WId w)
 {
     if (w == 0) {
-        qCDebug(KWALLET_API_LOG) << "Pass a valid window to KWallet::Wallet::requestChangePassword().";
+        sonicDebug() << "Pass a valid window to KWallet::Wallet::requestChangePassword().";
     }
 
     if (d->handle == -1) {
@@ -398,7 +399,7 @@ QStringList Wallet::folderList()
 
     QDBusReply<QStringList> r = walletLauncher()->getInterface().folderList(d->handle, appid());
     if (!r.isValid()) {
-        qCDebug(KWALLET_API_LOG) << "Invalid DBus reply: " << r.error();
+        sonicDebug() << "Invalid DBus reply: " << r.error();
         return QStringList();
     } else {
         return r;
@@ -413,7 +414,7 @@ QStringList Wallet::entryList()
 
     QDBusReply<QStringList> r = walletLauncher()->getInterface().entryList(d->handle, d->folder, appid());
     if (!r.isValid()) {
-        qCDebug(KWALLET_API_LOG) << "Invalid DBus reply: " << r.error();
+        sonicDebug() << "Invalid DBus reply: " << r.error();
         return QStringList();
     } else {
         return r;
@@ -428,7 +429,7 @@ bool Wallet::hasFolder(const QString &f)
 
     QDBusReply<bool> r = walletLauncher()->getInterface().hasFolder(d->handle, f, appid());
     if (!r.isValid()) {
-        qCDebug(KWALLET_API_LOG) << "Invalid DBus reply: " << r.error();
+        sonicDebug() << "Invalid DBus reply: " << r.error();
         return false;
     } else {
         return r;
@@ -445,7 +446,7 @@ bool Wallet::createFolder(const QString &f)
         QDBusReply<bool> r = walletLauncher()->getInterface().createFolder(d->handle, f, appid());
 
         if (!r.isValid()) {
-            qCDebug(KWALLET_API_LOG) << "Invalid DBus reply: " << r.error();
+            sonicDebug() << "Invalid DBus reply: " << r.error();
             return false;
         } else {
             return r;
@@ -490,7 +491,7 @@ bool Wallet::removeFolder(const QString &f)
     }
 
     if (!r.isValid()) {
-        qCDebug(KWALLET_API_LOG) << "Invalid DBus reply: " << r.error();
+        sonicDebug() << "Invalid DBus reply: " << r.error();
         return false;
     } else {
         return r;
@@ -744,7 +745,7 @@ bool Wallet::hasEntry(const QString &key)
 
     QDBusReply<bool> r = walletLauncher()->getInterface().hasEntry(d->handle, d->folder, key, appid());
     if (!r.isValid()) {
-        qCDebug(KWALLET_API_LOG) << "Invalid DBus reply: " << r.error();
+        sonicDebug() << "Invalid DBus reply: " << r.error();
         return false;
     } else {
         return r;
@@ -839,7 +840,7 @@ bool Wallet::folderDoesNotExist(const QString &wallet, const QString &folder)
     if (walletLauncher()->m_walletEnabled) {
         QDBusReply<bool> r = walletLauncher()->getInterface().folderDoesNotExist(wallet, folder);
         if (!r.isValid()) {
-            qCDebug(KWALLET_API_LOG) << "Invalid DBus reply: " << r.error();
+            sonicDebug() << "Invalid DBus reply: " << r.error();
             return false;
         } else {
             return r;
@@ -854,7 +855,7 @@ bool Wallet::keyDoesNotExist(const QString &wallet, const QString &folder, const
     if (walletLauncher()->m_walletEnabled) {
         QDBusReply<bool> r = walletLauncher()->getInterface().keyDoesNotExist(wallet, folder, key);
         if (!r.isValid()) {
-            qCDebug(KWALLET_API_LOG) << "Invalid DBus reply: " << r.error();
+            sonicDebug() << "Invalid DBus reply: " << r.error();
             return false;
         } else {
             return r;
@@ -877,7 +878,7 @@ KWalletDLauncher::KWalletDLauncher()
 
     m_walletEnabled = settings.kWalletDEnabled();
     if (!m_walletEnabled) {
-        qCDebug(KWALLET_API_LOG) << "The wallet service was disabled by the user";
+        sonicDebug() << "The wallet service was disabled by the user";
         return;
     }
     m_wallet_deamon = new org::kde::KWallet(QString::fromLatin1(s_kwalletdServiceName), QStringLiteral("/modules/kwalletd6"), QDBusConnection::sessionBus());
@@ -900,16 +901,16 @@ org::kde::KWallet &KWalletDLauncher::getInterface()
             // wallet is enabled! try launching it
             QDBusReply<void> reply = bus->startService(QString::fromLatin1(s_kwalletdServiceName));
             if (!reply.isValid()) {
-                qCritical() << "Couldn't start kwalletd: " << reply.error();
+                sonicCritical() << "Couldn't start kwalletd: " << reply.error();
             }
 
             if (!bus->isServiceRegistered(QString::fromLatin1(s_kwalletdServiceName))) {
-                qCDebug(KWALLET_API_LOG) << "The kwalletd service is still not registered";
+                sonicDebug() << "The kwalletd service is still not registered";
             } else {
-                qCDebug(KWALLET_API_LOG) << "The kwalletd service has been registered";
+                sonicDebug() << "The kwalletd service has been registered";
             }
         } else {
-            qCritical() << "The kwalletd service has been disabled";
+            sonicCritical() << "The kwalletd service has been disabled";
         }
     }
 

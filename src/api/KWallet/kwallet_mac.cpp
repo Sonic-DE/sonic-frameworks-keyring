@@ -12,8 +12,9 @@
 #include <KConfigGroup>
 #include <KSharedConfig>
 
+#include <Sonic/Logging/Log>
+
 #include <QApplication>
-#include <QDebug>
 #include <QPointer>
 #include <QWidget>
 
@@ -81,13 +82,13 @@ static OSStatus removeEntryImplementation(const QString &walletName, const QStri
     OSStatus result =
         SecKeychainFindGenericPassword(NULL, serviceName.size(), serviceName.constData(), accountName.size(), accountName.constData(), NULL, NULL, &itemRef);
     if (isError(result, &errMsg)) {
-        qWarning() << "Could not retrieve password:" << qPrintable(errMsg);
+        sonicWarning() << "Could not retrieve password:" << qPrintable(errMsg);
         return result;
     }
     const CFReleaser<SecKeychainItemRef> itemReleaser(itemRef);
     result = SecKeychainItemDelete(itemRef);
     if (isError(result, &errMsg)) {
-        qWarning() << "Could not delete password:" << qPrintable(errMsg);
+        sonicWarning() << "Could not delete password:" << qPrintable(errMsg);
         return result;
     }
     return result;
@@ -183,7 +184,7 @@ void Wallet::changePassword(const QString &name, WId w)
 {
 #ifdef OSX_KEYCHAIN_PORT_DISABLED
     if (w == 0) {
-        qDebug() << "Pass a valid window to KWallet::Wallet::changePassword().";
+        sonicDebug() << "Pass a valid window to KWallet::Wallet::changePassword().";
     }
     walletLauncher->getInterface().changePassword(name, (qlonglong)w, appid());
 #endif
@@ -299,7 +300,7 @@ void Wallet::requestChangePassword(WId w)
 {
 #ifdef OSX_KEYCHAIN_PORT_DISABLED
     if (w == 0) {
-        qDebug() << "Pass a valid window to KWallet::Wallet::requestChangePassword().";
+        sonicDebug() << "Pass a valid window to KWallet::Wallet::requestChangePassword().";
     }
     if (d->handle == -1) {
         return;
@@ -447,7 +448,7 @@ int Wallet::readEntry(const QString &key, QByteArray &value)
                                                &passwordData,
                                                NULL),
                 &errMsg)) {
-        qWarning() << "Could not retrieve password:" << qPrintable(errMsg);
+        sonicWarning() << "Could not retrieve password:" << qPrintable(errMsg);
         return -1;
     }
 
@@ -580,12 +581,12 @@ static OSStatus writeEntryImplementation(const QString &walletName, const QStrin
     if (err == errSecDuplicateItem) {
         err = removeEntryImplementation(walletName, key);
         if (isError(err, &errMsg)) {
-            qWarning() << "Could not delete old key in keychain for replacing: " << qPrintable(errMsg);
+            sonicWarning() << "Could not delete old key in keychain for replacing: " << qPrintable(errMsg);
             return err;
         }
     }
     if (isError(err, &errMsg)) {
-        qWarning() << "Could not store password in keychain: " << qPrintable(errMsg);
+        sonicWarning() << "Could not store password in keychain: " << qPrintable(errMsg);
         return err;
     }
     // qDebug() << "Successfully written out key:" << key;

@@ -7,12 +7,13 @@
 #include "kwalletfreedesktopattributes.h"
 
 #include "ksecretd.h"
-#include "ksecretd_debug.h"
 #include "kwalletfreedesktopcollection.h"
 #include <QDir>
 #include <QFile>
 #include <QJsonDocument>
 #include <QSaveFile>
+
+#include <Sonic/Logging/Log>
 
 KWalletFreedesktopAttributes::KWalletFreedesktopAttributes(const QString &walletName)
 {
@@ -34,7 +35,7 @@ void KWalletFreedesktopAttributes::read()
     {
         QFile file(_path);
         if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-            qCDebug(KSECRETD_LOG) << "Can't read attributes file " << _path;
+            sonicDebug() << "Can't read attributes file " << _path;
             return;
         }
         content = file.readAll();
@@ -44,7 +45,7 @@ void KWalletFreedesktopAttributes::read()
     if (jsonDoc.isObject()) {
         _params = jsonDoc.object();
     } else {
-        qCWarning(KSECRETD_LOG) << "Can't read attributes: the root element must be an JSON-object: " << _path;
+        sonicWarning() << "Can't read attributes: the root element must be an JSON-object: " << _path;
         _params = QJsonObject();
     }
 }
@@ -60,7 +61,7 @@ void KWalletFreedesktopAttributes::write()
 
     QSaveFile sf(_path);
     if (!sf.open(QIODevice::WriteOnly | QIODevice::Unbuffered)) {
-        qCWarning(KSECRETD_LOG) << "Can't write attributes file: " << _path;
+        sonicWarning() << "Can't write attributes file: " << _path;
         return;
     }
     sf.setPermissions(QSaveFile::ReadUser | QSaveFile::WriteUser);
@@ -70,11 +71,11 @@ void KWalletFreedesktopAttributes::write()
     const QByteArray jsonBytes = saveDoc.toJson();
     if (sf.write(jsonBytes) != jsonBytes.size()) {
         sf.cancelWriting();
-        qCWarning(KSECRETD_LOG) << "Cannot write attributes file " << _path;
+        sonicWarning() << "Cannot write attributes file " << _path;
         return;
     }
     if (!sf.commit()) {
-        qCWarning(KSECRETD_LOG) << "Cannot commit attributes file " << _path;
+        sonicWarning() << "Cannot commit attributes file " << _path;
     }
 }
 
@@ -87,7 +88,7 @@ static EntryLocation splitToEntryLocation(const QString &entryLocation)
 {
     const int slashPos = entryLocation.indexOf(QChar::fromLatin1('/'));
     if (slashPos == -1) {
-        qCWarning(KSECRETD_LOG) << "Entry location '" << entryLocation << "' has no slash '/'";
+        sonicWarning() << "Entry location '" << entryLocation << "' has no slash '/'";
         return {};
     } else {
         return {entryLocation.left(slashPos), entryLocation.right((entryLocation.size() - slashPos) - 1)};
@@ -115,7 +116,7 @@ void KWalletFreedesktopAttributes::renameLabel(const EntryLocation &oldLocation,
 
     const auto found = _params.find(oldLoc);
     if (found == _params.end() || !found->isObject()) {
-        qCWarning(KSECRETD_LOG) << "Can't rename label (!?)";
+        sonicWarning() << "Can't rename label (!?)";
         return;
     }
     const auto obj = found->toObject();

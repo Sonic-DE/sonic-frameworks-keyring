@@ -42,7 +42,8 @@ target_link_libraries(kwalletwizardtest
     Qt6::Test
     KF6::CoreAddons
     KF6::I18n
-    KF6::WidgetsAddons)
+    KF6::WidgetsAddons
+    Sonic::Logging)
 if (Gpgmepp_FOUND)
     target_link_libraries(kwalletwizardtest Gpgmepp)
 endif(Gpgmepp_FOUND)

@@ -7,10 +7,11 @@
 
 #include "kwalletportalsecrets.h"
 
-#include "ksecretd_debug.h"
 #include "kwalletportalsecretsadaptor.h"
 
 #include <QRandomGenerator>
+
+#include <Sonic/Logging/Log>
 
 KWalletPortalSecrets::KWalletPortalSecrets(KSecretD *parent)
     : QObject(parent)
@@ -66,7 +67,7 @@ void KWalletPortalSecrets::walletOpened(const Request &request, int walletHandle
 
     QFile outFile;
     if (!outFile.open(request.fd, QIODevice::ReadWrite)) {
-        qCWarning(KSECRETD_LOG) << "Can't open the portal's secret file descriptor:" << outFile.errorString();
+        sonicWarning() << "Can't open the portal's secret file descriptor:" << outFile.errorString();
         const auto replyList = QVariantList{{(uint)2}, {{QVariantMap{}}}};
         QDBusConnection::sessionBus().send(request.message.createReply(replyList));
         return;
